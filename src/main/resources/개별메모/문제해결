@@ -1,0 +1,12 @@
+1. 	controller 동작이 되지 않음
+	원인 : src/main/java 경로가 com/ouneno/mybook 으로 되어있었음
+	해결 : com/ouneno/mybook/controller 패키지로 생성하니 Controller 작동이 됨
+	의문
+	1. Controller 패키지를 왜 추가했어야 하는지?
+	2. localhost:8080/(컨트롤러이름) 접속이 가능한데 url의 차이점이 무엇인지?
+	
+	티스토리 : https://dev-overload.tistory.com/24
+	src/main/java 경로에 com.example.demo.controller 패키지를 생성하고 HomeController.java를 생성합니다.
+
+2. 	get 방식으로 /home 요청을 받았을 때 화면에 Hello String Boot 문자열을 출력하는 컨트롤러.
+	view를 반환하지 않기 때문에 시적으로 @ResponseBody 어노테이션을 사용함

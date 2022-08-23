@@ -20,7 +20,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	// myBatis 아직 DB를 정의하지 않아, 서버구동시 오류발생함. 임시로 주석처리 진행
+	// implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
