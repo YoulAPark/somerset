@@ -51,3 +51,8 @@
 	(3) 원하는 version 클릭
 	(4) Gradle 클릭(사용하고 있는 걸로 누르면 됨)
 	(5) 하단의 dependencies 복사한 후 build.gradle에 붙여넣기
+	
+4. mapper.xml의 역할
+	DB 쿼리문을 관리하여 DB와 상호작용을 하는 역할을 한다.
+	사용하기 위해선 applications.properties에 mapper-location 지정을 해줘야한다.
+	

@@ -1,9 +1,11 @@
 1. mysql 데이터베이스 생성
-	(1)
-		mysql -u root -p
+	
+	(1)	mysql -u root -p
 		1234;
-	(2)
-		create database MY_BOOK_DB;
+	
+	(2)	create database MY_BOOK_DB default character set utf8;
+		GRAMT ALL privileges ON MY_BOOK_DB.* TO mybook@localhost;
+		
 		use MY_BOOK_DB;
 		create table USER(ID int, NAME char(20), email char(30));
 		
@@ -20,4 +22,8 @@
 		mysql -u mybook -p
 		1234;
 		
-	(5)
+	(5) 정리
+		유저 아이디 : mybook
+		유저 비밀번호 : 1234
+		데이터베이스 : MY_BOOK_DB
+	
