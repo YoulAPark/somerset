@@ -1,0 +1,13 @@
+1. mysql 데이터베이스 생성
+	(1)
+		mysql -u root -p
+		1234;
+	(2)
+		create database MYBOOK_DB;
+		use MY_BOOK_DB;
+		create table USER(ID int, NAME char(20), email char(30));
+		
+		insert into USER values(1, "AAA", "AAA@example.com");
+		insert into USER values(2, "BBB", "BBB@example.com");
+		insert into USER values(3, "CCC", "CCC@example.com");	
+		flush privileges;

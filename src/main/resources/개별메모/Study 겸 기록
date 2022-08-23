@@ -1,0 +1,12 @@
+1. 사용자 점에서 MyBatis가 DB와 어떻게 상호작용하는지?
+	(1) client의 요청(페이지 클릭)
+	(2) Controller에서 Client의 모든 요청을 수용
+		- Controller의 역할 
+			1. 복잡한 작업 요청받기
+			2. DB와 통신하는 작업
+			3. 그 외 다양한 수많은 업무에 대한 요청 받음
+			
+	(3) Controller가 홀로 감당하면 deCoupling 현상이 발생하게 됨 (역할분담이 되어있지않아, 비효율적임)
+		- Service 클래스가 이 때 역할을 하게 된다.
+	(4) Service 클래스의 역할
+		- Service -> Mapper Interface -> DB에 질의할 쿼리문을 관리하는 Mapper파일에 또 요청을 보냄 -> Mapper파일은 DB와 직접적으로 상호작용 -> 해당 과정의 역순으로 Client에게 보냄
