@@ -3,7 +3,7 @@
 		mysql -u root -p
 		1234;
 	(2)
-		create database MYBOOK_DB;
+		create database MY_BOOK_DB;
 		use MY_BOOK_DB;
 		create table USER(ID int, NAME char(20), email char(30));
 		
@@ -11,3 +11,13 @@
 		insert into USER values(2, "BBB", "BBB@example.com");
 		insert into USER values(3, "CCC", "CCC@example.com");	
 		flush privileges;
+		
+	(3)	create user 'mybook'@localhost identified by '1234'; 
+		데이터베이스 이름 : mybook
+		데이터베이스 비밀번호 : 1234
+	
+	(4) 차후 로그인 방법
+		mysql -u mybook -p
+		1234;
+		
+	(5)

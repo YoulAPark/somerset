@@ -20,12 +20,15 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// myBatis 아직 DB를 정의하지 않아, 서버구동시 오류발생함. 임시로 주석처리 진행
-	// implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	// myBatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	// mysql connector
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
 }
 
 tasks.named('test') {
