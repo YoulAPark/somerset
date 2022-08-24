@@ -10,3 +10,6 @@
 
 2. 	get 방식으로 /home 요청을 받았을 때 화면에 Hello String Boot 문자열을 출력하는 컨트롤러.
 	view를 반환하지 않기 때문에 시적으로 @ResponseBody 어노테이션을 사용함
+	
+3. HomeController에서 main.jsp를 지정해줬으나 jsp가 뜨지않음
+	application.properties에서 jsp prefix, suffix 지정을 해줘야 한다 함

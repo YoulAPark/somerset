@@ -56,3 +56,5 @@
 	DB 쿼리문을 관리하여 DB와 상호작용을 하는 역할을 한다.
 	사용하기 위해선 applications.properties에 mapper-location 지정을 해줘야한다.
 	
+5. 
+	

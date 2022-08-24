@@ -13,21 +13,27 @@ public class HomeController {
 	
 	// 메인페이지 실행
 	@RequestMapping("/")
-	public String main(Model model) {
+	public String main() {
 		System.out.println("/main"); // localhost:8080 실행시 STS 콘솔창에 확인 됨
-		return "main";
+		return "/index";
 	}
 	
+	// Test
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public String index() {
+		System.out.println("Index page 호출");
+		return "index";
+	}
 	// 연습용(GET방식)
 	/*
 	 *  localhost:8080/get 실행시 STS콘솔창에 "enter"가 출력되며,
 	 *  웹페이지 상으로 "Hello Spring Boot"가 출력된다.
 	 */
-	@RequestMapping(value = "/get", method=RequestMethod.GET)
-	@ResponseBody
-	public String get(HttpServletRequest request) {
-		System.out.println("STS 콘솔출력 : HomeController의 get()메서드 실행");
-		return "웹페이지 출력 : HomeController의 get()메서드 실행";
-	}
+//	@RequestMapping(value = "/get", method=RequestMethod.GET)
+//	@ResponseBody
+//	public String get(HttpServletRequest request) {
+//		System.out.println("STS 콘솔출력 : HomeController의 get()메서드 실행");
+//		return "웹페이지 출력 : HomeController의 get()메서드 실행";
+//	}
 	
 }

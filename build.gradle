@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.3'
 	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
 	id 'java'
+	id 'war'
 }
 
 group = 'com.ouneno.mybook'
@@ -19,6 +20,18 @@ repositories {
 }
 
 dependencies {
+
+	// 기본 프로젝트에 있었으나, 무슨역할을 하는지 몰라서 주석처리함. 주석처리해놔도 실행은 됨
+	// implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	// runtimeOnly 'mysql:mysql-connector-java'
+	// providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	// 2022-08-24 02:07 jsp파일 안열림
+	// 역할 : jsp를 처리하는 서블릿 역할을 한다고 한다.
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'	
+	implementation 'javax.servlet:jstl'
+	
+	//
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -29,6 +42,7 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	// mysql connector
 	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
+	
 }
 
 tasks.named('test') {
