@@ -56,5 +56,78 @@
 	DB 쿼리문을 관리하여 DB와 상호작용을 하는 역할을 한다.
 	사용하기 위해선 applications.properties에 mapper-location 지정을 해줘야한다.
 	
-5. 
+5. mapper.xml 속성 의미
+	[출처 : https://atoz-develop.tistory.com/entry/MyBatis-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC-SQL-Mapper-%EC%9E%91%EC%84%B1-%EB%B0%A9%EB%B2%95]
+	(1) id = 각 SQL을 구분한다.
+	
+	(2) resultType = SELECT문 실행결과를 담을 객체.
+					패키지 이름을 포함한 클래스 이름 또는 객체 alias 지정
+					
+					=> SQL의 select문을 실행하면 결과가 나옴. 이 결과들을 resultType 속성에 지정함
+					=> (1) 패키지 이름을 포함한 전체 클래스명 지정 : ex) resultMap = "com.moopi.mvc.vo.project"
+					=> (2) 객체 alias 지정 : ex) alias = "project"
+					
+					* myBatis에서는 select결과를 저장하기 위해 resultType에 지정된 클래스의 인스턴스를 생성함
+						그리고 각 컬럼에 대응하는 setter를 호출한다.
+						컬럼에 맞는 setter가 없으면 저장이 되지 않기때문에
+						컬럼명이 PNO인데 setter가 setNo()일 경우
+						SELECT PNO as NO
+						as를 사용하여 별칭을 붙여준다.
+					
+	(3) resultMap = SELECT문 실행 결과를 담을 객체를 resultMap 으로 지정한다,
+					<resultMap>을 따로 선언해줘야 함
+					resultType과 resultMap 중 하나를 선택하면 된다.
+					
+					* resultType 에서 컬럼에 맞지 않는 setter가 없으면 저장이 안되기 때문에 별칭을 as 로 따로 붙여준다고 했었음
+						이런 번거로움을 덜기위해 resultMap 속성을 이용한다.
+						
+						resultMap 각 엘리먼트 속성의 의미
+						(1) <resultMap>.type = SELECT 결과를 저장할 클래스 이름 또는 MyBatis 설정파일에 설정된 alias
+						(2) <resultMap>.id = resultMap의 id
+						(3) <id> : 객체 식별자로 사용되는 프로퍼티
+						(4) <id>.column : 컬럼명
+						(5) <id>.property : 객체 프로퍼티명 (setter 메서드이름에서 set을 빼고 첫 알파벳을 소문자로 만든 이름)
+						(6) <result> : 컬럼과 setter 연결 정의
+						(7) <result>.column : 컬럼명
+						(8) <result>.property : 객체 프로퍼티명 (setter 메서드이름에서 set을 빼고 첫 알파벳을 소문자로 만든 이름)
+						(9) <result>.javaType : 컬럼 값을 특정 자바 객체로 변환할 때 사용
+						
+						ex)
+						<resultMap type="project" id="projectResultMap">
+							<id column="PNO" property="no"/>
+							<result column="PNAME" property="title"/>
+							<result column="CONTENT" property="content"/>
+							<result column="STA_DATE" property="startDate" javaType="java.sql.Date"/>
+						</resultMap>
+						
+						
+						ex)
+						<select id="selectList" resultMap="projectResultMap">
+							SELECT A, B, C
+							FROM USER
+							ORDER BY PNO DESC
+						</select>
+						=> 정의한 resultMap(projectResultMap)은 resultMap 속성에 <resultMap>의 id를 지정해서 사용할 수 있다.
+	(4) parameterType = 이 속성에 지정한 객체의 프로퍼티값이 SQL문의 입력 파라미터에 지정된다.
+					
+6. xml 속성 관련
+	[example - mybook.xml]
+	<select id="selectUser"	parameterType="String"	resultMap="userMapper">
+		select 
+				ID
+			, NAME
+			, EMAIL
+		FROM user
+		order by id ASC;
+	</select>
+	
+	[example - UserDao]
+	public User selectUser(String id);
+	
+	<select id>는 Dao의 메서드 명을 가리킨다.
+	parameterType은 Dao의 메서드 뒤 String을 가리킨다.
+	resultMap은 xml의 맨 위에 명시된 resultMap 중 어떤 것을 가지고 올 것인지를 가리킨다.
+ 
+	
+	
 	

@@ -13,3 +13,24 @@
 	
 3. HomeController에서 main.jsp를 지정해줬으나 jsp가 뜨지않음
 	application.properties에서 jsp prefix, suffix 지정을 해줘야 한다 함
+	
+4. build.gradle 수정 후 에러
+	증상 : Refresh 누른 후 콘솔창에 Could not find method compile() for arguments 출력
+	원인 : Gradle 4.10 버전 이후로 compile, runtime, testCompile, testRuntime 비호환
+	=> Maven Repository 사이트 들어가서 implements 새로운 버젼으로 다운
+	=> 새로 Refresh gradle project 누르니 콘솔창에 build Successful 뜸
+
+5. DashBoard 실행시 No MyBatis mapper was found in 에러 발생
+	주요 원인 : *Mapper.xml 에서 namespace 명칭이나 경로, id 오타 확인
+				Mapper.xml 파일 위치 제대로 명시했는지?
+	실제 원인 : xml -> Dao -> Service -> ServiceImpl 명시해주니 됨
+			xml과 Dao는 있었으나, Service, ServiceImpl이 없어서 이어지지 못했던듯?
+			더 공부해야할 것 같다.
+			
+6. log4jdbc.log4j2.properties
+	출력 : Loading class 'com.mysql.jdbc.Driver'. 어쩌구저쩌구 deprecated
+	=> log4jdbc.driver를 설정해주지 않을 경우 deprecated가 뜬다.
+
+7. Unsatisfied dependency~ 에러발생
+	출력 : Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'userDao'; nested exception
+	

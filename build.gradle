@@ -28,9 +28,9 @@ dependencies {
 
 	// 2022-08-24 02:07 jsp파일 안열림
 	// 역할 : jsp를 처리하는 서블릿 역할을 한다고 한다.
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'	
-	implementation 'javax.servlet:jstl'
-	
+	implementation 'org.apache.tomcat:tomcat-jasper:9.0.58'
+	implementation 'javax.servlet:jstl:1.2'
+
 	//
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
@@ -41,8 +41,11 @@ dependencies {
 	// myBatis
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	// mysql connector
-	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
 	
+	// log4j2 실행시 deprecated 되었다고 나옴?
+	// implementation group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
+
 }
 
 tasks.named('test') {
