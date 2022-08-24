@@ -21,16 +21,11 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
-	public HomeController() {
-		System.out.println("작업순서확인 : "+this.getClass());
-	}
-	
-	// 메인페이지 실행
-//	@RequestMapping("/") // RequestMapping이 중복되면 안된다고 들었으나, 확인한번 해볼 것
-//	public String main() throws Exception {
-//		System.out.println("/main"); // localhost:8080 실행시 STS 콘솔창에 확인 됨
-//		return "index";
-//	}	
+	//메인페이지 실행
+	@RequestMapping("/") // RequestMapping이 중복되면 안된다고 들었으나, 확인한번 해볼 것
+	public String main() throws Exception {
+		return "main";
+	}	
 		
 	// 연습용(GET방식)
 	/*
