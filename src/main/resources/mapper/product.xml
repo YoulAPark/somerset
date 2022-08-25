@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.ouneno.mybook.service.domain.Product">
+
+	<resultMap id="productMapper" type="product">
+		<result property="prodNo" 			column="PROD_NO" 		jdbcType="NUMERIC"/>
+		<result property="prodName"			column="PROD_NAME" 		jdbcType="VARCHAR" />
+		<result property="prodDetail" 		column="PROD_DETAIL" 	jdbcType="VARCHAR" /> 
+		<result property="prodPrice" 		column="PROD_PRICE" 	jdbcType="NUMERIC" /> 
+		<result property="prodHotAndIce" 	column="PROD_HOTANDICE" jdbcType="VARCHAR" /> 
+		<result property="prodSize" 		column="PROD_SIZE" 		jdbcType="VARCHAR" /> 
+		<result property="prodCup" 			column="PROD_CUP" 		jdbcType="VARCHAR" /> 
+		<result property="prodShot" 		column="PROD_SHOT" 		jdbcType="NUMERIC" /> 
+		<result property="prodWhip" 		column="PROD_WHIP" 		jdbcType="VARCHAR" /> 
+		<result property="prodMilk" 		column="PROD_MILK" 		jdbcType="VARCHAR" /> 
+	</resultMap>
+	
+	<!-- 상품명, 가격 가져오기 -->
+	<select id="getProduct"		parameterType="Product">
+		SELECT
+			PROD_NO, PROD_NAME, PROD_PRICE
+		FROM product
+		WHERE PROD_NO = #{prodNo}
+	</select>
+	
+	<!-- <select id="addProduct"		parameterType="Product">
+	</select>
+		INSERT INTO
+			product
+		VALUES
+			#{prodNo}, #{prodName}, #{prodDetail}, #{prodPrice}
+			, #{prodHotAndIce}, #{prodSize}, #{prodCup}, #{prodShot}, #{prodWhip}, #{prodMilk}
+	 -->
+	</mapper>

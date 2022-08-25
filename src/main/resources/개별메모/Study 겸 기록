@@ -128,6 +128,112 @@
 	parameterType은 Dao의 메서드 뒤 String을 가리킨다.
 	resultMap은 xml의 맨 위에 명시된 resultMap 중 어떤 것을 가지고 올 것인지를 가리킨다.
  
+7. JQuery
+		
+	(1)	$(function() {
+			A();
+		})
+		=> 시작하자마자 A()라는 기능을 실행하는 function
+		
+	(2)	function A(){
+			
+		}
+		=> A()기능의 세부
+		
+	(3) self.location = "/product/getProduct";
+		네비게이션역할. product의 getProduct()를 실행한다.
+
+8. [MVC 패턴] 
+	[출처] : https://daydreamer-92.tistory.com/
+	(1)	Client : 화면인 jsp를 통하여 Controller를 부르는 역할을 한다.
+	(2) Controller : 컨트롤러를 구현하고, Service를 호출하는 역할을 한다.			
+	(3) Service : 메서드를 정의하고 Dao 객체를 선언한다.
+		* Service 와 ServiceImpl의 차이
+		Service는 Interface이고, ServiceImpl은 실제로 구현하는 구현체 역할을 한다.
+	(4) DAO : 실제로 DB에 접근하여 데이터를 조작하는 역할만 수행한다.(mySQL)
+	(5) DAO에서 받아온 데이터를 Client까지 가지고와야 화면에 출력이 된다.
 	
+9. [자세한 MVC 패턴] 
+	[출처] : https://velog.io/@sumusb/Spring-Service-Layer%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0
 	
+	(1) Client
+		- 화면인 jsp를 통하여 Controller를 부르는 역할을 한다.
+		
+	(2) Controller 
+		- 컨트롤러를 구현하고, Service를 호출하는 역할을 한다.	
+		- Client가 이용할 End Point
+		- Client의 요청을 어떻게 처리할지 정의하는 곳
+		- Client의 요청을 처리하고 어떻게 응답할지 결정하는 곳
+		
+	(3) Service
+		- Business Logic이 들어있는 가장 중요한 Layer
+		- 데이터 유효성 검사, 무결성 검사 등 꼭 필요한 Logic들이 포함된다.
 	
+	(4) DAO	
+		- 실제로 DB에 접근하여 데이터를 조작하는 역할만 수행
+		- 다양한 저장소(storage)에 데이터를 조회, 저장, 수정, 삭제하기 위한 모든 객체들의 Layer이다.
+	
+	재사용성 Service와 Service의 관계
+	1. Service와 DAO는 1:1 Mapping 이다.
+	2. Service에서 Service는 참조가 가능하다. 하지만 순환참조를 방지하기 위해서 계층구조가 명확해야한다.
+	3. Controller에서 하나의 메서드를 수행하기 위해
+		필요한 객체들을
+		각 각의 Service에서 리턴받아 
+		수행을 하기위한 Service에 전달만 해주면 되는것
+		
+10. Ajax
+
+	$.ajax({
+			type : "GET" 
+		,	url : "/jdUser/getfile/selectGetFile.do"
+		,	contentType : "application/x-www-form-urlencoded; charset=utf-8"
+		,	success : function(res) {
+				$(".manual_down").attr("href", res[0].value);
+				$(".client_down").attr("href", res[1].value);
+		},
+			error : function(request, status, error) {
+				alert("에러가 발생했습니다. 관리자에게 문의하시기 바랍니다");
+			}
+	});
+	
+	type : 보내는 타입을 GET방식으로 할지, POST방식으로 할지 결정
+	url : "/내 프로젝트명/XML파일의 NameSpace/내가 불러올 XMl의 Query이름/.do
+	dataType : 데이터를 어떻게 받을지 지정하는 부분 / 입력하지 않을 경우 알아서 자동으로 지정해준다.
+	data : 파라미터 값을 넘겨줄 부분 / GET방식, POST방식에 따라 결정된다.
+	contentType : 기본값
+	success : 성공시에 'res'부분을 받아와 하단의 요청사항을 실행한다
+	attr() : attributeName의 줄임말. 
+			인자에 따라 2가지로 사용이 가능하다.
+			1개일 때 속성값을 받아오고, 2개일 때 속성값을 요소에 부여한다.
+			속성값을 가져오지 못할 경우 undefinded을 반환한다.
+			
+			쉽게 말해,
+			$(".manual_down").attr("href", res[0].value);
+			.manual_down 클래스에 attr()함수를 적용하여 href에 res[0].value 값을 넣는다
+			
+11. Logic 만들기
+	1. xml 파일 생성하기
+	2. xml 파일 토대로 VO(Value Object, 객체) 생성하기
+		* VO(Value Object)란?
+		DB 구성의 필드들을 VO의 Attribute로 하고, 해당 변수에 접근이 가능토록 Getter, Setter 메서드의 조합으로 클래스를 형성해야한다.
+		쉽게말해, xml의 인스턴스들을 Getter(가져오는것), Setter(설정하는것) 가 가능하도록 VO에도 인스턴스들을 선언하는 것
+	3. Client 작성. (JSP, Ajax)
+	4. 컨트롤러 구현
+		- Dispatcher의 역할을 한다.
+		- Client의 요청을 컨트롤러에서 해당되는 로직을 호출하여 수행결과와 함께 응답함
+		* @(Annotaion)
+			(1) @Controller : controller 객체임을 선언함
+			(2) @Resource : Service 영역의 접근을 위한 선언
+			(3) @RequestMapping : 요청하는 url
+								value 부분의 주소를 호출하면
+								주소와 @RequestMapping 과 매핑되어 해당 메서드가 실행된다.
+			(4) @RequestBody, @ResponseBody : ajax를 처리하기 위한 어노테이션
+											json 데이터 포맷을 이용할때, mappingJackson HttpMessageConverter를 사용하여 JSON String을 javaClass(get, set)에 자동 맵핑이 되도록 반환해준다.
+				- @RequestBody : Client 요청을 서버에서 처리한 후 메서드가 리턴하는 오브젝트를 messageConverters를 통해 JSON형태로 반환하여 리턴해주는 역할
+				- @RequestBody : Client에서 JsonObject로 전송되는 파라미터를 자동으로 javaClass 형식으로 변환해준다.			
+	5. Service, ServiceImpl을 선언하여 메서드를 정의한다.
+	6. DAO를 선언하여 DB에 접근할 수 있도록 한다.	
+	
+	정리 : xml -> VO -> JSP -> Controller -> Service/ServiceImpl -> DAO와 DB연결	
+			
+12. JQuery

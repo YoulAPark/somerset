@@ -58,7 +58,7 @@
 
 	function order(){
 		alert("주문");
-		self.location = "/order/addOrder";
+		self.location = "/order/getProduct";
 	}
 	
 </script>

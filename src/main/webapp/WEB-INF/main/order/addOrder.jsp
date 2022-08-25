@@ -30,7 +30,23 @@
 </head>
 
 <body>
-
+	
+	Product 전체 출력 : ${product}
+	<div>####################################</div>
+	<table>
+		<thead>
+			<th align="center">No</th>
+            <th align="center">상품명</th>
+            <th align="center">상품가격</th>
+		</thead>
+		<tbody>
+			<td align="center">${product.prodNo}</td>
+			<td align="left">${product.prodName}</td>
+			<td align="left">${product.prodPrice}</td>
+		</tbody>
+	</table>
+	<div>####################################</div>
+	
 	<form>
 		<div> 구성 </div>
 		<div> 상단탭 : 신메뉴 / 커피 / 콜드브루 / 논커피 </div>
@@ -39,24 +55,30 @@
 		<div> 하단탭 클릭시 메뉴상세 페이지로 넘어감 </div>
 	</form>
 	
+	<div class="product">
+		<input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+							id="prodName" name="prodName" type="text" required=""
+							value="${product.prodName}" readonly aria-label="prodName">
+	</div>
+	
 	<form class="orderBtn">
 		<button type="button" id="order" class="btn btn-light" onclick="order">주문</button>
 	</form>
 	
 <script>
 
-	<!--
 	$(function() {
 		$("#order").on("click", function(){
-			order();
+			alert("얼럿")
+			fncOrder();
 		});
 	});
-
-	function order(){
-		self.location = "/order/addOrder";
+	
+	function fncOrder(){
+		self.location = "/product/getProduct";
 	}
-	 -->
-	 
+	
+	
 </script>
 	
 	<!-- Bootstrap -->
