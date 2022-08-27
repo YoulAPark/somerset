@@ -1,5 +1,6 @@
 package com.ouneno.mybook.controller.order;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -32,14 +33,26 @@ public class OrderController {
 //		return "order/addOrder";
 //	}
 	
+//	@RequestMapping("getProduct")
+//	public String getProduct(@ModelAttribute("product") Product product
+//							, Model model) throws Exception {
+//		
+//		System.out.println("getProduct()");
+//		model.addAttribute("product", product); // medel.addAttribute가 JSP로 쏴주는거
+//		System.out.println(product);
+//		return "order/addOrder";
+//	}
+	 
 	@RequestMapping("getProduct")
-	public String getProduct(@ModelAttribute("product") Product product
-							, Model model) throws Exception {
-		
+	public String getProduct(@ModelAttribute("product") Product product, Model model) throws Exception {
 		System.out.println("getProduct()");
-		model.addAttribute("product", product);
-		System.out.println(product.getProdNo());
+		System.out.println(product);
 		product.setProdNo(1);
+		
+		Map<String,Object> map = new HashMap<>();
+		map = productService.getProduct(1);
+		model.addAttribute("product", map);
+		
 		return "order/addOrder";
 	}
 							

@@ -30,23 +30,23 @@
 </head>
 
 <body>
-	
-	Product 전체 출력 : ${product}
-	<div>####################################</div>
-	<table>
-		<thead>
-			<th align="center">No</th>
-            <th align="center">상품명</th>
-            <th align="center">상품가격</th>
-		</thead>
-		<tbody>
-			<td align="center">${product.prodNo}</td>
-			<td align="left">${product.prodName}</td>
-			<td align="left">${product.prodPrice}</td>
-		</tbody>
-	</table>
-	<div>####################################</div>
-	
+
+		Product 전체 출력 : ${product}
+		<div>####################################</div>
+		<table>
+			<thead>
+				<th align="center">No</th>
+	            <th align="center">상품명</th>
+	            <th align="center">상품가격</th>
+			</thead>
+			<tbody>
+				<td align="center">${product.prodNo}</td>
+				<td align="left">${product.prodName}</td>
+				<td align="left">${product.prodPrice}</td>
+			</tbody>
+		</table>
+		<div>####################################</div>
+
 	<form>
 		<div> 구성 </div>
 		<div> 상단탭 : 신메뉴 / 커피 / 콜드브루 / 논커피 </div>

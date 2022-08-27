@@ -236,4 +236,14 @@
 	
 	정리 : xml -> VO -> JSP -> Controller -> Service/ServiceImpl -> DAO와 DB연결	
 			
-12. JQuery
+12. JSP에서 DB로 데이터를 보낼때 방식 
+	- post방식으로 가져오기 위해서 form을 지정해야한다. form안에있는 데이터를보낸다.
+
+13. Controller
+	- public String 과 public static void의 차이
+		: String의 경우 return값을 보내지만, void의 경우 별도의 return값을 보내지 않는다.
+	- model.addAtrritube의 역할	
+		: DB에 있는 값을 model에 담아서 JSP로 보내기 위해 사용된다.
+	- sqlSession
+		: 말그대로 sql 세션과 이어지기 위한 수단. sqlSession이 있어야 DB와 이어진다.
+	
