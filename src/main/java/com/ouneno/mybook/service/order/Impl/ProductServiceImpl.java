@@ -1,5 +1,7 @@
 package com.ouneno.mybook.service.order.Impl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,7 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductDao productDao;
 
-	public Product getProduct(int prodNo) throws Exception {
+	public Map<String,Object> getProduct(int prodNo) throws Exception {
 		System.out.println("확인");
 		System.out.println(prodNo);
 		return productDao.getProduct(prodNo);
