@@ -23,8 +23,9 @@ public class OrderController {
 	
 	 @Autowired
 	 private ProductService productService;
+	 // OrderController 클래스는 productService 클래스의 의존성을 가진다
 	
-	// main.jsp => 주문 click => function "/order/addOrder" 으로 self.location 처리
+	 // main.jsp => 주문 click => function "/order/addOrder" 으로 self.location 처리
 	// 단순 네비게이션 역할
 //	@RequestMapping("addOrder")
 //	public String addOrder(@RequestParam("prodNo") int prodNo, Model model, Product product) throws Exception {
@@ -45,12 +46,16 @@ public class OrderController {
 	 
 	@RequestMapping("getProduct")
 	public String getProduct(@ModelAttribute("product") Product product, Model model) throws Exception {
-		System.out.println("getProduct()");
-		System.out.println(product);
-		product.setProdNo(1);
 		
-		Map<String,Object> map = new HashMap<>();
-		map = productService.getProduct(1);
+			System.out.println("OrderController의 getProduct() 메서드 시작");
+			System.out.println("product 가져오는지 확인하기 : "+product);
+
+		productService.getProduct(2);
+		
+		// HashMap : key,value에 따른 순서 없음		
+		Map<String,Object> map = new HashMap<String,Object>();	
+			System.out.println("getProduct() 메서드 map 확인 : "+map);
+			System.out.println("Map 확인하기 : "+map);
 		model.addAttribute("product", map);
 		
 		return "order/addOrder";

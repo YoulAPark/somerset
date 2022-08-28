@@ -1,0 +1,8 @@
+Searching 해볼 것
+
+1. Annotation @Repository와 @Mapping의 차이점을 알아보기
+
+2. [List]로 한번해보기
+	public List<String> getProduct(int prodNo) throws Exception;
+	
+3. @Repository Annotation 사용해서 해보기
