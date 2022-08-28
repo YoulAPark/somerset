@@ -38,3 +38,6 @@
 		implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 		
 7. application.properties의 implementation은 implementation들 끼리 묶어놓기 => 오류발생 야기할 수 있음
+
+8. xml의 namespace가 문제가 있었음
+	=> xml의 namespace가 가르켜야 하는 곳은 VO의 위치가 아닌 Dao의 위치를 가르켜야한다.

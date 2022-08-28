@@ -246,4 +246,35 @@
 		: DB에 있는 값을 model에 담아서 JSP로 보내기 위해 사용된다.
 	- sqlSession
 		: 말그대로 sql 세션과 이어지기 위한 수단. sqlSession이 있어야 DB와 이어진다.
+		
+14. 
+			
+[JAVA Interfaces]
+	1.  (1)
+			- map은 선언시 <Key, Value>로 값을 넣는다.
+			- Key와 Value는 한 쌍 
+			- key로 식별하고 value에 사용할 값을 넣음
+			- key는 중복이 불가능하고, 동일한 key값으로 값을 두번 넣게 되면 최근에 넣은 값이 적용된다
 	
+		(2) Map<K,V>
+			K (key) : 이 항목에 해당하는 키 값을 반환한다.
+			V (Value) : 이 항목에 해당하는 값을 반환한다. 
+			
+		(3)	예시 및 Method Detail	
+			
+			- Map 안에 값 넣기 : Map.put(key,value);
+			- Map 안의 값 가져오기 : Map.get(key);
+			- Map 크기 확인 : Map.size();
+			- Map 안의 내용 변경하기 : Map.replace(key, value);
+			- Map 안에 특정 Key, Value 들었는지 확인 : Map.containsKey(key); / Map.containsValue(value);
+			- Map의 크기가 0인지 확인 : Map.isEmpty();
+			- Map 안의 내용 삭제 : Map.remove(key);
+			- Key가 있으면 Value 없으면 default 호출 : Map.getOrDefault(key, default);
+				* (Map에 key에 해당하는 값이 없을 경우 default 호출)
+			- Key가 없거나 Value가 null일때만 삽입 : Map.putIfAbsent(key, value);
+	
+		(4) Map 선언이 가능한 종류 : HashMap, TreeMap, HashTable, LinkedHashMap
+			(1) HashMap : Map안에서 key/value에 따른 순서 없음
+			(2) TreeMap : key값에 따라 오름차순 정렬 / 시간이 오래 걸림
+			(3) HashTable : key/value에 null을 넣을 수 있음
+			(4) LinkedHashMap : 삽입 순서에 따라 정렬

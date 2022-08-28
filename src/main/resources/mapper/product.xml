@@ -17,7 +17,7 @@
 	</resultMap>
 	
 	<!-- 상품명, 가격 가져오기 -->
-	<select id="getProduct"		parameterType="HashMap">
+	<select id="getProduct"		parameterType="Map">
 		SELECT
 		*
 		FROM product
