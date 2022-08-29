@@ -30,7 +30,10 @@
 </head>
 
 <body>
+<!-- Navigation -->
+	<%@ include file ="../main/layouts/header.jsp" %>
 
+<!-- Start Contents -->
 <!-- 회원 버튼 user Button -->
 	<form class="userBtn">	
 		<button type="button" id="login" class="btn btn-light" onclick="login">로그인</button>	
@@ -45,14 +48,25 @@
 		<button type="button" id="coupon"	class="btn btn-light" onclick="coupon">쿠폰</button>
 		<button type="button" id="findStore"	class="btn btn-light" onclick="findStore">매장찾기</button>
 		<button type="button" id="newNews"	class="btn btn-light" onclick="newNews">새소식</button>
+		<div>
+			<button type="button" id="admin" class="btn btn-light" onclick="admin">관리자</button>
+		</div>
 	</form>
-	
-	
+
+<!-- End Contents -->	
+<!-- Site info -->	
+	<%@ include file ="../main/layouts/footer.jsp" %>	
 <script>
 	
 	$(function() {
 		$("#order").on("click", function(){
 			order();
+		});
+	});
+	
+	$(function() {
+		$("#admin").on("click", function(){
+			admin();
 		});
 	});
 
@@ -61,6 +75,11 @@
 		self.location = "/order/getProduct";
 	}
 	
+	function admin(){
+		alert("관리자페이지로 이동");
+		self.location = "/admin/adminMain";
+	}
+
 </script>
 	
 	<!-- Bootstrap -->
