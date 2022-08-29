@@ -30,7 +30,10 @@
 </head>
 
 <body>
+	<!-- navigation -->
+	<%@ include file ="../layouts/header.jsp" %>
 
+	<!-- content -->
 		Product 전체 출력 : ${product}
 		<div>####################################</div>
 		<table>
@@ -65,6 +68,8 @@
 		<button type="button" id="order" class="btn btn-light" onclick="order">주문</button>
 	</form>
 	
+<!-- site info -->	
+<%@ include file ="../layouts/footer.jsp" %>
 <script>
 
 	$(function() {

@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ouneno.mybook.service.domain.Product;
 import com.ouneno.mybook.service.order.ProductDao;
 
 // 인터페이스인 ProductService를 implements로 가져오고있다.
@@ -15,9 +16,15 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductDao productDao;
 
-	public Map<String,Object> getProduct(int prodNo) throws Exception {
+	public String getProduct(int prodNo) throws Exception {
 		System.out.println("ProductService의 getProduct()");
 		System.out.println("ProductService prodNo : "+prodNo);	
 		return productDao.getProduct(prodNo);
+	}
+
+	@Override
+	public void addProduct(Product product) throws Exception {
+		System.out.println("SeviceImpl의 addProduct()메서드");
+		productDao.addProduct(product);
 	}
 }

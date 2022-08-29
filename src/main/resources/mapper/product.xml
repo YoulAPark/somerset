@@ -10,26 +10,24 @@
 		<result property="prodPrice" 		column="PROD_PRICE" 	jdbcType="NUMERIC" /> 
 		<result property="prodHotAndIce" 	column="PROD_HOTANDICE" jdbcType="VARCHAR" /> 
 		<result property="prodSize" 		column="PROD_SIZE" 		jdbcType="VARCHAR" /> 
-		<result property="prodCup" 			column="PROD_CUP" 		jdbcType="VARCHAR" /> 
+		<result property="prodCup" 			column="PROD_CUP" 		jdbcType="VARCHAR" />
+		<result property="prodSyrup" 		column="PROD_SHOT" 		jdbcType="VARCHAR" />  
 		<result property="prodShot" 		column="PROD_SHOT" 		jdbcType="NUMERIC" /> 
 		<result property="prodWhip" 		column="PROD_WHIP" 		jdbcType="VARCHAR" /> 
 		<result property="prodMilk" 		column="PROD_MILK" 		jdbcType="VARCHAR" /> 
 	</resultMap>
 	
 	<!-- 상품명, 가격 가져오기 -->
-	<select id="getProduct"		parameterType="Map">
+	<select id="getProduct">
 		SELECT
 		*
 		FROM product
-		WHERE PROD_NO = #{prodNo}
 	</select>
 	
-	<!-- <select id="addProduct"		parameterType="Product">
-	</select>
+	<select id="addProduct"		parameterType="product">	
 		INSERT INTO
-			product
+			product ( PROD_NO, PROD_NAME, PROD_DETAIL, PROD_PRICE )
 		VALUES
-			#{prodNo}, #{prodName}, #{prodDetail}, #{prodPrice}
-			, #{prodHotAndIce}, #{prodSize}, #{prodCup}, #{prodShot}, #{prodWhip}, #{prodMilk}
-	 -->
+					( #{prodNo}, #{prodName}, #{prodDetail}, #{prodPrice} )
+	</select>
 	</mapper>

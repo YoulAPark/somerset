@@ -7,6 +7,8 @@ import com.ouneno.mybook.service.domain.Product;
 // ProductService는 인터페이스의 역할을 하고 있다.
 public interface ProductService {
 	
-	public Map<String,Object> getProduct(int prodNo) throws Exception;
+	public String getProduct(int prodNo) throws Exception;
+	
+	public void addProduct(Product product) throws Exception;
 	
 }
