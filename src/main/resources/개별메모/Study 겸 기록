@@ -142,6 +142,8 @@
 		
 	(3) self.location = "/product/getProduct";
 		네비게이션역할. product의 getProduct()를 실행한다.
+		
+	(4) $("form").attr("action","주소").submit();
 
 8. [MVC 패턴] 
 	[출처] : https://daydreamer-92.tistory.com/
@@ -278,3 +280,5 @@
 			(2) TreeMap : key값에 따라 오름차순 정렬 / 시간이 오래 걸림
 			(3) HashTable : key/value에 null을 넣을 수 있음
 			(4) LinkedHashMap : 삽입 순서에 따라 정렬
+			
+

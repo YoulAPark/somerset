@@ -30,12 +30,68 @@
 </head>
 
 <body>
+
 <!-- Navigation -->
 	<%@ include file ="../layouts/header.jsp" %>
+
 <!-- Contents -->
+
+<form class="inputprod col-5 mx-auto">	
+	
+		<label for="basic-url" class="form-label">상품추가</label>	
+		
+		<div class="input-group mb-3 col-6 mx-auto">
+		  <span class="input-group-text">상품명</span>
+		  <input type="text" name="prodName" class="form-control" placeholder="Product Name" value="${product.prodName}">
+		</div>
+		
+		<div class="input-group mb-3 col-6 mx-auto">
+		  <span class="input-group-text">상품설명</span>
+		  <input type="text" name="prodDetail" class="form-control" placeholder="Product Detail" value="${product.prodDetail}">
+		</div>
+		
+		<div class="input-group mb-3 col-6 mx-auto">
+		  <span class="input-group-text">상품가격</span>
+		  <input type="text" name="prodPrice" class="form-control" placeholder="Product Price" value="${product.prodPrice}">
+		</div>
+				
+		<!-- 파일이미지 업로드시 필요. 차후 사용시 disabled 제거 -->
+		<div class="mb-3 ">
+		  <label for="formFile" class="form-label">파일 선택</label>
+		  <input class="form-control" type="file" id="formFile" disabled>
+		</div>
+				  
+		<div class="d-grid gap-2">
+			<button class="btn btn-dark" type="submit" id="submit">저장</button>
+		</div>
+		
+</form>	
+
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
+	
 <script>
+
+	$(function() {
+		$("#submit").on("click", function(){
+			submit();
+		});
+	});
+	
+	function submit(){
+		
+		var prodName=$("input[name='prodName']").val();
+		var prodDetail=$("input[name='prodDetail']").val();
+		var prodPrice=$("input[name='prodPrice']").val();
+
+		alert("prodName : "+prodName)
+		alert("prodDetail : "+prodDetail)
+		alert("prodPrice : "+prodPrice)
+		
+		$("form").attr("action",)
+		
+		//self.location = "/admin/addProduct";
+	}
 </script>
 	
 	<!-- Bootstrap -->
