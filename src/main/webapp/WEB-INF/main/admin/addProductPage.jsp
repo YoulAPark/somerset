@@ -88,9 +88,7 @@
 		alert("prodDetail : "+prodDetail)
 		alert("prodPrice : "+prodPrice)
 		
-		$("form").attr("action",)
-		
-		//self.location = "/admin/addProduct";
+		$("form").attr("method", "POST").attr("action" , "/admin/addProduct").submit();
 	}
 </script>
 	

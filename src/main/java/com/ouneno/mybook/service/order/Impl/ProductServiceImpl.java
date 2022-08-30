@@ -24,7 +24,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public void addProduct(Product product) throws Exception {
-		System.out.println("SeviceImpl의 addProduct()메서드");
+		System.out.println("ProductService 거쳐 SeviceImpl의 addProduct() 진입");
 		productDao.addProduct(product);
 	}
 }
