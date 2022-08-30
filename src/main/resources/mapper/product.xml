@@ -24,10 +24,33 @@
 		FROM product
 	</select>
 	
+	<!-- [완료_20220830] 상품추가 -->
 	<select id="addProduct"		parameterType="product">	
 		INSERT INTO
 			product ( PROD_NO, PROD_NAME, PROD_DETAIL, PROD_PRICE )
 		VALUES
-					( 1, #{prodName}, #{prodDetail}, #{prodPrice} )
+					( #{prodNo}, #{prodName}, #{prodDetail}, #{prodPrice} )
 	</select>
+	
+	<!-- 상품수정 -->
+	<update id="updateProduct"	parameterType="int">
+		UPDATE 
+			product
+		<set>
+			PROD_NAME = #{prodName},
+			PROD_DETAIL= #{prodDetail},
+			PROD_PRICE= #{prodPrice}			
+		</set> 
+		WHERE PROD_NO = {#prodNo}
+	</update>
+	<!-- 
+	<delete id="deleteProduct" parameterType="int">
+		DELETE
+		FROM 
+			product
+		WHERE
+			PROD_NO = {#prodNo}
+	</delete> 
+	-->
+	
 	</mapper>

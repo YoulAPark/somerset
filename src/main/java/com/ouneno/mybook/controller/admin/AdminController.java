@@ -1,5 +1,7 @@
 package com.ouneno.mybook.controller.admin;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +28,13 @@ public class AdminController {
 	 
 	 @RequestMapping("/addProduct")
 	 public String addProduct(Product product) throws Exception {
-		 
 		 productService.addProduct(product);
-		 return "redirect:/";
+		 return "redirect:addProductPage";
+	 }
+	 
+	 @RequestMapping("/listProduct")
+	 public HashMap<String, Object> listProduct(Product product) throws Exception{ 
+		 System.out.println("실행");
+		return null;
 	 }
 }

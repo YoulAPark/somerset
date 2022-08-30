@@ -282,3 +282,25 @@
 			(4) LinkedHashMap : 삽입 순서에 따라 정렬
 			
 
+15. Controller에서의 get()과 set()
+	
+	[ProductController.java]
+		Product product	
+		getProdName
+		
+	public String addProduct(Product product) throws Exception {
+		
+		(1) product.getProduct(prodNo);
+			=> JSP에서 입력받은 값 중 prodNo를 가지고 온다.
+			product.getProduct(prodName);
+			=> JSP에서 입력받은 값 중 prodName을 가지고 온다.
+	}
+	
+16. Controller에서의 redirect
+	
+	public String 테스트메서드() throws Exception {
+		return "redirect:addProductPage";
+	}
+	
+	=>  테스트메서드()를 실행 후 addProductPage로 말그대로 redirect(재전송)도와준다
+		메서드 실행후 지정된 페이지가 열림

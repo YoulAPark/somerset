@@ -38,6 +38,7 @@
 <!-- 기능 버튼 function Button -->
 	<form class="funcBtn">	
 		<button type="button" id="addProductPage" class="btn btn-light" onclick="addProductPage">상품추가</button>
+		<button type="button" id="listProduct" class="btn btn-light" onclick="listProduct">상품관리</button>
 	</form>
 	
 <!-- Site info -->	
@@ -51,9 +52,20 @@
 		});
 	});
 	
+	$(function() {
+		$("#listProduct").on("click", function() {
+			listProduct();	
+		});
+	});
+	
 	function addProductPage(){
 		alert("상품추가 페이지로 이동");
 		self.location = "/admin/addProductPage";
+	}
+	
+	function listProduct(){
+		alert("listProduct");
+		self.location = "/admin/listProduct";
 	}
 </script>
 	
