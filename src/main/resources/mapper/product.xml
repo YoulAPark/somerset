@@ -28,6 +28,6 @@
 		INSERT INTO
 			product ( PROD_NO, PROD_NAME, PROD_DETAIL, PROD_PRICE )
 		VALUES
-					( #{prodNo}, #{prodName}, #{prodDetail}, #{prodPrice} )
+					( 1, #{prodName}, #{prodDetail}, #{prodPrice} )
 	</select>
 	</mapper>

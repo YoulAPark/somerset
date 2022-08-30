@@ -41,3 +41,16 @@
 
 8. xml의 namespace가 문제가 있었음
 	=> xml의 namespace가 가르켜야 하는 곳은 VO의 위치가 아닌 Dao의 위치를 가르켜야한다.
+	
+9. 입력값 전송시 오류발생
+	
+	출력 : 	Access denied for user 'somerset'@'localhost' (using password: YES)
+			com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+			
+	원인 : 	SQL 아이디와 비밀번호가 일치 하지 않음
+			application.properties의 spring.datasource.password={1234}로 되어져있었음
+			
+	해결 : 	spring.datasource.password=1234
+			로 변경 후 처리 완료
+	
+	

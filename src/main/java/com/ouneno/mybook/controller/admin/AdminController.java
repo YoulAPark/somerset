@@ -26,7 +26,7 @@ public class AdminController {
 	 
 	 @RequestMapping("/addProduct")
 	 public String addProduct(Product product) throws Exception {
-		 System.out.println("AdminController의 addProduct()메서드");
+		 
 		 productService.addProduct(product);
 		 return "redirect:/";
 	 }
