@@ -12,6 +12,4 @@ public interface ProductDao {
 	
 	// 상품추가
 	public void addProduct(Product product) throws Exception;
-	
-	public void getProductTest() throws Exception;
 }
