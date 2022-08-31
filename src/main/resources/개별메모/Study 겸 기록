@@ -304,3 +304,70 @@
 	
 	=>  테스트메서드()를 실행 후 addProductPage로 말그대로 redirect(재전송)도와준다
 		메서드 실행후 지정된 페이지가 열림
+		
+		
+17. @RequestMapping / @GetMapping /	@PostMapping 의 차이점
+	
+	공통점 : HTTP 메소드 특정 변형
+	
+	(1)	@RequestMapping
+		
+		특징
+		- 클래스와 메서드 레벨에서 사용이 가능하다
+		
+		ex) @RequestMapping("/admin/ListProduct")
+			=> localhost:8080/admin/ListProduct
+		
+	(2) @GetMapping	
+		
+		특징
+		- 메서드에서만 사용가능
+		- HTTP GET 요청
+		- 주소에 파라미터가 노출된다
+			
+		ex1) @GetMapping("/getParameter") => localhost:8080/getParameter?id=1234&password=abcd
+											 => 물음표 뒤에 부터가 파라미터
+			public String getParameter(@RequestParam String id, @RequestParam String password){
+				
+				// 여기서 password라는 변수가 쓰인다면 매개변수는 다른 이름으로 password를 받아야한다.
+				// 그렇게 되면 매핑이 되지 않으므로 @RequestParam(name= "password") pwd 라고 지정해주면
+				// 들어오는 인자는 password라는 이름으로 매핑될거야 라는 뜻을 가지고 있다.
+				
+				System.out.println("id : "+id);
+				System.out.println("password : "+password);
+				
+				return id+password; //여기서 return한 것들이 web에 띄워지게 된다
+			}
+	
+		ex2) @GetMapping("/getMultiParameter")
+			public SearchParam getMultiParameter(SearchParam searchParam){
+			
+			System.out.println(searchParam.getAccount());
+			System.out.println(searchParam.getEmail());
+			System.out.println(searchParam.getPage());
+			
+			// { "accoount" : "", "email" : "", "page" : 0 }
+			// 	=> 이런 형태로 바꿔주기 위해 객체를 리턴한다
+				=> 기본적으로 json을 내포하고 있기에 객체를 리턴할 경우 기본적으로 json을 리턴한다
+			return searchParam;
+	
+	(3) @PostMapping
+		
+		특징
+		- 주소창에 파라미터가 노출되지 않는다.
+		- 메서드와 같은 주소 매칭은 에러가 발생한다
+		- @RequestMapping은 초기에 설정되고 클래스에 대한 주소 매칭이므로 겹쳐도 상관없다.
+		
+		ex1) @PostMapping(value = "/postMethod")
+			public SearchParam postMethod(@RequestBody SearchParam searchParam){
+										  => @RequestBody로 지정해줘야한다
+				return searchParam;
+			}
+			
+	(4) 어노테이션 정리
+		HTTP Method					동작					URL 형태
+		GET					조회 (SELECT * READ)			/user/{id}
+		POST				생성 (CREATE)					/user
+		PUT / PATCH			수정 (UPDATD) *CREATE			/user
+		DELETE				삭제 (DELETE)					/user/{1}
+	

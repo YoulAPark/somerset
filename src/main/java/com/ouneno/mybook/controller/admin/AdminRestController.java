@@ -20,11 +20,5 @@ public class AdminRestController {
 	public HashMap<String, Object> listProduct(Product product) throws Exception{
 		return null;
 	}
-	
-//	 @RequestMapping("/listProduct")
-//	 public HashMap<String, Object> listProduct(Product product) throws Exception{ 
-//		 System.out.println("실행");
-//		return null;
-//	 }
 
 }
