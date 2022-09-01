@@ -1,8 +1,12 @@
 package com.ouneno.mybook.service.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@ToString
 public class Product {
 	
 	private int prodNo;	// 상품번호

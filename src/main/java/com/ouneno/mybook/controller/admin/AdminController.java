@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ouneno.mybook.service.domain.Product;
 import com.ouneno.mybook.service.order.Impl.ProductService;
@@ -36,20 +37,28 @@ public class AdminController {
 	 }
 	 
 //	 @RequestMapping("/listProduct")
-//	 public HashMap<String, Object> listProduct(Product product) throws Exception{ 
-//		 System.out.println("실행");
-//		return null;
-//	 }
+//		public HashMap<String, Object> getProduct(Product product, Model model,
+//				@ModelAttribute("prodNo") int prodNo,
+//				@ModelAttribute("prodName") String prodName, 
+//				@ModelAttribute("prodDetail") String prodDetail,
+//				@ModelAttribute("prodPrice") String prodPrice) throws Exception {	
+//
+//		 HashMap<String,Object> map = productService.getProduct(product); // => 인스턴스로 지정한 map을 sysout으로 출력시, ServiceImpl의 resultMap을 출력한다	 
+//		 model.addAttribute("product", map.get("resultMap"));  // => JSP에서 ${product}를 출력하게 되면 resultMap을 출력하게 된다.
+//		 model.addAttribute("prodNo", prodNo);
+//		 model.addAttribute("prodName", prodName);
+//		 model.addAttribute("prodDetail", prodDetail);
+//		 model.addAttribute("prodPrice", prodPrice);
+//		 return map;
+//		}
 	 
 	 @RequestMapping("/listProduct")
-		public HashMap<String, Object> getProduct(Product product, Model model) throws Exception {	
-		 System.out.println("adminController진입");
-		
-		 model.addAttribute(product);
-		 System.out.println("adminController : "+ productService.getProduct(product));
+	 	public String getProduct( Product product, Model model) throws Exception {
+
+		 HashMap<String,Object> map = productService.getProduct(product); // => 인스턴스로 지정한 map을 sysout으로 출력시, ServiceImpl의 resultMap을 출력한다	 
+		 model.addAttribute("product", map);  // => JSP에서 ${product}를 출력하게 되면 resultMap을 출력하게 된다.
+
 		 
-		 productService.getProduct(product);
-		 	
-			return productService.getProduct(product);
-		}
+		 return "/admin/listProduct";
+	 }
 }

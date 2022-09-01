@@ -2,6 +2,8 @@ package com.ouneno.mybook.service.order.Impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,32 +18,19 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
 	private ProductDao productDao;
-
-//	public List<Product> getProduct(int prodNo) throws Exception {
-//		System.out.println("ProductService의 getProduct()");
-//		System.out.println("ProductService prodNo : "+prodNo);	
-//		return productDao.getProduct(prodNo);
-//	}
-
+	
+	// 상품추가	
 	public void addProduct(Product product) throws Exception {
 		System.out.println("ProductService 거쳐 SeviceImpl의 addProduct() 진입");
 		productDao.addProduct(product);
 	}
 	
-	public HashMap<String, Object> getProduct(Product product) throws Exception {
-		
+	// 상품조회
+	public HashMap<String, Object> getProduct(Product product) throws Exception {	
 		HashMap<String,Object> map = new HashMap<String,Object>();	
-		System.out.println("-------------->2. HashMap 지정 : "+map);
-		map.put("resultMap", productDao.getProduct(product));
-		System.out.println("-------------->3. HashMap 지정 후 Dao에서 가져옴 : "+map);
-		System.out.println("-------------->4. map.get(resultMap)가져와보기 : "+map.get("resultMap"));
-
-	
+		map.put("resultMap", productDao.getProduct(product));		
 		
-
-//		HashMap<String,Object> map = new HashMap<String, Object>();
-//		map.put("product", productDao.getProduct(product));
-//		System.out.println(map);
+		System.out.println("그만 찾고 싶다 ^^ : "+map);
 		
 		return map;
 	}

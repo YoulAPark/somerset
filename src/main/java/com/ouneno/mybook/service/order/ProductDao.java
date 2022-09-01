@@ -14,5 +14,5 @@ public interface ProductDao {
 	public void addProduct(Product product) throws Exception;
 	
 	// 상품조회
-	public List<HashMap<String, Object>> getProduct(Product product) throws Exception;
+	public HashMap<String, Object> getProduct(Product product) throws Exception;
 }

@@ -8,9 +8,9 @@
 
 <!-- Bootstrap meta name 추가 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 <title> 기본 JSP </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 <!-- CDN Script Start -->
 	
@@ -21,11 +21,41 @@
 	<!-- SweetAlert -->
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>	
 	
+	<!-- Bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+	
 <!-- CDN Script End -->	
 
+<!-- CSS style Start -->
 <style>
 	
 </style>
+<!-- CSS style End -->
+
+<script>
+		$(function() {
+			$("#addProductPage").on("click", function(){
+				addProductPage();
+			});
+		});
+		
+		$(function() {
+			$("#listProduct").on("click", function() {
+				listProduct();	
+			});
+		});
+		
+		function addProductPage(){
+			alert("상품추가 페이지로 이동");
+			self.location = "/admin/addProductPage";
+		}
+		
+		function listProduct(){
+			alert("listProduct");
+			self.location = "/admin/listProduct";
+		}
+</script>
 
 </head>
 
@@ -44,34 +74,5 @@
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	
-	
-<script>
-	$(function() {
-		$("#addProductPage").on("click", function(){
-			addProductPage();
-		});
-	});
-	
-	$(function() {
-		$("#listProduct").on("click", function() {
-			listProduct();	
-		});
-	});
-	
-	function addProductPage(){
-		alert("상품추가 페이지로 이동");
-		self.location = "/admin/addProductPage";
-	}
-	
-	function listProduct(){
-		alert("listProduct");
-		self.location = "/admin/listProduct";
-	}
-</script>
-	
-	<!-- Bootstrap -->
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-
 </body>
 </html>
