@@ -52,5 +52,23 @@
 			
 	해결 : 	spring.datasource.password=1234
 			로 변경 후 처리 완료
+
+10. HashMap을 사용하여 등록된 글을 DB에서 불러오고 싶은데 Dao에서 Service/ServiceImpl로 값을 불러오지 못했음
 	
+	출력 : Null 값만 출력
 	
+	원인 : ServiceImpl에서 Dao를 불러와야하는데, 자동으로 이어진줄알고 Dao명시를 하지 않음
+	
+	해결 : map.put("resultMap(아무거나 명시해도 됨 Key값이기때문에)",productDao.getProduct(product));
+	
+11. TooManyResultsException : 결과값이 너무 많다고 에러뜸
+	
+	Exception 해석 : DB데이터 조회시 발생하는 에러
+	
+	원인 : 해당 Mapper 쿼리가 조회하는 row 개수가 2개 이상이기 때문
+		 
+	해결 : 기존의 Mapper가 1개의 row만 받는 것으로 되어져있다면, 2개 이상의 row를 받을 수 있도록 수정해야한다.
+	
+	기존 : public HashMap<String, Object> getProduct(Product product) throws Exception;
+	변경 : public List<HashMap<String, Object>> getProduct(Product product) throws Exception;
+	=> HashMap 자체를 List로 감쌌다.

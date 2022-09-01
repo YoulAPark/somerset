@@ -40,23 +40,23 @@ public class OrderController {
 //		return "order/addOrder";
 //	}
 	 
-	@RequestMapping("getProduct")
-	public String getProduct(@ModelAttribute("product") Product product, Model model) throws Exception {
-		
-			System.out.println("OrderController의 getProduct() 메서드 시작");
-			System.out.println("product 가져오는지 확인하기 : "+product);
-
-		productService.getProduct(2);
-		
-		// HashMap : key,value에 따른 순서 없음		
-		Map<String,Object> map = new HashMap<String,Object>();	
-			
-			System.out.println("getProduct() 메서드 map 확인 : "+map);
-			System.out.println("Map 확인하기 : "+map);
-		
-		model.addAttribute("product", map);
-		
-		return "order/addOrder";
-	}
+//	@RequestMapping("getProduct")
+//	public String getProduct(@ModelAttribute("product") Product product, Model model) throws Exception {
+//		
+//			System.out.println("OrderController의 getProduct() 메서드 시작");
+//			System.out.println("product 가져오는지 확인하기 : "+product);
+//
+//		productService.getProduct(2);
+//		
+//		// HashMap : key,value에 따른 순서 없음		
+//		Map<String,Object> map = new HashMap<String,Object>();	
+//			
+//			System.out.println("getProduct() 메서드 map 확인 : "+map);
+//			System.out.println("Map 확인하기 : "+map);
+//		
+//		model.addAttribute("product", map);
+//		
+//		return "order/addOrder";
+//	}
 							
 }

@@ -1,5 +1,8 @@
 package com.ouneno.mybook.service.order;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ouneno.mybook.service.domain.Product;
@@ -7,9 +10,9 @@ import com.ouneno.mybook.service.domain.Product;
 @Mapper
 public interface ProductDao {
 
-	public String getProduct(int prodNo) throws Exception;	
-	// ServiceImpl의 리턴값과 동일해야 함
-	
 	// 상품추가
 	public void addProduct(Product product) throws Exception;
+	
+	// 상품조회
+	public List<HashMap<String, Object>> getProduct(Product product) throws Exception;
 }

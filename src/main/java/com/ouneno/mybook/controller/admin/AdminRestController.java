@@ -16,9 +16,15 @@ public class AdminRestController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping("json/listProduct")
-	public HashMap<String, Object> listProduct(Product product) throws Exception{
-		return null;
-	}
+//	@RequestMapping("json/listProduct")
+//	public HashMap<String, Object> listProduct(Product product) throws Exception{
+//		return null;
+//	}
+	
+//	@RequestMapping("json/listProduct")
+//	public HashMap<String, Object> getProduct(Product product) throws Exception {
+//		System.out.println("??");
+//		return null;
+//	}
 
 }
