@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
-<title> listProduct.jsp </title>
+<title> updateProduct.jsp </title>
 
 <!-- CDN Script Start -->
 	
@@ -30,28 +30,11 @@
 
 <!-- CSS style Start -->
 <style>
-	.table { 
-			text-align : center;
-			}
-			
-	tbody 	{
-			font-weight : lighter;
-			}
+
 </style>
 <!-- CSS style End -->
 
 <script>
-
-	$(function() {
-		$("#updateProduct").on("click", function() {
-			updateProduct();	
-		});
-	});
-	
-	function updateProduct(){
-		alert("updateProduct");
-		self.location = "/admin/updateProduct";
-	}
 
 </script>
 
@@ -63,34 +46,6 @@
 	<%@ include file ="../layouts/header.jsp" %>
 
 <!-- Contents -->
-
-	<table class="table table-hover table-bordered caption-top">
-		<caption>상품목록</caption>
-		
-		<thead>
-			<tr class="table-info">
-				<th scope="col">상품번호</th>
-				<th scope="col">상품명</th>
-				<th scope="col">상품설명</th>
-				<th scope="col">상품가격</th>
-				<th scope="col">수정</th>
-				</th>
-			</tr>
-		</thead>
- 	
- 		<tbody id="test">
-			<c:forEach items="${product.product}" var="product">
-				<tr>
-					<td><c:out value="${product.PROD_NO}"/></td>
-					<td><c:out value="${product.PROD_NAME}"/></td>
-					<td><c:out value="${product.PROD_DETAIL}"/></td>
-					<td><c:out value="${product.PROD_PRICE}"/></td>
-					<td><button type="button" id="updateProduct" class="btn btn-Dark btn-sm" onclick="updateProduct">수정</button></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-
-	</table>
 
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	

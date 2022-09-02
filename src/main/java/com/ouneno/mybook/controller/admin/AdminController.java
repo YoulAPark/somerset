@@ -2,6 +2,7 @@ package com.ouneno.mybook.controller.admin;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.interceptor.LoggingCacheErrorHandler;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ouneno.mybook.service.domain.Product;
 import com.ouneno.mybook.service.order.Impl.ProductService;
@@ -37,16 +39,25 @@ public class AdminController {
 		 return "redirect:addProductPage";
 	 }
 	 
-	 // 이거도 되고 아래것도 되고
 	 @RequestMapping("/listProduct")
-	 	public void getProduct(Product product, Model model) throws Exception {
-
+	 public String getProduct(Product product, Model model) throws Exception {
 		 HashMap<String,Object> map = productService.getProduct(product); // => 인스턴스로 지정한 map을 sysout으로 출력시, ServiceImpl의 resultMap을 출력한다	 
-		 model.addAttribute("product", map);  // => JSP에서 ${product}를 출력하게 되면 resultMap을 출력하게 된다.	 
+		 model.addAttribute("product", map);
+		 return "admin/listProduct";
 	 }
-	 
-//	 @RequestMapping("/listProduct")
-//	 	public void getProduct(Product product, Model model) throws Exception {
-//		 model.addAttribute("product", productService.getProduct(product));
+	
+	 // listProduct ModelAndView로 사용시
+//	 @RequestMapping("/listProduct2")
+//	 public ModelAndView getProduct2() throws Exception {
+//		 ModelAndView mv = new ModelAndView();
+//		 mv.addObject("product", productService.getProduct(null));
+//		 mv.setViewName("admin/listProduct");
+//		 return mv;
 //	 }
+	 
+	 @RequestMapping("/updateProduct")
+	 public String updateProduct() throws Exception {
+		 return "admin/updateProduct";
+	 }
+	
 }

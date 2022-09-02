@@ -2,8 +2,6 @@ package com.ouneno.mybook.service.order.Impl;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,12 +27,19 @@ public class ProductServiceImpl implements ProductService{
 	public HashMap<String, Object> getProduct(Product product) throws Exception {	
 		
 		HashMap<String,Object> map = new HashMap<String,Object>();	
-
 		map.put("product", productDao.getProduct(product)); // resultMap이라는 이름에 Dao.getProduct()를 담음
-		
-		System.out.println("<<<<<Impl>>>>> map : "+map);
-		System.out.println("<<<<<Impl>>>>> map.get() : "+map.get("resultMap"));
 		
 		return map;
 	}
+
+	@Override
+	public List<Product> listProduct() throws Exception {
+		
+		List<Product> test = productDao.listProduct();
+		
+		return test;
+	}
+	
+	// 지훈테스트
+
 }

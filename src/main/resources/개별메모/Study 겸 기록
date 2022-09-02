@@ -498,4 +498,18 @@
 	3) map.containsKey("one") 
 		=> 해석 : map에 "one"이라는 Key	를 포함하고 있느냐?
 	4) Set number = map.entrySet();			
-		=> 해석 : Set 인터페이스를 사용하여 map자체를 number라는 변수명으로 지정하겠다			
+		=> 해석 : Set 인터페이스를 사용하여 map자체를 number라는 변수명으로 지정하겠다		
+		
+25. Controller의 리턴 타입
+
+	1) String : Client에게 보여져야 할 View 이름	
+				* JSP 이름
+	2) void : 	컨트롤러에서 응답을 직접 처리한다.
+				주로 Ajax의 결과를 리턴할 때 사용한다.
+				
+	3) ModelAndView : 모델과 뷰 정보를 함께 리턴시킨다
+						=> Model : VO / View : JSP
+	
+	4) 객체 : 메소드에 @RequestBody가 적용된 경우, return 객체를 JSON이나 XML과 알맞은 응답으로 변환한다.
+	
+	

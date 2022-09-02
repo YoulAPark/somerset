@@ -1,6 +1,7 @@
 package com.ouneno.mybook.service.order.Impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.ouneno.mybook.service.domain.Product;
 
@@ -10,4 +11,6 @@ public interface ProductService {
 	public void addProduct(Product product) throws Exception;
 	
 	public HashMap<String, Object> getProduct(Product product) throws Exception;
+	
+	public List<Product> listProduct() throws Exception;
 }
