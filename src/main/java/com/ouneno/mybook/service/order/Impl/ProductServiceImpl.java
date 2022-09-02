@@ -27,10 +27,13 @@ public class ProductServiceImpl implements ProductService{
 	
 	// 상품조회
 	public HashMap<String, Object> getProduct(Product product) throws Exception {	
-		HashMap<String,Object> map = new HashMap<String,Object>();	
-		map.put("resultMap", productDao.getProduct(product));		
 		
-		System.out.println("그만 찾고 싶다 ^^ : "+map);
+		HashMap<String,Object> map = new HashMap<String,Object>();	
+
+		map.put("product", productDao.getProduct(product)); // resultMap이라는 이름에 Dao.getProduct()를 담음
+		
+		System.out.println("<<<<<Impl>>>>> map : "+map);
+		System.out.println("<<<<<Impl>>>>> map.get() : "+map.get("resultMap"));
 		
 		return map;
 	}

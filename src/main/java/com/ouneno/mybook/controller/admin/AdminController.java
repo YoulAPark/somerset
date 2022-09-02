@@ -1,6 +1,7 @@
 package com.ouneno.mybook.controller.admin;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.interceptor.LoggingCacheErrorHandler;
@@ -36,29 +37,16 @@ public class AdminController {
 		 return "redirect:addProductPage";
 	 }
 	 
-//	 @RequestMapping("/listProduct")
-//		public HashMap<String, Object> getProduct(Product product, Model model,
-//				@ModelAttribute("prodNo") int prodNo,
-//				@ModelAttribute("prodName") String prodName, 
-//				@ModelAttribute("prodDetail") String prodDetail,
-//				@ModelAttribute("prodPrice") String prodPrice) throws Exception {	
-//
-//		 HashMap<String,Object> map = productService.getProduct(product); // => 인스턴스로 지정한 map을 sysout으로 출력시, ServiceImpl의 resultMap을 출력한다	 
-//		 model.addAttribute("product", map.get("resultMap"));  // => JSP에서 ${product}를 출력하게 되면 resultMap을 출력하게 된다.
-//		 model.addAttribute("prodNo", prodNo);
-//		 model.addAttribute("prodName", prodName);
-//		 model.addAttribute("prodDetail", prodDetail);
-//		 model.addAttribute("prodPrice", prodPrice);
-//		 return map;
-//		}
-	 
+	 // 이거도 되고 아래것도 되고
 	 @RequestMapping("/listProduct")
-	 	public String getProduct( Product product, Model model) throws Exception {
+	 	public void getProduct(Product product, Model model) throws Exception {
 
 		 HashMap<String,Object> map = productService.getProduct(product); // => 인스턴스로 지정한 map을 sysout으로 출력시, ServiceImpl의 resultMap을 출력한다	 
-		 model.addAttribute("product", map);  // => JSP에서 ${product}를 출력하게 되면 resultMap을 출력하게 된다.
-
-		 
-		 return "/admin/listProduct";
+		 model.addAttribute("product", map);  // => JSP에서 ${product}를 출력하게 되면 resultMap을 출력하게 된다.	 
 	 }
+	 
+//	 @RequestMapping("/listProduct")
+//	 	public void getProduct(Product product, Model model) throws Exception {
+//		 model.addAttribute("product", productService.getProduct(product));
+//	 }
 }

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 
 <!DOCTYPE html>
 <html>
@@ -54,7 +55,7 @@
 
 	<table class="table table-hover table-bordered caption-top">
 		<caption>상품목록</caption>
-		<div>이거잠깐확인 : ${product}</div>
+		
 		<thead>
 			<tr class="table-info">
 				<th scope="col">상품번호</th>
@@ -63,68 +64,25 @@
 				<th scope="col">상품가격</th>
 			</tr>
 		</thead>
-		
-		<tbody id="productList">
-			<%-- <tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td> --%>
-			</tr>
-			<%-- <tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>
-			<tr>
-				<th scope="row">${product.prodNo}</th>
-				<td>${product.prodName}</td>
-				<td>${product.prodDetail}</td>
-				<td>${product.prodPrice}</td>
-			</tr>	 --%>			
+ 	
+ 	<!-- 
+ 	의문점. HashMap으로 받아오기 때문에 출력이 애매함
+ 	Dao에서 List<Map<String,Object>>로 작성했기에 복잡한 array 형식으로 나오는게아닐까 싶음
+ 	${product} 로 출력했을 때와, ${product.product} 형식을 출력되었을 때 출력이 다름
+ 	-->
+ 			<div>product 로 출력했을 때 : ${product}</div>
+ 			<div>################################</div>
+ 			<div>product.product 로 출력했을 때 : ${product.product}</div>
+ 	
+ 		<tbody id="test">
+			<c:forEach items="${product.product}" var="product">
+				<tr>
+					<td><c:out value="${product.PROD_NO}"/></td>
+					<td><c:out value="${product.PROD_NAME}"/></td>
+					<td><c:out value="${product.PROD_DETAIL}"/></td>
+					<td><c:out value="${product.PROD_PRICE}"/></td>
+				</tr>
+			</c:forEach>
 		</tbody>
 
 	</table>
