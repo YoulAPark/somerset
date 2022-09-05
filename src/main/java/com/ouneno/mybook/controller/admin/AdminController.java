@@ -55,9 +55,11 @@ public class AdminController {
 //		 return mv;
 //	 }
 	 
+	 // listProduct랑 연관
 	 @RequestMapping("/updateProduct")
 	 public String updateProduct() throws Exception {
 		 return "admin/updateProduct";
 	 }
+	 
 	
 }
