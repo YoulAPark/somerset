@@ -32,14 +32,16 @@ public class ProductServiceImpl implements ProductService{
 		return map;
 	}
 
-	@Override
-	public List<Product> listProduct() throws Exception {
-		
-		List<Product> test = productDao.listProduct();
-		
-		return test;
+//	@Override
+//	public List<Product> listProduct() throws Exception {
+//		
+//		List<Product> test = productDao.listProduct();
+//		
+//		return test;
+//	}
+	
+	public Product getProductList(int prodNo) throws Exception {
+		return productDao.getProductList(prodNo);
 	}
 	
-	// 지훈테스트
-
 }

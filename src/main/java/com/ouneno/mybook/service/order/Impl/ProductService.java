@@ -12,5 +12,7 @@ public interface ProductService {
 	
 	public HashMap<String, Object> getProduct(Product product) throws Exception;
 	
-	public List<Product> listProduct() throws Exception;
+	//public List<Product> listProduct() throws Exception;
+	
+	public Product getProductList(int prodNo) throws Exception;
 }

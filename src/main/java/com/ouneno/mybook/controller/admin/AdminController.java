@@ -55,11 +55,13 @@ public class AdminController {
 //		 return mv;
 //	 }
 	 
-	 // listProduct랑 연관
-	 @RequestMapping("/updateProduct")
-	 public String updateProduct() throws Exception {
-		 return "admin/updateProduct";
-	 }
+//	 // Navigation
+//	 @RequestMapping(value="updateProduct/{prodNo}")
+//	 public String updateProduct(@RequestParam("prodNo") int prodNo, Model model) throws Exception {
+//		 System.out.println("prodNo***** : "+prodNo);
+//		 System.out.println("updateProduct Controller 진입완료");
+//		 return "admin/updateProduct";
+//	 }
 	 
 	
 }

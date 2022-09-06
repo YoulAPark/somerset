@@ -28,6 +28,17 @@
 		ORDER BY PROD_NO
 	</select>
 	
+	<!-- 2 -->
+	<select id="getProductList"	parameterType="int" resultMap="productMapper">	
+		SELECT 
+				PROD_NO
+			, PROD_NAME
+			, PROD_DETAIL
+			, PROD_PRICE 
+		FROM product
+		WHERE PROD_NO = #{prodNo}
+	</select>
+	
 	<!-- [완료_20220830] 상품추가 -->
 	<select id="addProduct"		parameterType="product">	
 		INSERT INTO
