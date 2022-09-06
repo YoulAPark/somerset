@@ -512,4 +512,40 @@
 	
 	4) 객체 : 메소드에 @RequestBody가 적용된 경우, return 객체를 JSON이나 XML과 알맞은 응답으로 변환한다.
 	
-	
+26. 지훈이 설명
+ 	
+ 	JSP -> Controller -> Service(ServiceImpl) -> DAO -> DB
+ 	
+	<<-------[EX] Controller------->>
+ 	public String A() throws Exception {
+ 		return "null";
+ 	}
+ 	=> A()라는 메소드는 String값을 가지고 있기에, return은 String이 되어야한다.
+ 	
+ 	public String getProductList(@PathVariable("prodNo") int prodNo) throws Exception {
+ 		return "productService.getProductList(prodNo)";
+ 	}
+ 	=> 이 말은 즉슨 return하고 있는 "productService.getProductList(prodNo)" 자체가 String이라는 것
+ 	<<------------------------------>>
+ 	
+ 	<<-----------[EX] Dao----------->>
+ 	public String getProductList(int prodNo) throws Exception;
+ 	<<------------------------------>>
+ 	
+ 	<<-----------[EX] DB(Query)----------->>
+ 	<select id="getProductList"	parameterType="int" resultMap="productMapper">	
+		SELECT 
+				PROD_NO
+			, PROD_NAME
+			, PROD_DETAIL
+			, PROD_PRICE 
+		FROM product
+		WHERE PROD_NO = #{prodNo}
+	</select>
+	=> select id의 경우 메소드 이름과 동일해야 하며,
+	=> parameterType의 경우 조건문의 데이터타입과 일치해야하고,
+	=> WHERE절의 prodNo가 int이기 때문에 Dao,Controller에서는 (int prodNo)로 가져왔던 것
+	=> int prodNo 와 같이 무슨 조건을 갖고 가지고 올 것인가와 return하는 타입은 상관이 없다.
+ 	<<------------------------------>>
+ 	
+ 	
