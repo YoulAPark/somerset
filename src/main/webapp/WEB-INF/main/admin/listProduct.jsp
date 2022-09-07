@@ -89,6 +89,22 @@
 		});
 		
 	}
+	
+	function deleteProduct(prodNo) {
+		
+			$.ajax({
+				url : "/admin/deleteProduct/"+prodNo
+			,	method : "GET"
+			,	dataType : "JSON"
+			,	headers : {
+					"Accept" : "application/json" ,
+					"Content-Type" : "application/json"
+				}
+			,	success : function(JSONData, status) {
+					location.reload();
+				}
+			});
+	}
 
 </script>
 
@@ -128,7 +144,7 @@
 							<td>${product.PROD_DETAIL}</td>
 							<td>${product.PROD_PRICE}</td>	
 							<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-dark btn-sm" onclick="getProductList(${product.PROD_NO})" data-bs-toggle="modal" data-bs-target="#getProductList">수정</button></td>						
-							<td><button type="button" class="btn btn-outline-danger btn-sm">삭제</button></td>
+							<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-danger btn-sm" onclick="deleteProduct(${product.PROD_NO})">삭제</button></td>
 						</tr>
 					</c:forEach>
 				</tbody>

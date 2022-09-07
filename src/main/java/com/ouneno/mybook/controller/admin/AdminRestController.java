@@ -65,7 +65,7 @@ public class AdminRestController {
 
 	// 상품조회
 	@RequestMapping(value = "getProductList/{prodNo}")
-	public Product getProductList(Product product, @PathVariable("prodNo") int prodNo) throws Exception {
+	public Product getProductList(@PathVariable("prodNo") int prodNo) throws Exception {
 		return productService.getProductList(prodNo);
 	}
 	
@@ -73,6 +73,12 @@ public class AdminRestController {
 	@PostMapping(value="/json/updateProduct")
 	public boolean updateProduct(@RequestBody Product product) throws Exception {
 		productService.updateProduct(product);
+		return true;
+	}
+	
+	@GetMapping(value="deleteProduct/{prodNo}")
+	public boolean deleteProduct(@PathVariable("prodNo") int ProdNo) throws Exception{
+		productService.deleteProduct(ProdNo);
 		return true;
 	}
 	

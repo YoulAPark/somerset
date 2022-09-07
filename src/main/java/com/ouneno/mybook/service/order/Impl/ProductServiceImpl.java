@@ -43,4 +43,9 @@ public class ProductServiceImpl implements ProductService{
 	public void updateProduct(Product product) throws Exception {
 		productDao.updateProduct(product);
 	}
+	
+	// 상품삭제
+	public void deleteProduct(int prodNo) throws Exception {
+		productDao.deleteProduct(prodNo);
+	}
 }

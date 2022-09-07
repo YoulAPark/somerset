@@ -21,4 +21,7 @@ public interface ProductDao {
 	
 	// 상품수정
 	public void updateProduct(Product product) throws Exception;
+	
+	// 상품삭제
+	public void deleteProduct(int prodNo) throws Exception;
 }

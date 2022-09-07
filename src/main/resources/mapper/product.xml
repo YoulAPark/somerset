@@ -58,15 +58,13 @@
 		</set> 
 		WHERE PROD_NO = #{prodNo}
 	</update>
-	
-	<!-- 
+	 
 	<delete id="deleteProduct" parameterType="int">
 		DELETE
 		FROM 
 			product
 		WHERE
-			PROD_NO = {#prodNo}
+			PROD_NO = #{prodNo}
 	</delete> 
-	-->
 	
 	</mapper>
