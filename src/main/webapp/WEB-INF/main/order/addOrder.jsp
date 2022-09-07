@@ -37,7 +37,6 @@
 
 	$(function() {
 		$("#order").on("click", function(){
-			alert("얼럿")
 			fncOrder();
 		});
 	});

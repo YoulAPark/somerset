@@ -47,12 +47,10 @@
 		});
 		
 		function addProductPage(){
-			alert("상품추가 페이지로 이동");
 			self.location = "/admin/addProductPage";
 		}
 		
 		function listProduct(){
-			alert("listProduct");
 			self.location = "/admin/listProduct";
 		}
 

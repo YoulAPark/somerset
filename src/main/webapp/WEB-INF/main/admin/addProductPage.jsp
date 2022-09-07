@@ -46,10 +46,6 @@
 		var prodName=$("input[name='prodName']").val();
 		var prodDetail=$("input[name='prodDetail']").val();
 		var prodPrice=$("input[name='prodPrice']").val();
-
-		alert("prodName : "+prodName)
-		alert("prodDetail : "+prodDetail)
-		alert("prodPrice : "+prodPrice)
 		
 		$("form").attr("method", "POST").attr("action" , "/admin/addProduct").submit();
 	}

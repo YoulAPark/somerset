@@ -48,12 +48,10 @@
 	});
 
 	function order(){
-		alert("주문");
 		self.location = "/order/getProduct";
 	}
 	
 	function admin(){
-		alert("관리자페이지로 이동");
 		self.location = "/admin/adminMain";
 	}
 
