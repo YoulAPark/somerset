@@ -39,6 +39,19 @@
 		WHERE PROD_NO = #{prodNo}
 	</select>
 	
+	<!-- 복습 : listProduct에서 수정버튼 클릭 후 수정할 것들을 입력하여 수정처리 하는 것 -->
+	<!-- 그러기 위해선 우선 수정버튼을 눌렀을 때, 상품들이 떠야 함 -->
+	<select id="getProductList2" 	parameterType="int" 	resultMap="productMapper">
+		SELECT
+				PROD_NO
+			,	PROD_NAME
+			,	PROD_DETAIL
+			, 	PROD_PRICE
+		FROM product
+		WHERE PROD_NO = #{prodNo}	
+	</select>
+	<!--  parameterType이 int인 이유 : WHERE 조건절에서 조건을 줄 PROD_NO가 INT의 성향을 띄고 있기 때문에 -->
+	 
 	<!-- [완료_20220830] 상품추가 -->
 	<select id="addProduct"		parameterType="product">	
 		INSERT INTO
