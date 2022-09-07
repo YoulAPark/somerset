@@ -24,26 +24,23 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	// 상품조회
-	public HashMap<String, Object> getProduct(Product product) throws Exception {	
-		
+	public HashMap<String, Object> getProduct(Product product) throws Exception {		
 		HashMap<String,Object> map = new HashMap<String,Object>();	
-		map.put("product", productDao.getProduct(product)); // resultMap이라는 이름에 Dao.getProduct()를 담음
-		
+		map.put("product", productDao.getProduct(product)); // resultMap이라는 이름에 Dao.getProduct()를 담음	
 		return map;
 	}
-
-//	@Override
 //	public List<Product> listProduct() throws Exception {
-//		
 //		List<Product> test = productDao.listProduct();
-//		
 //		return test;
 //	}
-	
+	 
+	// 상품 조회
 	public Product getProductList(int prodNo) throws Exception {
 		return productDao.getProductList(prodNo);
 	}
 	
-	public void updateProduct(int prodNo) throws Exception {
+	// 상품수정
+	public void updateProduct(Product product) throws Exception {
+		productDao.updateProduct(product);
 	}
 }

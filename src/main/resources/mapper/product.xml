@@ -40,7 +40,7 @@
 	<select id="getProductList"	parameterType="int" resultMap="productMapper">	
 		SELECT 
 				PROD_NO
-			, PROD_NAME
+			, PROD_NAME 
 			, PROD_DETAIL
 			, PROD_PRICE 
 		FROM product
@@ -48,7 +48,7 @@
 	</select>
 		
 	<!-- 상품수정 -->
-	<update id="updateProduct"	parameterType="int">
+	<update id="updateProduct"	parameterType="product">
 		UPDATE 
 			product
 		<set>

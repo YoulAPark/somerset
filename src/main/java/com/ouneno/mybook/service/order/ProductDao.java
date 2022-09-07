@@ -20,5 +20,5 @@ public interface ProductDao {
 	public Product getProductList(int prodNo) throws Exception;
 	
 	// 상품수정
-	public void updateProduct(int prodNo) throws Exception;
+	public void updateProduct(Product product) throws Exception;
 }

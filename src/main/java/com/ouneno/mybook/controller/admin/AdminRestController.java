@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,11 +69,11 @@ public class AdminRestController {
 		return productService.getProductList(prodNo);
 	}
 	
-	@RequestMapping(value="updateProduct/{prodNo}")
-	public String updateProduct(Model model, @PathVariable("prodNo") int prodNo) throws Exception {
-//		model.addAttribute(model)
-		productService.updateProduct(prodNo);
-		return "/admin/updateProduct";
+	// 상품수정
+	@PostMapping(value="/json/updateProduct")
+	public boolean updateProduct(@RequestBody Product product) throws Exception {
+		productService.updateProduct(product);
+		return true;
 	}
 	
 	

@@ -45,19 +45,49 @@
 	function getProductList(prodNo) {
 
 		$.ajax({
-					url : "/admin/getProductList/"+prodNo ,
-					method : "GET" ,
-					dataType : "json" ,
-					headers : {
+					url : "/admin/getProductList/"+prodNo
+				,	method : "GET"
+				,	dataType : "JSON"
+				,	headers : {
 						"Accept" : "application/json" ,
 						"Content-Type" : "application/json"
-					},
-					success : function(JSONData, status) {
+					}
+				,	success : function(JSONData, status) {
+						$('#prodNo').val(JSONData.prodNo);
 						$('#prodName').val(JSONData.prodName);
 						$('#prodDetail').val(JSONData.prodDetail);
 						$('#prodPrice').val(JSONData.prodPrice);
 					}
 				});
+	}
+	
+	function updateProduct() {
+	
+		var prodNo = $("input[name='prodNo']").val();
+		var prodName = $("input[name='prodName']").val();
+		var prodDetail = $("input[name='prodDetail']").val();
+		var prodPrice = $("input[name='prodPrice']").val();
+		
+		$.ajax({
+				url : "/admin/json/updateProduct/"
+			,	method : "POST" 
+			,	dataType : "JSON" 
+			,	contentType : "application/json"
+			,	data : JSON.stringify({
+						"prodNo" : prodNo
+					,	"prodName" : prodName
+					,	"prodDetail" : prodDetail
+					,	"prodPrice" : prodPrice
+			})
+			,	success : function(Data, status) {
+					$('#prodNo').val(Data.prodNo);
+					$('#prodName').val(Data.prodName);
+					$('#prodDetail').val(Data.prodDetail);
+					$('#prodPrice').val(Data.prodPrice);
+					location.reload();
+			}
+		});
+		
 	}
 
 </script>
@@ -75,9 +105,7 @@
 	
 		<table class="table table-hover table-bordered caption-top">
 			<caption>상품목록</caption>
-			
-
-					
+	
 				<thead>
 					<tr class="table-info">
 						<th scope="col">상품번호</th>
@@ -106,11 +134,6 @@
 				</tbody>
 						
 		</table>
-		
-		<!-- 제출 : form에 담아서 보냄 -->
-		<!-- <div>
-			<input type="submit" value="수정" placeholder="test" name="submit" id="submit"></input>
-		</div> -->
 	</form>		
 	
 	<!-- Modal -->
@@ -125,24 +148,25 @@
 	      
 	      <div class="modal-body">
 	        <form>
-	          <div class="mb-3">
-	            <label for="recipient-name" class="col-form-label">상품명</label>
-	            <input type="text" value="" class="form-control" id="prodName">
-	          </div>
-	          	<div class="mb-3">
-					<label for="recipient-name" class="col-form-label">상품설명</label>
-					<input type="text" value="" class="form-control" id="prodDetail">
+				<div class="mb-3">
+					<label for="recipient-name" class="col-form-label">상품명</label>
+					<input type="text" class="form-control" id="prodName" name="prodName">
 				</div>
-	           <div class="mb-3">
-	            <label for="recipient-name" class="col-form-label">상품가격</label>
-	            <input type="text" value="" class="form-control" id="prodPrice">
-	          </div>
-	        </form>
+				<div class="mb-3">
+					<label for="recipient-name" class="col-form-label">상품설명</label> 
+					<input type="text" class="form-control" id="prodDetail"	name="prodDetail">
+				</div>
+				<div class="mb-3">
+					<label for="recipient-name" class="col-form-label">상품가격</label>
+					<input type="text" class="form-control" id="prodPrice" name="prodPrice">	
+				</div>
+					<input type="hidden" id="prodNo" name="prodNo">
+			</form>
 	      </div>
 	      
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-	        <button type="button" class="btn btn-primary">수정</button>
+	        <button type="button" value="${product.PROD_NO}" data-bs-dismiss="modal" class="btn btn-primary" onclick="updateProduct(${product.PROD_NO})">수정</button>
 	      </div>
 	    </div>
 	  </div>
