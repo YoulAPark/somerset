@@ -26,18 +26,5 @@ public class HomeController {
 	public String main() throws Exception {
 		return "main";
 	}	
-		
-	// 연습용(GET방식)
-	/*
-	 *  localhost:8080/get 실행시 STS콘솔창에 "enter"가 출력되며,
-	 *  웹페이지 상으로 "Hello Spring Boot"가 출력된다.
-	 */
-	@RequestMapping(value = "/get", method=RequestMethod.GET)
-	@ResponseBody
-	public String get(HttpServletRequest request) {
-		System.out.println("request : "+request);
-		System.out.println("STS 콘솔출력 : HomeController의 get()메서드 실행");
-		return "웹페이지 출력 : HomeController의 get()메서드 실행";
-	}
 	
 }

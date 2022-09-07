@@ -69,7 +69,7 @@
 	<form class="userBtn">	
 		<button type="button" id="login" class="btn btn-light" onclick="login">로그인</button>	
 		<button type="button" id="logout" class="btn btn-light" onclick="logout">로그아웃</button>
-		<button type="button" id="join" class="btn btn-light" onclick="join">가입</button>
+		<button type="button" id="join" class="btn btn-light" onclick="location.href='user/addUserPage'">가입</button>
 	</form>
 	
 <!-- 기능 버튼 function Button -->

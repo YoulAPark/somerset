@@ -6,4 +6,5 @@ public interface UserService {
 	
 	public User getUser(String id) throws Exception;
 
+	public User addUser(User user) throws Exception;
 }

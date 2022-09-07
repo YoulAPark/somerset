@@ -8,5 +8,7 @@ import com.ouneno.mybook.service.domain.User;
 public interface UserDao {
 	
 	public User getUser(String id);
+	
+	public User addUser(User user) throws Exception;
 
 }
