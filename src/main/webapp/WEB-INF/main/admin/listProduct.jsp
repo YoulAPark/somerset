@@ -42,10 +42,10 @@
 
 <script>
 	
-	function updateProduct(prodNo) {
-		
+	function getProductList(prodNo) {
+
 		$.ajax({
-					url : "/admin/updateProduct/"+prodNo ,
+					url : "/admin/getProductList/"+prodNo ,
 					method : "GET" ,
 					dataType : "json" ,
 					headers : {
@@ -53,7 +53,6 @@
 						"Content-Type" : "application/json"
 					},
 					success : function(JSONData, status) {
-						console.log(JSONData)
 						$('#prodName').val(JSONData.prodName);
 						$('#prodDetail').val(JSONData.prodDetail);
 						$('#prodPrice').val(JSONData.prodPrice);
@@ -76,6 +75,8 @@
 	
 		<table class="table table-hover table-bordered caption-top">
 			<caption>상품목록</caption>
+			
+
 					
 				<thead>
 					<tr class="table-info">
@@ -83,7 +84,6 @@
 						<th scope="col">상품명</th>
 						<th scope="col">상품설명</th>
 						<th scope="col">상품가격</th>
-						<th scope="col">Modal TEST</th>
 						<th scope="col">수정</th>
 						<th scope="col">삭제</th>
 						</th>
@@ -94,15 +94,12 @@
 		 		<tbody>
 					<c:forEach items="${product.product}" var="product">
 					<input type="hidden" name="test" value="${product.PROD_NO}"></input>
-						<tr>
+						<tr>						
 							<td name="prodNo">${product.PROD_NO}</td>
 							<td>${product.PROD_NAME}</td>
 							<td>${product.PROD_DETAIL}</td>
 							<td>${product.PROD_PRICE}</td>	
-							<td>
-								<button type="button" value="${product.PROD_NO}" name="22" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#updateProductModal" data-bs-whatever="수정">수정</button>
-							</td>						
-							<td><button type="button" value="${product.PROD_NO}" onclick="updateProduct(${product.PROD_NO})" class="btn btn-outline-dark btn-sm">수정</button></td>
+							<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-dark btn-sm" onclick="getProductList(${product.PROD_NO})" data-bs-toggle="modal" data-bs-target="#getProductList">수정</button></td>						
 							<td><button type="button" class="btn btn-outline-danger btn-sm">삭제</button></td>
 						</tr>
 					</c:forEach>
@@ -118,11 +115,11 @@
 	
 	<!-- Modal -->
 	
-	<div class="modal fade" id="updateProductModal" tabindex="-1" aria-labelledby="#updateProductModalLabel" aria-hidden="true">
+	<div class="modal fade" id="getProductList" tabindex="-1" aria-labelledby="#getProductListLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="updateProductModal">상품수정</h5>
+	        <h5 class="modal-title" id="getProductListModal">상품수정</h5>
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	      </div>
 	      

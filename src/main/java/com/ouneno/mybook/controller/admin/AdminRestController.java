@@ -62,27 +62,18 @@ public class AdminRestController {
 	*/
 //	
 
-	// Navigation
-	@RequestMapping(value = "updateProduct/{prodNo}")
-	public Product updateProduct(Product product, @PathVariable("prodNo") int prodNo) throws Exception {
-		System.out.println("prodNo***** : " + prodNo);
-		System.out.println("updateProduct Controller 진입완료");
+	// 상품조회
+	@RequestMapping(value = "getProductList/{prodNo}")
+	public Product getProductList(Product product, @PathVariable("prodNo") int prodNo) throws Exception {
 		return productService.getProductList(prodNo);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping(value="updateProduct/{prodNo}")
+	public String updateProduct(Model model, @PathVariable("prodNo") int prodNo) throws Exception {
+//		model.addAttribute(model)
+		productService.updateProduct(prodNo);
+		return "/admin/updateProduct";
+	}
 	
 	
 }

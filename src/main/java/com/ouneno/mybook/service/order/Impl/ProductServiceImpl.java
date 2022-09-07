@@ -44,4 +44,6 @@ public class ProductServiceImpl implements ProductService{
 		return productDao.getProductList(prodNo);
 	}
 	
+	public void updateProduct(int prodNo) throws Exception {
+	}
 }

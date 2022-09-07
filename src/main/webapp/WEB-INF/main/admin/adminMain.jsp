@@ -55,11 +55,13 @@
 			alert("listProduct");
 			self.location = "/admin/listProduct";
 		}
+
 </script>
 
 </head>
 
 <body>
+
 
 <!-- Navigation -->
 	<%@ include file ="../layouts/header.jsp" %>
@@ -70,7 +72,6 @@
 		<button type="button" id="addProductPage" class="btn btn-light" onclick="addProductPage">상품추가</button>
 		<button type="button" id="listProduct" class="btn btn-light" onclick="listProduct">상품관리</button>
 	</form>
-	
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	
