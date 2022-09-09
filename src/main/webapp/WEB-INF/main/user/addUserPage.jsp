@@ -44,6 +44,41 @@
 
 <!-- Contents -->
 
+<form class="inputprod col-5 mx-auto">	
+	
+		<label for="basic-url" class="form-label">회원가입</label>	
+		
+		<div class="input-group mb-3 col-6 mx-auto">
+		  <span class="input-group-text">아이디</span>
+		  <input type="text" name="userId" class="form-control" placeholder="아이디를 입력해주세요" value="${user.userId}">
+		</div>
+		
+		<div class="input-group mb-3 col-6 mx-auto">
+		  <span class="input-group-text">이름</span>
+		  <input type="text" name="userName" class="form-control" placeholder="비밀번호를 입력해주세요" value="${product.prodDetail}">
+		</div>
+		
+		<div class="input-group mb-3 col-6 mx-auto">
+		  <span class="input-group-text">이메일</span>
+		  <input type="text" name="userEmail" class="form-control" placeholder="비밀번호를 입력해주세요" value="${product.prodPrice}">
+		</div>
+			
+		<div class="input-group mb-3 col-6 mx-auto">
+		  <span class="input-group-text">모바일번호</span>
+		  <input type="text" name="userPhone" class="form-control" placeholder="비밀번호를 입력해주세요" value="${product.prodPrice}">
+		</div>		
+		<!-- 파일이미지 업로드시 필요. 차후 사용시 disabled 제거 -->
+		<div class="mb-3 ">
+		  <label for="formFile" class="form-label">파일 선택</label>
+		  <input class="form-control" type="file" id="formFile" disabled>
+		</div>
+				  
+		<div class="d-grid gap-2">
+			<button class="btn btn-dark" type="submit" id="submit">저장</button>
+		</div>
+		
+</form>	
+
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	
