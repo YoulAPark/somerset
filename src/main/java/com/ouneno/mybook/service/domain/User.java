@@ -9,12 +9,10 @@ import lombok.ToString;
 @ToString
 public class User {
 	
-	private int userId;
-	private String userFirstName;
-	private String userLastName;
+	private String userId;
+	private String userPwd;
+	private String userNickname;
 	private String userEmail;
 	private String userPhone;
-	private String userPwd;
-	private String userPwdCk;
 
 }

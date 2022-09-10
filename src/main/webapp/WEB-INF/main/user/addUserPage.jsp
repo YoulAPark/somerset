@@ -29,10 +29,70 @@
 <!-- CDN Script End -->	
 
 <!-- CSS style Start -->
+<style>
 
+	.ck_Font_css {
+		text-align : left;
+		height : 20px;
+		font-size : 12px;
+	}
+	
+</style>
 <!-- CSS style End -->
 
 <script>
+
+	$(function() {
+		
+		var userNickname = $("input[name='userNickname']").val();
+		var userId = $("input[name='userId']").val();
+		var userEmail = $("input[name='userEmail']").val();
+		// 2022-09-11 test - updateUserView 에서 type 검색
+		
+		// 1. Nickname
+		$("#inputNickname").keyup(function(e) {
+			
+			$.ajax({
+					url : "/user/json/findValidate/"
+				,	method : "POST" 
+				,	dataType : "JSON" 
+				,	contentType : "application/json"
+				,	data : JSON.stringify({
+							"userNickname" : userNickname
+				})
+				,	success : function(Data, status) {
+						console.log("success!");
+						/* $('#userNickname').val(Data.userNickname); */
+				}
+			}); 
+			
+		});
+		
+		// 2. Id
+		$("#inputId").keyup(function() {
+			console.log("userId : "+userId);
+		});
+		
+		// 3. Email
+		$("#inputEmail").keyup(function() {			
+			console.log("userEmail : "+userEmail);
+		});
+		
+	});
+	
+	$(function() {
+		$("#inputPwd").keyup(function() {
+						
+		});
+	});
+	
+	$(function() {
+		$("#inputPhone").keyup(function() {
+						
+		});
+	});
+			
+
 </script>
 
 </head>
@@ -48,31 +108,36 @@
 	
 		<label for="basic-url" class="form-label">회원가입</label>	
 		
-		<div class="input-group mb-3 col-6 mx-auto">
-		  <span class="input-group-text">아이디</span>
-		  <input type="text" name="userId" class="form-control" placeholder="아이디를 입력해주세요" value="${user.userId}">
+		<div class="form-floating">
+			<input type="text" class="form-control" name="userNickname" id="inputNickname" placeholder="Nickname" value="${user.userNickname}">
+			<label for="floatingNickname">닉네임</label>
 		</div>
-		
-		<div class="input-group mb-3 col-6 mx-auto">
-		  <span class="input-group-text">이름</span>
-		  <input type="text" name="userName" class="form-control" placeholder="비밀번호를 입력해주세요" value="${product.prodDetail}">
-		</div>
-		
-		<div class="input-group mb-3 col-6 mx-auto">
-		  <span class="input-group-text">이메일</span>
-		  <input type="text" name="userEmail" class="form-control" placeholder="비밀번호를 입력해주세요" value="${product.prodPrice}">
-		</div>
+		<div class="ck_Font_css" id="nicknameCk">확인</div>
 			
-		<div class="input-group mb-3 col-6 mx-auto">
-		  <span class="input-group-text">모바일번호</span>
-		  <input type="text" name="userPhone" class="form-control" placeholder="비밀번호를 입력해주세요" value="${product.prodPrice}">
-		</div>		
-		<!-- 파일이미지 업로드시 필요. 차후 사용시 disabled 제거 -->
-		<div class="mb-3 ">
-		  <label for="formFile" class="form-label">파일 선택</label>
-		  <input class="form-control" type="file" id="formFile" disabled>
+		<div class="form-floating">
+			<input type="text" class="form-control" name="userId" id="inputId" placeholder="Id" value="${user.userId}">
+			<label for="floatingId">아이디</label>
 		</div>
-				  
+		<div class="ck_Font_css" id="idCk">확인</div>
+		
+		<div class="form-floating">
+			<input type="password" class="form-control" name="userPwd" id="inputPwd" placeholder="Pwd" value="${user.userPwd}">
+			<label for="floatingPwd">비밀번호</label>
+		</div>
+		<div class="ck_Font_css" id="pwdCk">확인</div>
+		
+		<div class="form-floating">
+			<input type="email" class="form-control" name="userEmail" id="inputEmail" placeholder="Email" value="${user.userEmail}">
+			<label for="floatingEmail">이메일</label>
+		</div>
+		<div class="ck_Font_css" id="emailCk">확인</div>
+		
+		<div class="form-floating">
+			<input type="email" class="form-control" name="userPhone" id="inputPhone" placeholder="Phone" value="${user.userPhone}">
+			<label for="floatingPhone">모바일번호</label>
+		</div>
+		<div class="ck_Font_css" id="phoneCk">확인</div>
+ 
 		<div class="d-grid gap-2">
 			<button class="btn btn-dark" type="submit" id="submit">저장</button>
 		</div>

@@ -4,21 +4,24 @@
 <mapper namespace = "com.ouneno.mybook.service.user.UserDao">
 
 	<resultMap id="userMapper" type="user">
-		<result property="userId" 			column="USER_ID" 			jdbcType="NUMERIC"/>
-		<result property="userFrsNm" 		column="USER_FRS_NM" 		jdbcType="VARCHAR"/>
-		<result property="userLasNm" 		column="USER_LAS_NM" 		jdbcType="VARCHAR"/>
-		<result property="userEmail" 		column="USER_EMAIL" 		jdbcType="VARCHAR"/> 
-		<result property="userPhone" 		column="USER_PHONE" 		jdbcType="VARCHAR"/> 
-		<result property="userPwd"			column="USER_PWD" 			jdbcType="VARCHAR"/>		
+		<result property="userId" 			column="USER_ID" 		jdbcType="VARCHAR"/>
+		<result property="userPwd" 			column="USER_PWD" 		jdbcType="VARCHAR"/>
+		<result property="userNickname" 	column="USER_NICKNAME" 	jdbcType="VARCHAR"/>
+		<result property="userEmail" 		column="USER_EMAIL" 	jdbcType="VARCHAR"/> 
+		<result property="userPhone" 		column="USER_PHONE" 	jdbcType="VARCHAR"/> 			
 	</resultMap>
 	
 	<!-- 회원가입 -->
 	<select id="addUser"		parameterType="User">	
 		INSERT INTO
-			user ( USER_ID, USER_FRS_NM, USER_LAS_NM, USER_EMAIL, USER_PHONE, USER_PWD )
+			user 	( USER_ID, USER_PWD, USER_NICKNAME, USER_EMAIL, USER_PHONE )
 		VALUES
-					( #{userId}, #{userFrsNm}, #{userLasNm}, #{userEmail}, #{userPhone}, #{userPwd} )
+					( #{userId}, #{userPwd}, #{userNickname}, #{userEmail}, #{userPhone} )
 	</select>
+	
+	<!-- <select id="findValidate"	parameterType="User">
+		
+	</select> -->
 	
 	<!-- 게시판 목록 조회 -->
 	<!-- <select id="getProduct"		parameterType="product"  resultType="hashMap">	

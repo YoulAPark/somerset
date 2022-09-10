@@ -22,4 +22,24 @@ public class UserServiceImpl implements UserService{
 		return userDao.addUser(user);
 	}
 	
+	public User findValidate (User user) throws Exception {
+		
+		/*
+		 *  1. userNickname
+		 *  2. userId
+		 *  3. userEmail
+		 */
+		int type;
+		
+		if(user.getUserNickname()!=null) {
+			type = 1;
+		} else if (user.getUserId()!=null) {
+			type = 2;
+		} else if (user.getUserEmail()!=null) {
+			type = 3;
+		}
+		
+		return user;
+	}
+	
 }
