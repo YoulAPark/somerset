@@ -7,20 +7,17 @@
 		<result property="userId" 			column="USER_ID" 			jdbcType="NUMERIC"/>
 		<result property="userFrsNm" 		column="USER_FRS_NM" 		jdbcType="VARCHAR"/>
 		<result property="userLasNm" 		column="USER_LAS_NM" 		jdbcType="VARCHAR"/>
-		<result property="userEmail" 		column="USER_EMAIL" 		jdbcType="VARCHAR" /> 
-		<result property="userPhone" 		column="USER_PHONE" 		jdbcType="VARCHAR" /> 
-		<result property="userPwd"			column="USER_PWD" 			jdbcType="VARCHAR" />
-		<result property="userPwdCk"		column="USER_PWD_CK" 		jdbcType="VARCHAR" />
-		
-		
+		<result property="userEmail" 		column="USER_EMAIL" 		jdbcType="VARCHAR"/> 
+		<result property="userPhone" 		column="USER_PHONE" 		jdbcType="VARCHAR"/> 
+		<result property="userPwd"			column="USER_PWD" 			jdbcType="VARCHAR"/>		
 	</resultMap>
 	
 	<!-- 회원가입 -->
 	<select id="addUser"		parameterType="User">	
 		INSERT INTO
-			user ( USER_ID, USER_NAME, USER_EMAIL, USER_PHONE )
+			user ( USER_ID, USER_FRS_NM, USER_LAS_NM, USER_EMAIL, USER_PHONE, USER_PWD )
 		VALUES
-					( #{userId}, #{userName}, #{userEmail}, #{userPhone} )
+					( #{userId}, #{userFrsNm}, #{userLasNm}, #{userEmail}, #{userPhone}, #{userPwd} )
 	</select>
 	
 	<!-- 게시판 목록 조회 -->
