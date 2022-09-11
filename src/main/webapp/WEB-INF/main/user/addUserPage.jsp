@@ -42,9 +42,111 @@
 
 <script>
 
-	$(function() {
+	function validate(type) {
+		
+		if(type==1){	
+			$("#inputNickname").keyup(function(){
+				var userNickname = $("input[name='userNickname']").val();				
+					$.ajax({
+						url : "/user/json/findValidate/"+type
+						,	method : "POST" 
+						,	dataType : "JSON" 
+						,	contentType : "application/json"
+						,	data : JSON.stringify({
+									"userNickname" : userNickname
+						})
+						,	success : function(data) {
+								if(data == true) {
+									console.log("dd")
+									console.log(data)
+									$("#nicknameCk").text("사용중");
+								} else if (data == false ) {
+									console.log(" nnnd")
+									console.log(data)
+									$("#nicknameCk").text("사용가능");
+								}
+							}
+					});
+			});
+			
+		} else if(type==2) {	
+			$("#inputId").keyup(function() {
+				var userId = $("input[name='userId']").val();
+					$.ajax({
+						url : "/user/json/findValidate/"+type
+						,	method : "POST" 
+						,	dataType : "JSON" 
+						,	contentType : "application/json"
+						,	data : JSON.stringify({
+									"userId" : userId
+						})
+						,	success : function(Data, status) {
+								console.log("success!");
+							}
+					});
+			});
+		
+		} else if(type==3) {
+			$("#inputEmail").keyup(function() {
+				var userEmail = $("input[name='userEmail']").val();				
+					$.ajax({
+						url : "/user/json/findValidate/"+type
+						,	method : "POST" 
+						,	dataType : "JSON" 
+						,	contentType : "application/json"
+						,	data : JSON.stringify({
+									"userEmail" : userEmail
+						})
+						,	success : function(Data, status) {
+								console.log("success!");
+							}
+					});
+			});
+		}
+	}
+
+	/* function validate(type) {
 		
 		var userNickname = $("input[name='userNickname']").val();
+		console.log("확인 : "+userNickname);
+		
+		var userId = $("input[name='userId']").val();
+		
+		if (type==1) {
+			
+			$("#inputNickname").keyup(function() {
+				console.log("userNickname : "+userNickname);
+				$.ajax({
+						url : "/user/json/findValidate/"+type
+					,	method : "POST" 
+					,	dataType : "JSON" 
+					,	contentType : "application/json"
+					,	data : JSON.stringify({
+								"userNickname" : userNickname
+					})
+					,	success : function(Data, status) {
+							console.log("success!");
+							
+					}
+				}); 
+				
+			});
+			
+			
+		} else if (type==2) {
+			
+			console.log("2 : userId");
+			console.log("확인 : "+userNickname);
+			
+		} else if (type==3) {
+				
+			console.log("3 : userEmail");
+			
+		}
+	}; */
+		
+		
+		/* var userNickname = $("input[name='userNickname']").val();
 		var userId = $("input[name='userId']").val();
 		var userEmail = $("input[name='userEmail']").val();
 		// 2022-09-11 test - updateUserView 에서 type 검색
@@ -62,7 +164,7 @@
 				})
 				,	success : function(Data, status) {
 						console.log("success!");
-						/* $('#userNickname').val(Data.userNickname); */
+						/* $('#userNickname').val(Data.userNickname);
 				}
 			}); 
 			
@@ -76,9 +178,9 @@
 		// 3. Email
 		$("#inputEmail").keyup(function() {			
 			console.log("userEmail : "+userEmail);
-		});
+		}); */
 		
-	});
+	//});
 	
 	$(function() {
 		$("#inputPwd").keyup(function() {
@@ -109,13 +211,13 @@
 		<label for="basic-url" class="form-label">회원가입</label>	
 		
 		<div class="form-floating">
-			<input type="text" class="form-control" name="userNickname" id="inputNickname" placeholder="Nickname" value="${user.userNickname}">
+			<input type="text" class="form-control" name="userNickname" id="inputNickname" onclick="validate(1)" placeholder="Nickname" value="${user.userNickname}">
 			<label for="floatingNickname">닉네임</label>
 		</div>
-		<div class="ck_Font_css" id="nicknameCk">확인</div>
+		<div class="ck_Font_css" id="nicknameCk"></div>
 			
 		<div class="form-floating">
-			<input type="text" class="form-control" name="userId" id="inputId" placeholder="Id" value="${user.userId}">
+			<input type="text" class="form-control" name="userId" id="inputId" onclick="validate(2)" placeholder="Id" value="${user.userId}">
 			<label for="floatingId">아이디</label>
 		</div>
 		<div class="ck_Font_css" id="idCk">확인</div>
@@ -127,7 +229,7 @@
 		<div class="ck_Font_css" id="pwdCk">확인</div>
 		
 		<div class="form-floating">
-			<input type="email" class="form-control" name="userEmail" id="inputEmail" placeholder="Email" value="${user.userEmail}">
+			<input type="email" class="form-control" name="userEmail" id="inputEmail" onclick="validate(3)" placeholder="Email" value="${user.userEmail}">
 			<label for="floatingEmail">이메일</label>
 		</div>
 		<div class="ck_Font_css" id="emailCk">확인</div>

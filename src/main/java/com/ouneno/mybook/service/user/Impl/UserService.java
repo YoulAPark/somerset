@@ -8,5 +8,5 @@ public interface UserService {
 
 	public User addUser(User user) throws Exception;
 	
-	public User findValidate (User user) throws Exception;
+	public User findValidate (User user, int type) throws Exception;
 }

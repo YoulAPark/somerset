@@ -19,9 +19,19 @@
 					( #{userId}, #{userPwd}, #{userNickname}, #{userEmail}, #{userPhone} )
 	</select>
 	
-	<!-- <select id="findValidate"	parameterType="User">
-		
-	</select> -->
+	<select id="findValidate"	parameterType="User" resultMap="userMapper">
+		SELECT 
+			<if test="type==1">
+				USER_NICKNAME = #{user.userNickname}
+			</if>
+			<if test="type==2">
+				USER_ID = #{user.userId}
+			</if>
+			<if test="type==3">
+				USER_EMAIL	#{user.userEmail}
+			</if>
+		FROM user
+	</select>
 	
 	<!-- 게시판 목록 조회 -->
 	<!-- <select id="getProduct"		parameterType="product"  resultType="hashMap">	

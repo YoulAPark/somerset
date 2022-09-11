@@ -22,12 +22,10 @@ public class UserRestController {
 		return null;	
 	}
 	
-	@PostMapping("/json/findValidate")
-	public boolean findValidate (@RequestBody User user) throws Exception{
-		System.out.println("* UserRestController");
-		System.out.println("Nickname 확인하기 ***** : "+user.getUserNickname());
-		userService.findValidate(user);
-		return true;
+	@PostMapping("/json/findValidate/{type}")
+	public String findValidate (@RequestBody User user, @PathVariable int type) throws Exception{
+		userService.findValidate(user, type);
+		return "user/addUserPage";
 	}
 	
 }
