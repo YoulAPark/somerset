@@ -42,6 +42,35 @@
 
 <script>
 
+	function addUser() {
+		
+		var userNickname = $("input[name='userNickname']").val();
+		var userId = $("input[name='userId']").val();
+		var userPwd = $("input[name='userPwd']").val();
+		var userEmail = $("input[name='userEmail']").val();
+		var userPhone = $("input[name='userPhone']").val();
+		
+		$.ajax({
+			url : "/user/json/addUser/"
+			,	method : "POST" 
+			,	dataType : "JSON" 
+			,	contentType : "application/json"
+			,	data : JSON.stringify({
+						"userNickname" : userNickname
+					,	"userId" : userId
+					,	"userPwd" : userPwd
+					,	"userEmail" : userEmail
+					,	"userPhone" : userPhone
+			})
+			,	success : function() {
+					location.href("/");
+				}, error : function() {
+					console.log("실패")
+				}
+		});
+		
+	}
+
 	function validate(type) {
 		
 		if(type==1){	
@@ -209,13 +238,13 @@
 		<div class="ck_Font_css" id="emailCk"></div>
 		
 		<div class="form-floating">
-			<input type="email" class="form-control" name="userPhone" id="inputPhone" placeholder="Phone" value="${user.userPhone}">
+			<input type="text" class="form-control" name="userPhone" id="inputPhone" placeholder="Phone" value="${user.userPhone}">
 			<label for="floatingPhone">모바일번호</label>
 		</div>
 		<div class="ck_Font_css" id="phoneCk"></div>
  
 		<div class="d-grid gap-2">
-			<button class="btn btn-dark" type="submit" id="submitBtn">저장</button>
+			<button class="btn btn-dark" type="submit" id="submitBtn" onclick="addUser()">저장</button>
 		</div>
 		
 </form>	

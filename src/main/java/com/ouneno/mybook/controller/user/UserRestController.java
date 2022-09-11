@@ -17,15 +17,16 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/addUser")
-	public User addUser(User user) throws Exception {
-		return null;	
-	}
-	
 	@PostMapping("/json/findValidate/{type}")
 	public int findValidate (@RequestBody User user, @PathVariable int type) throws Exception{
+		System.out.println("***** : "+user.getUserNickname());
 		userService.findValidate(user, type);
 		return userService.findValidate(user, type);
+	}
+	
+	@PostMapping("/json/addUser/")
+	public void addUser(@RequestBody User user) throws Exception{
+		userService.addUser(user);
 	}
 	
 }
