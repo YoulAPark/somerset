@@ -12,6 +12,6 @@ public interface UserDao {
 	
 	public User addUser(User user) throws Exception;
 	
-	public User findValidate (@Param(value="user") User user, @Param(value = "type") int type) throws Exception;
+	public int findValidate (@Param(value="user") User user, @Param(value = "type") int type) throws Exception;
 
 }

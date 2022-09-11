@@ -19,8 +19,10 @@
 					( #{userId}, #{userPwd}, #{userNickname}, #{userEmail}, #{userPhone} )
 	</select>
 	
-	<select id="findValidate"	parameterType="User" resultMap="userMapper">
-		SELECT 
+	<select id="findValidate"	parameterType="User" resultType="int">
+		SELECT count(*)	
+		FROM user
+		WHERE
 			<if test="type==1">
 				USER_NICKNAME = #{user.userNickname}
 			</if>
@@ -28,9 +30,8 @@
 				USER_ID = #{user.userId}
 			</if>
 			<if test="type==3">
-				USER_EMAIL	#{user.userEmail}
+				USER_EMAIL = #{user.userEmail}
 			</if>
-		FROM user
 	</select>
 	
 	<!-- 게시판 목록 조회 -->

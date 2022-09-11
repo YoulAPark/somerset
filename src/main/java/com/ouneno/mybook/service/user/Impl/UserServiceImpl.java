@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
 		return userDao.addUser(user);
 	}
 	
-	public User findValidate (User user, int type) throws Exception {
+	public int findValidate (User user, int type) throws Exception {
 		return userDao.findValidate(user, type);
 	}
 	

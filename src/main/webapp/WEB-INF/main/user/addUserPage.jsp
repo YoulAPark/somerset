@@ -46,7 +46,7 @@
 		
 		if(type==1){	
 			$("#inputNickname").keyup(function(){
-				var userNickname = $("input[name='userNickname']").val();				
+				var userNickname = $("input[name='userNickname']").val();
 					$.ajax({
 						url : "/user/json/findValidate/"+type
 						,	method : "POST" 
@@ -56,15 +56,16 @@
 									"userNickname" : userNickname
 						})
 						,	success : function(data) {
-								if(data == true) {
-									console.log("dd")
-									console.log(data)
-									$("#nicknameCk").text("사용중");
-								} else if (data == false ) {
-									console.log(" nnnd")
-									console.log(data)
-									$("#nicknameCk").text("사용가능");
+								if(data == 1) {
+									$("#nicknameCk").text("해당 닉네임은 이미 사용중입니다.");
+									$("#nicknameCk").css("color", "red");
+									return;
+								} else if (data == 0 ) {
+									$("#nicknameCk").text("사용가능한 닉네임입니다.");
+									$("#nicknameCk").css("color", "black");
+									return;
 								}
+							}, error : function() {
 							}
 					});
 			});
@@ -72,18 +73,25 @@
 		} else if(type==2) {	
 			$("#inputId").keyup(function() {
 				var userId = $("input[name='userId']").val();
-					$.ajax({
-						url : "/user/json/findValidate/"+type
-						,	method : "POST" 
-						,	dataType : "JSON" 
-						,	contentType : "application/json"
-						,	data : JSON.stringify({
-									"userId" : userId
-						})
-						,	success : function(Data, status) {
-								console.log("success!");
+				$.ajax({
+					url : "/user/json/findValidate/"+type
+					,	method : "POST" 
+					,	dataType : "JSON" 
+					,	contentType : "application/json"
+					,	data : JSON.stringify({
+								"userId" : userId
+					})
+					,	success : function(data) {
+							if(data == 1) {
+								$("#idCk").text("해당 아이디는 이미 사용중입니다.");
+								$("#idCk").css("color", "red");
+							} else if (data == 0 ) {
+								$("#idCk").text("사용가능한 아이디입니다.");
+								$("#idCk").css("color", "black");
 							}
-					});
+						}, error : function() {
+						}
+				});
 			});
 		
 		} else if(type==3) {
@@ -97,100 +105,60 @@
 						,	data : JSON.stringify({
 									"userEmail" : userEmail
 						})
-						,	success : function(Data, status) {
-								console.log("success!");
+						,	success : function(data) {
+								if(data == 1) {
+									$("#emailCk").text("해당 이메일은 이미 사용중입니다.");
+									$("#emailCk").css("color", "red");
+								} else if (data == 0 ) {
+									$("#emailCk").text("사용가능한 이메일입니다.");
+									$("#emailCk").css("color", "black");
+								}
+							}, error : function() {
 							}
 					});
 			});
 		}
 	}
 
-	/* function validate(type) {
-		
-		var userNickname = $("input[name='userNickname']").val();
-		console.log("확인 : "+userNickname);
-		
-		var userId = $("input[name='userId']").val();
-		
-		if (type==1) {
-			
-			$("#inputNickname").keyup(function() {
-				console.log("userNickname : "+userNickname);
-				$.ajax({
-						url : "/user/json/findValidate/"+type
-					,	method : "POST" 
-					,	dataType : "JSON" 
-					,	contentType : "application/json"
-					,	data : JSON.stringify({
-								"userNickname" : userNickname
-					})
-					,	success : function(Data, status) {
-							console.log("success!");
-							
-					}
-				}); 
-				
-			});
-			
-			
-		} else if (type==2) {
-			
-			console.log("2 : userId");
-			console.log("확인 : "+userNickname);
-			
-		} else if (type==3) {
-				
-			console.log("3 : userEmail");
-			
-		}
-	}; */
-		
-		
-		/* var userNickname = $("input[name='userNickname']").val();
-		var userId = $("input[name='userId']").val();
-		var userEmail = $("input[name='userEmail']").val();
-		// 2022-09-11 test - updateUserView 에서 type 검색
-		
-		// 1. Nickname
-		$("#inputNickname").keyup(function(e) {
-			
-			$.ajax({
-					url : "/user/json/findValidate/"
-				,	method : "POST" 
-				,	dataType : "JSON" 
-				,	contentType : "application/json"
-				,	data : JSON.stringify({
-							"userNickname" : userNickname
-				})
-				,	success : function(Data, status) {
-						console.log("success!");
-						/* $('#userNickname').val(Data.userNickname);
-				}
-			}); 
-			
-		});
-		
-		// 2. Id
-		$("#inputId").keyup(function() {
-			console.log("userId : "+userId);
-		});
-		
-		// 3. Email
-		$("#inputEmail").keyup(function() {			
-			console.log("userEmail : "+userEmail);
-		}); */
-		
-	//});
-	
 	$(function() {
 		$("#inputPwd").keyup(function() {
-						
+			var regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+			var userPwd = regex.exec($("input[name='userPwd']").val());
+			if (userPwd != null) {
+				$('#pwdCk').text("");
+				return;
+			} else {
+				$('#pwdCk').text("8자 이상, 숫자와 특수문자 포함을 권장합니다");
+                $('#pwdCk').css("color","red");
+                return;
+			}
+		});
+	});
+	
+	$(function() {
+		$("#inputPwdCf").keyup(function() {
+			var userPwd = $("input[name='userPwd']").val();
+			var userPwdCf = $("input[name='userPwdCf']").val();
+			if (userPwd == userPwdCf) {
+				$('#pwdCf').text('');
+				return;
+			} else {
+				$('#pwdCf').text('비밀번호가 일치하지 않습니다.');
+				return;
+			}
 		});
 	});
 	
 	$(function() {
 		$("#inputPhone").keyup(function() {
-						
+			var regex = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;		
+			var userPhone = regex.exec($("input[name='userPhone']").val());
+			if (userPhone != null) {
+				$('#phoneCk').text("");
+			} else {
+				$('#phoneCk').text("'-'없이 숫자만 입력 가능합니다");
+                $('#phoneCk').css("color","red");
+			}
 		});
 	});
 			
@@ -220,28 +188,34 @@
 			<input type="text" class="form-control" name="userId" id="inputId" onclick="validate(2)" placeholder="Id" value="${user.userId}">
 			<label for="floatingId">아이디</label>
 		</div>
-		<div class="ck_Font_css" id="idCk">확인</div>
+		<div class="ck_Font_css" id="idCk"></div>
 		
 		<div class="form-floating">
 			<input type="password" class="form-control" name="userPwd" id="inputPwd" placeholder="Pwd" value="${user.userPwd}">
 			<label for="floatingPwd">비밀번호</label>
 		</div>
-		<div class="ck_Font_css" id="pwdCk">확인</div>
+		<div class="ck_Font_css" id="pwdCk"></div>
+		
+		<div class="form-floating">
+			<input type="password" class="form-control" name="userPwdCf" id="inputPwdCf" placeholder="PwdCf">
+			<label for="floatingPwd">비밀번호확인</label>
+		</div>
+		<div class="ck_Font_css" id="pwdCf"></div>
 		
 		<div class="form-floating">
 			<input type="email" class="form-control" name="userEmail" id="inputEmail" onclick="validate(3)" placeholder="Email" value="${user.userEmail}">
 			<label for="floatingEmail">이메일</label>
 		</div>
-		<div class="ck_Font_css" id="emailCk">확인</div>
+		<div class="ck_Font_css" id="emailCk"></div>
 		
 		<div class="form-floating">
 			<input type="email" class="form-control" name="userPhone" id="inputPhone" placeholder="Phone" value="${user.userPhone}">
 			<label for="floatingPhone">모바일번호</label>
 		</div>
-		<div class="ck_Font_css" id="phoneCk">확인</div>
+		<div class="ck_Font_css" id="phoneCk"></div>
  
 		<div class="d-grid gap-2">
-			<button class="btn btn-dark" type="submit" id="submit">저장</button>
+			<button class="btn btn-dark" type="submit" id="submitBtn">저장</button>
 		</div>
 		
 </form>	

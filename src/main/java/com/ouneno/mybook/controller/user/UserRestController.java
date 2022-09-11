@@ -23,9 +23,9 @@ public class UserRestController {
 	}
 	
 	@PostMapping("/json/findValidate/{type}")
-	public String findValidate (@RequestBody User user, @PathVariable int type) throws Exception{
+	public int findValidate (@RequestBody User user, @PathVariable int type) throws Exception{
 		userService.findValidate(user, type);
-		return "user/addUserPage";
+		return userService.findValidate(user, type);
 	}
 	
 }
