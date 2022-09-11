@@ -54,6 +54,11 @@
 	function admin(){
 		self.location = "/admin/adminMain";
 	}
+	
+	function userLogin() {
+		console.log("?");
+		self.location = "/user/loginView";
+	}
 
 </script>
 
@@ -67,7 +72,7 @@
 <!-- Start Contents -->
 <!-- 회원 버튼 user Button -->
 	<form class="userBtn">	
-		<button type="button" id="login" class="btn btn-light" onclick="login">로그인</button>	
+		<button type="button" id="login" class="btn btn-light" onclick="userLogin()">로그인</button>	
 		<button type="button" id="logout" class="btn btn-light" onclick="logout">로그아웃</button>
 		<button type="button" id="join" class="btn btn-light" onclick="location.href='user/addUserPage'">가입</button>
 	</form>

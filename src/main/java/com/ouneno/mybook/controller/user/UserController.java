@@ -15,5 +15,10 @@ public class UserController {
 	public String addUserPage() throws Exception {
 		return "user/addUserPage";
 	}
+	
+	@RequestMapping("/loginView")
+	public String loginView() throws Exception {
+		return "user/loginView";
+	}
 
 }
