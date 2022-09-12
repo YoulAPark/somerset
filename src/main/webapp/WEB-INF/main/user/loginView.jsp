@@ -39,6 +39,32 @@
 
 <script>
 
+	function login() {
+		
+		var inputId = $("input[name='inputId']").val();
+		var inputPwd = $("input[name='inputPwd']").val();
+		
+		if ( !inputId ) {
+			console.log("아이디 비어있음")
+			$("input[name='inputId']").focus();
+		} else {
+			console.log("아이디 값이 있음")
+			$("input[name='inputPwd']").focus();
+			
+			if ( !inputPwd ) {
+				console.log("비밀번호 비어있음")
+				$("input[name='inputPwd']").focus();
+			} else {
+				console.log("비밀번호 값이 있음")
+				$("#loginBtn").fc
+			}
+			
+		}
+		
+		
+
+	}
+
 </script>
 
 </head>
@@ -53,12 +79,12 @@
 		
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="input_Font_css form-label">아이디</label>
-			<input type="text" class="form-control" id="inputId" placeholder="아이디를 입력해 주세요.">
+			<input type="text" class="form-control" name="inputId" id="inputId" placeholder="아이디를 입력해 주세요.">
 		</div>
 		
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="input_Font_css form-label">비밀번호</label>
-			<input type="password" class="form-control" id="inputPwd" placeholder="비밀번호를 입력해 주세요.">
+			<input type="password" class="form-control" name="inputPwd" id="inputPwd" placeholder="비밀번호를 입력해 주세요.">
 		</div>
 		
 		<div class="form-check">
@@ -70,7 +96,7 @@
 		</div>
 		
 		<div class="d-grid gap-2">
-			<button class="btn btn-outline-secondary" type="button">로그인</button>
+			<button class="btn btn-outline-secondary" type="button" id="loginBtn" onclick="login()">로그인</button>
 		</div>
 		
 	</form>
