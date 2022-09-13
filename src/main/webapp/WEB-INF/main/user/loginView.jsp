@@ -39,27 +39,50 @@
 
 <script>
 
+ 	$(function() {
+		$("#inputId").keypress(function() {
+			$("#loginBtn").prop('disabled', false);
+		})
+		$("#inputPwd").keypress(function() {
+			$("#loginBtn").prop('disabled', false);
+		})
+	})
+ 
 	function login() {
+			
+		var userId = $("input[name='inputId']").val();
+		var userPwd = $("input[name='inputPwd']").val();
 		
-		var inputId = $("input[name='inputId']").val();
-		var inputPwd = $("input[name='inputPwd']").val();
-		
-		if ( !inputId ) {
-			console.log("아이디 비어있음")
+/* 		if ( !userId ) {
+			swal("아이디를 입력해주세요")
+			$("#loginBtn").attr("disabled", true);
 			$("input[name='inputId']").focus();
 		} else {
-			console.log("아이디 값이 있음")
-			$("input[name='inputPwd']").focus();
-			
-			if ( !inputPwd ) {
-				console.log("비밀번호 비어있음")
+			if ( !userPwd ) {
+				swal("비밀번호를 입력해주세요")
+				$("#loginBtn").attr('disabled', true);
 				$("input[name='inputPwd']").focus();
 			} else {
-				console.log("비밀번호 값이 있음")
-				$("#loginBtn").fc
+				$("#loginBtn").focus();
 			}
-			
-		}
+		} */
+		
+		$.ajax({
+				url : "/user/json/login/"
+			,	method : "POST" 
+			,	dataType : "JSON" 
+			,	contentType : "application/json"
+			,	data : JSON.stringify({
+						"userId" : userId
+					,	"userPwd" : userPwd
+			})
+			,	success : function() {
+					swal("성공")
+					location.href = "/"
+			}, error : function() {
+				swal("실패")
+			}
+		});
 		
 		
 
@@ -96,7 +119,7 @@
 		</div>
 		
 		<div class="d-grid gap-2">
-			<button class="btn btn-outline-secondary" type="button" id="loginBtn" onclick="login()">로그인</button>
+			<button class="btn btn-outline-secondary" type="button" id="loginBtn" onclick="login()" disabled>로그인</button>
 		</div>
 		
 	</form>

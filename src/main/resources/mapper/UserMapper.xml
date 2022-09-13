@@ -19,6 +19,15 @@
 					( #{userId}, #{userPwd}, #{userNickname}, #{userEmail}, #{userPhone} )
 	</select>
 	
+	<select id="login"	parameterType="User"	resultMap="userMapper">
+		SELECT
+			USER_ID, USER_PWD
+		FROM user
+		WHERE
+			USER_ID = #{userId}
+	</select>
+	
+	<!-- 유효성검사 -->
 	<select id="findValidate"	parameterType="User" resultType="int">
 		SELECT count(*)	
 		FROM user

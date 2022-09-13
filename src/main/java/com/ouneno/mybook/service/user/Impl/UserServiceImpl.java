@@ -1,5 +1,7 @@
 package com.ouneno.mybook.service.user.Impl;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +20,16 @@ public class UserServiceImpl implements UserService{
 		return userDao.getUser(userId);
 	}
 	
+	// [완료] 회원가입
 	public User addUser(User user) throws Exception {
 		return userDao.addUser(user);
 	}
 	
+	public User login(User user) throws Exception {
+		return userDao.login(user);		
+	}
+	
+	// [완료] Ajax 유효성검사
 	public int findValidate (User user, int type) throws Exception {
 		return userDao.findValidate(user, type);
 	}
