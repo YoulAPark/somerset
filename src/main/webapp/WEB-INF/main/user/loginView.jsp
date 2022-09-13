@@ -76,8 +76,9 @@
 						"userId" : userId
 					,	"userPwd" : userPwd
 			})
-			,	success : function() {
+			,	success : function(data) {
 					swal("성공")
+					alert(data)
 					location.href = "/"
 			}, error : function() {
 				swal("실패")

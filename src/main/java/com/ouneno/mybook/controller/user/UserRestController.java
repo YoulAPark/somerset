@@ -33,8 +33,8 @@ public class UserRestController {
 	}
 	
 	@PostMapping("/json/login")
-	public String login(@RequestBody User user, HttpSession session) throws Exception{
-				
+	public Boolean login(@RequestBody User user, HttpSession session) throws Exception{
+				System.out.println("user"+ user);
 				// DB에 들어있는 값
 				User userDB = userService.login(user);
 				String dbId = userDB.getUserId();
@@ -47,9 +47,9 @@ public class UserRestController {
 				if (dbId.equals(inputId) && dbPwd.equals(inputPwd)) {
 					System.out.println("일치함");
 					session.setAttribute("userDB", userDB);
-					return "redirect:/";
+					return true;
 				} else {
-					return "user/loginView";
+					return false;
 				}
 	}
 	
