@@ -40,18 +40,55 @@
 <script>
 
  	$(function() {
- 		$("#loginBtn").on("click", function() {
- 			login();
- 		})
- 	})
- 	
- 	function login() {
- 		
- 		var userId = $("input[name='userId']").val();
- 		var userPwd = $("input[name='userPwd']").val();
- 		
- 		$("form").attr("method", "POST").attr("action" , "/user/getUser").submit();
- 	}
+		$("#inputId").keypress(function() {
+			$("#loginBtn").prop('disabled', false);
+		})
+		$("#inputPwd").keypress(function() {
+			$("#loginBtn").prop('disabled', false);
+		})
+	})
+ 
+	function login() {
+
+		var userId = $("input[name='inputId']").val();
+		var userPwd = $("input[name='inputPwd']").val();
+
+		$('#inputId').attr("method", "POST").attr("action" , "/user/getUser").submit();
+
+		/* 		if ( !userId ) {
+			swal("아이디를 입력해주세요")
+			$("#loginBtn").attr("disabled", true);
+			$("input[name='inputId']").focus();
+		} else {
+			if ( !userPwd ) {
+				swal("비밀번호를 입력해주세요")
+				$("#loginBtn").attr('disabled', true);
+				$("input[name='inputPwd']").focus();
+			} else {
+				$("#loginBtn").focus();
+			}
+		} */
+		
+		/* $.ajax({
+				url : "/user/json/login/"
+			,	method : "POST" 
+			,	dataType : "JSON" 
+			,	contentType : "application/json"
+			,	data : JSON.stringify({
+						"userId" : userId
+					,	"userPwd" : userPwd
+			})
+			,	success : function(data) {
+					swal("성공")
+					location.href = "/"
+			}, error : function() {
+				swal("실패")
+			}
+		}); */
+		
+		
+
+	}
 
 </script>
 
@@ -67,12 +104,12 @@
 		
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="input_Font_css form-label">아이디</label>
-			<input type="text" class="form-control" name="userId" id="userId" placeholder="아이디를 입력해 주세요.">
+			<input type="text" class="form-control" name="inputId" id="inputId" placeholder="아이디를 입력해 주세요.">
 		</div>
 		
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="input_Font_css form-label">비밀번호</label>
-			<input type="password" class="form-control" name="userPwd" id="userPwd" placeholder="비밀번호를 입력해 주세요.">
+			<input type="password" class="form-control" name="inputPwd" id="inputPwd" placeholder="비밀번호를 입력해 주세요.">
 		</div>
 		
 		<div class="form-check">
@@ -84,7 +121,7 @@
 		</div>
 		
 		<div class="d-grid gap-2">
-			<button class="btn btn-outline-secondary" type="button" id="loginBtn">로그인</button>
+			<button class="btn btn-outline-secondary" type="button" id="loginBtn" onclick="login()">로그인</button>
 		</div>
 		
 	</form>

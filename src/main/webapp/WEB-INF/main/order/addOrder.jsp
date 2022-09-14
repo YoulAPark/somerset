@@ -81,9 +81,7 @@
 	</form>
 	
 	<div class="product">
-		<input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-							id="prodName" name="prodName" type="text" required=""
-							value="${product.prodName}" readonly aria-label="prodName">
+		<input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="prodName" name="prodName" type="text" value="${product.prodName}" readonly aria-label="prodName">
 	</div>
 	
 	<form class="orderBtn">

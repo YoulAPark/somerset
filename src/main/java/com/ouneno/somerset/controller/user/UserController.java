@@ -12,7 +12,7 @@ import com.ouneno.somerset.service.user.Impl.UserService;
 @RequestMapping("/user/*")
 public class UserController {
 	
-	private UserService userservice;
+	private UserService userService;
 	
 	@RequestMapping("/addUserPage")
 	public String addUserPage() throws Exception {
@@ -23,14 +23,16 @@ public class UserController {
 	public String loginView() throws Exception {
 		return "user/loginView";
 	}
-
+	
 	@RequestMapping("/getUser")
-	public String getUser(HttpSession session) throws Exception{
-		User user = (User)session.getAttribute("dbUser");
-		if( user != null ) {
-			return "/user/getUser";
-		} else {
-		return "/user/getUser"; /*"redirect:/";*/
-		}
+	public String login(User user, HttpSession session) throws Exception {
+		System.out.println(user.getUserId());
+		System.out.println(user.getUserPwd());
+		
+		User dbUser = userService.getUser(user.getUserId());
+		System.out.println("** : "+dbUser);
+		return "user/loginView";
+		
 	}
+	
 }

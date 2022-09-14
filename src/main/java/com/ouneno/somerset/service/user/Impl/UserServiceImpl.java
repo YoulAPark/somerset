@@ -1,7 +1,5 @@
 package com.ouneno.somerset.service.user.Impl;
-
-import javax.servlet.http.HttpSession;
-
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +24,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public User login(User user) throws Exception {
+		System.out.println("서비스임플");
 		return userDao.login(user);		
 	}
 	

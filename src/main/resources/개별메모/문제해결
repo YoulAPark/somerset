@@ -83,3 +83,10 @@
 				콘솔창에서는 항상 이렇게 출력 되었음
 				=> {product=[{PROD_NO=1, PROD_NAME...}]}
 				여기 안에 나오듯 파라미터 값은 PROD_NO를 대문자로 입력하는 것이 맞았다.
+				
+13. 로그인 진행시 ERROR 415 오류 발생
+	Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported 
+	UserController에서 @RequestMapping 어노테이션 사용 후
+	@RequestBody 지정함
+	=> @RequestBody가 아닌 @RequestParam으로 바꿔야한다고 함
+	

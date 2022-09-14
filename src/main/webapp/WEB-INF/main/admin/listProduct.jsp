@@ -130,7 +130,6 @@
 						<th scope="col">상품가격</th>
 						<th scope="col">수정</th>
 						<th scope="col">삭제</th>
-						</th>
 					</tr>
 				</thead>
 	 	

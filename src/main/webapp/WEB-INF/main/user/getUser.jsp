@@ -30,12 +30,6 @@
 
 <!-- CSS style Start -->
 <style>
-
-	.ck_Font_css {
-		text-align : left;
-		height : 20px;
-		font-size : 12px;
-	}
 	
 </style>
 <!-- CSS style End -->
@@ -56,7 +50,7 @@
 <form class="inputprod col-5 mx-auto">
 	<div>
 		<!-- userNickname 님 -->
-		<value="${dbUser.userNickname}> 님
+		${dbUser.userNickname} 님
 	</div>
 	<div>
 		<!-- 닉네임변경 -->

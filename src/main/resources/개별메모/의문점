@@ -6,3 +6,10 @@ Searching 해볼 것
 	public List<String> getProduct(int prodNo) throws Exception;
 	
 3. @Repository Annotation 사용해서 해보기
+
+4. 2022-09-14 [loginView.jsp]
+	JSP에서 post 방식으로 Controller에 넘겨줌
+	$("form").attr("method", "POST").attr("action" , "/user/getUser").submit();
+	왜 Controller에서 User로 받을 수 있는건지?
+	@RequestBody, @RequestParam 으론 안넘어옴
+	
