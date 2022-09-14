@@ -18,7 +18,7 @@
 					( #{userId}, #{userPwd}, #{userNickname}, #{userEmail}, #{userPhone} )
 	</select>
 	
-	<select id="login"	parameterType="User">
+	<select id="login"	parameterType="User" resultMap="userMapper">
 	SELECT
 		USER_ID, USER_PWD
 	FROM user
@@ -41,48 +41,4 @@
 				USER_EMAIL = #{user.userEmail}
 			</if>
 	</select>
-	
-	<!-- 게시판 목록 조회 -->
-	<!-- <select id="getProduct"		parameterType="product"  resultType="hashMap">	
-		SELECT 
-				PROD_NO
-			, PROD_NAME
-			, PROD_DETAIL
-			, PROD_PRICE 
-		FROM product
-		ORDER BY PROD_NO
-	</select> -->
-	
-	<!-- 상품조회 -->
-	<!-- <select id="getProductList"	parameterType="int" resultMap="productMapper">	
-		SELECT 
-				PROD_NO
-			, PROD_NAME 
-			, PROD_DETAIL
-			, PROD_PRICE 
-		FROM product
-		WHERE PROD_NO = #{prodNo}
-	</select> -->
-		
-	<!-- 상품수정 -->
-	<!-- <update id="updateProduct"	parameterType="product">
-		UPDATE 
-			product
-		<set>
-			PROD_NAME = #{prodName},
-			PROD_DETAIL = #{prodDetail},
-			PROD_PRICE = #{prodPrice}			
-		</set> 
-		WHERE PROD_NO = #{prodNo}
-	</update> -->
-	 
-	<!-- 상품삭제 -->
-	<!-- <delete id="deleteProduct" parameterType="int">
-		DELETE
-		FROM 
-			product
-		WHERE
-			PROD_NO = #{prodNo}
-	</delete> 
-	 -->
 </mapper>

@@ -12,20 +12,9 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao userDao;
 	
-	public User getUser(String userId) throws Exception {
-		System.out.println("작업순서확인 : "+this.getClass());
-		System.out.println("UserServiceImpl getUser() : "+userId);
-		return userDao.getUser(userId);
-	}
-	
 	// [완료] 회원가입
 	public User addUser(User user) throws Exception {
 		return userDao.addUser(user);
-	}
-	
-	public User login(User user) throws Exception {
-		System.out.println("서비스임플");
-		return userDao.login(user);		
 	}
 	
 	// [완료] Ajax 유효성검사
@@ -33,4 +22,8 @@ public class UserServiceImpl implements UserService{
 		return userDao.findValidate(user, type);
 	}
 	
+	// 로그인
+	public User login(User user) throws Exception {
+		return userDao.login(user);		
+	}
 }

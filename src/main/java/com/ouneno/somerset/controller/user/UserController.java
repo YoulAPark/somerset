@@ -28,12 +28,19 @@ public class UserController {
 	
 	@RequestMapping("/login")
 	public String login(User user, HttpSession session) throws Exception {
-		System.out.println(user.getUserId());
-		System.out.println(user.getUserPwd());
+	
+		User dbUser = userService.login(user);
+		String dbId = dbUser.getUserId();
+		String dbPwd = dbUser.getUserPwd();
 		
-		User dbUser = userService.getUser(user.getUserId());
-		System.out.println("** : "+dbUser);
-		return "user/loginView";
+		if (dbId.equals(user.getUserId()) && dbPwd.equals(user.getUserPwd())) {
+			System.out.println("일치함");
+			session.setAttribute("dbUser", dbUser);
+			return "redirect:/";
+		} else {
+			System.out.println("비일치함");
+			return "user/loginView";
+		}
 		
 	}
 	

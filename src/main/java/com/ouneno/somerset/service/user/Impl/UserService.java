@@ -4,8 +4,6 @@ import com.ouneno.somerset.service.domain.User;
 
 public interface UserService {
 	
-	public User getUser (String id) throws Exception;
-
 	// [완료] 회원가입
 	public User addUser (User user) throws Exception;
 	
