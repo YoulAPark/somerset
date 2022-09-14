@@ -50,7 +50,7 @@
  		var userId = $("input[name='userId']").val();
  		var userPwd = $("input[name='userPwd']").val();
  		
- 		$("form").attr("method", "POST").attr("action" , "/user/getUser").submit();
+ 		$("form").attr("method", "POST").attr("action" , "/user/login").submit();
  	}
 
 </script>

@@ -2,6 +2,7 @@ package com.ouneno.somerset.controller.user;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,6 +13,7 @@ import com.ouneno.somerset.service.user.Impl.UserService;
 @RequestMapping("/user/*")
 public class UserController {
 	
+	@Autowired
 	private UserService userService;
 	
 	@RequestMapping("/addUserPage")
@@ -24,7 +26,7 @@ public class UserController {
 		return "user/loginView";
 	}
 	
-	@RequestMapping("/getUser")
+	@RequestMapping("/login")
 	public String login(User user, HttpSession session) throws Exception {
 		System.out.println(user.getUserId());
 		System.out.println(user.getUserPwd());
