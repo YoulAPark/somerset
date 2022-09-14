@@ -13,13 +13,13 @@
 <body>
 	<nav class="navbar navbar-light bg-light fixed-center px-5">
 	  <div class="container-fluid">
-	    <a class="navbar-brand" href="/">APHOTHEKE</a>
+	    <a class="navbar-brand" href="/">SOMERSET</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
 	    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 	      <div class="offcanvas-header">
-	        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" >APHOTHEKE</h5>
+	        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" >SOMERSET</h5>
 	        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 	      </div>
 	      <div class="offcanvas-body">
@@ -29,7 +29,7 @@
 	          </li>
 	          <li class="nav-item">
 	            <a class="nav-link" href="/admin/adminMain">관리자</a>
-	            <a class="nav-link" href="#">Link</a>
+	            <a class="nav-link" href="/user/getUser">계정설정</a>
 	            <a class="nav-link" href="#">Link</a>
 	          </li>
 	          <li class="nav-item dropdown">
@@ -51,6 +51,9 @@
 	          <button class="btn btn-outline-success" type="submit">Search</button>
 	        </form>
 	      </div>
+	       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+				<button type="button" class="btn btn-outline-dark btn-sm">Logout</button>
+			</div>
 	    </div>
 	  </div>
 	</nav>
