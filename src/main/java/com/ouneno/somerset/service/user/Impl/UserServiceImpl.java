@@ -1,12 +1,12 @@
-package com.ouneno.mybook.service.user.Impl;
+package com.ouneno.somerset.service.user.Impl;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ouneno.mybook.service.domain.User;
-import com.ouneno.mybook.service.user.UserDao;
+import com.ouneno.somerset.service.domain.User;
+import com.ouneno.somerset.service.user.UserDao;
 
 @Service
 public class UserServiceImpl implements UserService{

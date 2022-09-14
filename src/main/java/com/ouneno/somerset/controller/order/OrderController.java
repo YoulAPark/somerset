@@ -1,4 +1,4 @@
-package com.ouneno.mybook.controller.order;
+package com.ouneno.somerset.controller.order;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,8 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ouneno.mybook.service.domain.Product;
-import com.ouneno.mybook.service.order.Impl.ProductService;
+import com.ouneno.somerset.service.domain.Product;
+import com.ouneno.somerset.service.order.Impl.ProductService;
 
 @Controller
 @RequestMapping("/order/*")

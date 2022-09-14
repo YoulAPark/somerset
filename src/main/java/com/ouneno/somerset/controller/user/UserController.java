@@ -1,9 +1,9 @@
-package com.ouneno.mybook.controller.user;
+package com.ouneno.somerset.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ouneno.mybook.service.user.Impl.UserService;
+import com.ouneno.somerset.service.user.Impl.UserService;
 
 @Controller
 @RequestMapping("/user/*")

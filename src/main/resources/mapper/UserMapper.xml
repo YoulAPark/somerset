@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.ouneno.mybook.service.user.UserDao">
+<mapper namespace = "com.ouneno.somerset.service.user.UserDao">
 
 	<resultMap id="userMapper" type="user">
 		<result property="userId" 			column="USER_ID" 		jdbcType="VARCHAR"/>

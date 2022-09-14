@@ -1,4 +1,4 @@
-package com.ouneno.mybook.controller.admin;
+package com.ouneno.somerset.controller.admin;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ouneno.mybook.service.domain.Product;
-import com.ouneno.mybook.service.order.Impl.ProductService;
+import com.ouneno.somerset.service.domain.Product;
+import com.ouneno.somerset.service.order.Impl.ProductService;
 
 @Controller
 @RequestMapping("/admin/*")

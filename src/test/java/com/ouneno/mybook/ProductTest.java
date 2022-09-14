@@ -3,7 +3,7 @@ package com.ouneno.mybook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.ouneno.mybook.service.order.Impl.ProductService;
+import com.ouneno.somerset.service.order.Impl.ProductService;
 
 @SpringBootTest
 public class ProductTest {

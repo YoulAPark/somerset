@@ -1,4 +1,4 @@
-package com.ouneno.mybook.service.domain;
+package com.ouneno.somerset.service.domain;
 
 import lombok.Getter;
 import lombok.Setter;

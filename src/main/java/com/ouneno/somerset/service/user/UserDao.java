@@ -1,9 +1,9 @@
-package com.ouneno.mybook.service.user;
+package com.ouneno.somerset.service.user;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.ouneno.mybook.service.domain.User;
+import com.ouneno.somerset.service.domain.User;
 
 @Mapper
 public interface UserDao {

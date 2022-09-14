@@ -1,6 +1,6 @@
-package com.ouneno.mybook.service.user.Impl;
+package com.ouneno.somerset.service.user.Impl;
 
-import com.ouneno.mybook.service.domain.User;
+import com.ouneno.somerset.service.domain.User;
 
 public interface UserService {
 	

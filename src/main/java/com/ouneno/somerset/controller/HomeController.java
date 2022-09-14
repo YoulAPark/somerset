@@ -1,4 +1,4 @@
-package com.ouneno.mybook.controller;
+package com.ouneno.somerset.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ouneno.mybook.service.user.Impl.UserService;
+import com.ouneno.somerset.service.user.Impl.UserService;
 
 @Controller
 @RequestMapping

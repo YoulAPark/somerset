@@ -1,19 +1,20 @@
-package com.ouneno.mybook.service.order.Impl;
+package com.ouneno.somerset.service.order;
 
 import java.util.HashMap;
 import java.util.List;
 
-import com.ouneno.mybook.service.domain.Product;
+import org.apache.ibatis.annotations.Mapper;
 
-// ProductService는 인터페이스의 역할을 하고 있다.
-public interface ProductService {
-	
+import com.ouneno.somerset.service.domain.Product;
+
+@Mapper
+public interface ProductDao {
+
 	// 상품추가
 	public void addProduct(Product product) throws Exception;
 	
 	// 상품조회
-	public HashMap<String, Object> getProduct(Product product) throws Exception;
-	//public List<Product> listProduct() throws Exception;
+	public List<HashMap<String, Object>> getProduct(Product product) throws Exception;
 	
 	// 상품조회
 	public Product getProductList(int prodNo) throws Exception;

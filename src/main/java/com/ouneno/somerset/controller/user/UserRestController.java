@@ -1,4 +1,4 @@
-package com.ouneno.mybook.controller.user;
+package com.ouneno.somerset.controller.user;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ouneno.mybook.service.domain.User;
-import com.ouneno.mybook.service.user.Impl.UserService;
+import com.ouneno.somerset.service.domain.User;
+import com.ouneno.somerset.service.user.Impl.UserService;
 
 @RestController
 @RequestMapping("/user/*")

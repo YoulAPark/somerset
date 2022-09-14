@@ -1,4 +1,4 @@
-package com.ouneno.mybook.controller.admin;
+package com.ouneno.somerset.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.condition.ProducesRequestCondition;
 
-import com.ouneno.mybook.service.domain.Product;
-import com.ouneno.mybook.service.order.Impl.ProductService;
+import com.ouneno.somerset.service.domain.Product;
+import com.ouneno.somerset.service.order.Impl.ProductService;
 
 @RestController
 @RequestMapping("/admin/*")
