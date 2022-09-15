@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,9 +28,14 @@
 	            <a class="nav-link active" aria-current="page" href="/admin/adminMain">Home</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="/admin/adminMain">관리자</a>
-	            <a class="nav-link" href="/user/getUser">계정설정</a>
-	            <a class="nav-link" href="#">Link</a>
+	          	<c:if test="${not empty sessionScope.dbUser}">
+		            <a class="nav-link" href="/admin/adminMain">관리자</a>
+		            <a class="nav-link" href="/user/getUser">계정설정</a>
+		            <a class="nav-link" href="#">Link</a>
+	            </c:if>
+	            <c:if test="${empty sessionScope.dbUser}">
+	            	<a class="nav-link" href="#">Link</a>
+	            </c:if>
 	          </li>
 	          <li class="nav-item dropdown">
 	            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

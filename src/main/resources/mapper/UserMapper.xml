@@ -41,4 +41,12 @@
 				USER_EMAIL = #{user.userEmail}
 			</if>
 	</select>
+	
+	<select id="getUser"	parameterType="User"	resultMap="userMapper">
+		SELECT
+			USER_ID
+		FROM user
+		WHERE
+			USER_ID = #{userId}
+	</select>
 </mapper>
