@@ -46,12 +46,17 @@ public class UserController {
 		}	
 	}
 	
+	@RequestMapping("logout")
+	public String logout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
 	@RequestMapping("/getUser")
-	public String getUser(@RequestParam("userId") String userId, Model model, @ModelAttribute("user") User user) throws Exception{
-		System.out.println("userId : "+userId);
+	public String getUser(Model model, @ModelAttribute("user") User user) throws Exception{
+
 		model.addAttribute("dbUser", userService.getUser(user));
-		System.out.println("*****user확인 : "+user);
-		System.out.println("&&&&& : "+userService.getUser(user));
+		
 		return "user/getUser";
 	}
 	

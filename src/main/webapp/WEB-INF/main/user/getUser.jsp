@@ -31,10 +31,20 @@
 <!-- CSS style Start -->
 <style>
 	
+	.ck_Font_css {
+		text-align : left;
+		height : 20px;
+		font-size : 12px;
+	}
+	
 </style>
 <!-- CSS style End -->
 
 <script>	
+
+	$(function() {
+		
+	})
 
 </script>
 
@@ -47,22 +57,52 @@
 
 <!-- Contents -->
 
-<form class="inputprod col-5 mx-auto">
-	<div>
-		<!-- userNickname 님 -->
-		${dbUser.userNickname} 님
-	</div>
-	<div>
-		<!-- 닉네임변경 -->
-		<input type="text" class="form-control" name="userNickname" id="updateNickname" onclick="updateUserNickname" placeholder="Nickname" value="${user.userNickname}">
-		<label for="floatingNickname">닉네임</label>
-	</div>
-	<div>
-		비밀번호변경
-	</div>
-	<div>
-		모바일번호변경
-	</div>
+<form class="inputprod col-4 mx-auto">
+
+		<div>
+		회원정보
+		</div>
+		
+		<div class="form-floating">
+			<input type="text" class="form-control" placeholder="userId" value="${dbUser.userId}" disabled>
+			<label for="floatingId">아이디</label>
+		</div>
+		<div class="ck_Font_css"></div>
+		
+		<div class="form-floating">
+			<input type="text" class="form-control" id="editNickname" placeholder="Nickname" value="${dbUser.userNickname}">
+			<label for="floatingNickname">닉네임</label>
+		</div>
+		<div class="ck_Font_css"></div>
+		
+		<div class="form-floating">
+			<input type="text" class="form-control" id="editPhone" placeholder="Nickname" value="${dbUser.userPhone}">
+			<label for="floatingNickname">모바일번호</label>
+		</div>
+		<div class="ck_Font_css"></div>
+		
+		<div class="form-floating">
+			<input type="text" class="form-control" id="editEmail" placeholder="Email" value="${dbUser.userEmail}">
+			<label>이메일</label>
+		</div>
+		<div class="ck_Font_css"></div>
+		
+		<div class="form-floating">
+			<input type="password" class="form-control" name="editPwd" id="editPwd" placeholder="Pwd">
+			<label for="floatingPwd">비밀번호</label>
+		</div>
+		<div class="ck_Font_css"></div>
+		
+		<div class="form-floating">
+			<input type="password" class="form-control" name="editPwdCf" id="editPwdCf" placeholder="PwdCf">
+			<label for="floatingPwd">비밀번호확인</label>
+		</div>
+		<div class="ck_Font_css"></div>
+		
+		<div class="d-grid gap-2">
+			<button class="btn btn-dark" type="submit" id="submitBtn" onclick="updateUser()">저장</button>
+		</div>
+		
 </form>
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	

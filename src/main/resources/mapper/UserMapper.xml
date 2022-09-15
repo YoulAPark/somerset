@@ -20,7 +20,7 @@
 	
 	<select id="login"	parameterType="User" resultMap="userMapper">
 	SELECT
-		USER_ID, USER_PWD
+		USER_ID, USER_PWD, USER_NICKNAME, USER_EMAIL, USER_PHONE
 	FROM user
 	WHERE
 		USER_ID = #{userId}
