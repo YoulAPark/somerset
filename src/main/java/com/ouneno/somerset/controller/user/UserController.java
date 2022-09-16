@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,10 +54,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/getUser")
-	public String getUser(Model model, @ModelAttribute("user") User user) throws Exception{
-
-		model.addAttribute("dbUser", userService.getUser(user));
-		
+	public String getUser() throws Exception{
 		return "user/getUser";
 	}
 	

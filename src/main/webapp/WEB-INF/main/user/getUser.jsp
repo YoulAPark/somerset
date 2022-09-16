@@ -139,7 +139,7 @@
 			}
 		});
 	});
-	
+		
 	function updateUser() {
 		
 		var userId = $("input[name='userId']").val();
@@ -147,7 +147,6 @@
 		var userPhone = $("input[name='userPhone']").val();
 		var userEmail = $("input[name='userEmail']").val();
 		var userPwd = $("input[name='userPwd']").val();
-
 		$.ajax({
 				url : "/user/json/updateUser"
 			,	method : "POST"
@@ -161,7 +160,10 @@
 				,	"userPwd" : userPwd
 			}),
 				success : function(data, status) {
-					alert("업데이트완료")
+					/* $('#editNickname').val(Data.userNickname);
+					$('#editPhone').val(Data.userPhone);
+					$('#editEmail').val(Data.userEmail);
+					location.reload(); */
 				}
 		});
 		
@@ -221,7 +223,7 @@
 		<div class="ck_Font_css" id="pwdCf"></div>
 		
 		<div class="d-grid gap-2">
-			<button class="btn btn-dark" type="submit" id="submitBtn" onclick="updateUser()">정보 수정</button>
+			<button class="btn btn-dark" type="submit" onclick="updateUser()" >정보 수정</button>
 		</div>
 		
 </form>
