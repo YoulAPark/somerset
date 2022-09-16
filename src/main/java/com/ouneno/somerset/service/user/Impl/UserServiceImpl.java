@@ -30,4 +30,8 @@ public class UserServiceImpl implements UserService{
 	public User getUser(User user) throws Exception{
 		return userDao.getUser(user);
 	}
+	
+	public void updateUser(User user) throws Exception {
+		userDao.updateUser(user);
+	}
 }

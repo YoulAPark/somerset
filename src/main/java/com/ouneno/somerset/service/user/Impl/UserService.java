@@ -15,4 +15,6 @@ public interface UserService {
 	
 	public User getUser(User user) throws Exception;
 	
+	public void updateUser(User user) throws Exception;
+	
 }

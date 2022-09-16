@@ -17,4 +17,6 @@ public interface UserDao {
 	public int findValidate (@Param(value="user") User user, @Param(value = "type") int type) throws Exception;
 
 	public User getUser(User user);
+	
+	public void updateUser(User user) throws Exception;
 }

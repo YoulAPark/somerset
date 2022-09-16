@@ -19,7 +19,6 @@ public class UserRestController {
 	
 	@PostMapping("/json/findValidate/{type}")
 	public int findValidate (@RequestBody User user, @PathVariable int type) throws Exception{
-		System.out.println("***** : "+user.getUserNickname());
 		userService.findValidate(user, type);
 		return userService.findValidate(user, type);
 	}
@@ -28,4 +27,10 @@ public class UserRestController {
 	public void addUser(@RequestBody User user) throws Exception{
 		userService.addUser(user);
 	}	
+	
+	@PostMapping("/json/updateUser")
+	public boolean updateUser(@RequestBody User user) throws Exception{
+		userService.updateUser(user);
+		return true;
+	}
 }
