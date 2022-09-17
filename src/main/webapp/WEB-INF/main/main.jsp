@@ -54,7 +54,7 @@
 	});
 
 	function order(){
-		self.location = "/order/getProduct";
+		self.location = "/order/listProduct";
 	}
 	
 	function admin(){
@@ -102,9 +102,11 @@ ${dbUser.userId}님
 		<button type="button" id="coupon"	class="btn btn-light" onclick="coupon">쿠폰</button>
 		<button type="button" id="findStore"	class="btn btn-light" onclick="findStore">매장찾기</button>
 		<button type="button" id="newNews"	class="btn btn-light" onclick="newNews">새소식</button>
-		<div>
-			<button type="button" id="admin" class="btn btn-light" onclick="admin">관리자</button>
-		</div>
+		<c:if test="${dbUser.userId == 'admin'}">
+			<div>
+				<button type="button" id="admin" class="btn btn-light" onclick="admin">관리자</button>
+			</div>
+		</c:if>
 	</form>
 
 <!-- End Contents -->	

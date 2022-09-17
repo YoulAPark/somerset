@@ -33,12 +33,7 @@ public class AdminController {
 		 return "redirect:addProductPage";
 	 }
 	 
-	 @RequestMapping("/listProduct")
-	 public String getProduct(Product product, Model model) throws Exception {
-		 HashMap<String,Object> map = productService.getProduct(product); // => 인스턴스로 지정한 map을 sysout으로 출력시, ServiceImpl의 resultMap을 출력한다	 
-		 model.addAttribute("product", map);
-		 return "admin/listProduct";
-	 }
+
 	
 	 // listProduct ModelAndView로 사용시
 //	 @RequestMapping("/listProduct2")

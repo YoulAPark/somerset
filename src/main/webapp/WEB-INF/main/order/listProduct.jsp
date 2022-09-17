@@ -11,7 +11,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
-<title> listProduct.jsp </title>
+<title> 
+	<c:if test="${dbUser.userId == 'admin'}"> 
+		관리자 listProduct.jsp
+	</c:if> 
+	<c:if test="${dbUser.userId != 'admin'}">
+		회원 listProduct.jsp
+	</c:if>
+</title>
 
 <!-- CDN Script Start -->
 	
@@ -115,79 +122,86 @@
 <!-- Navigation -->
 	<%@ include file ="../layouts/header.jsp" %>
 
-<!-- Contents -->
-
-	<form id="updateProd">
+<!-- Contents [관리자] -->
+	<c:if test="${dbUser.userId == 'admin'}">
 	
-		<table class="table table-hover table-bordered caption-top">
-			<caption>상품목록</caption>
-	
-				<thead>
-					<tr class="table-info">
-						<th scope="col">상품번호</th>
-						<th scope="col">상품명</th>
-						<th scope="col">상품설명</th>
-						<th scope="col">상품가격</th>
-						<th scope="col">수정</th>
-						<th scope="col">삭제</th>
-					</tr>
-				</thead>
-	 	
-		 	
-		 		<tbody>
-					<c:forEach items="${product.product}" var="product">
-					<input type="hidden" name="test" value="${product.PROD_NO}"></input>
-						<tr>						
-							<td name="prodNo">${product.PROD_NO}</td>
-							<td>${product.PROD_NAME}</td>
-							<td>${product.PROD_DETAIL}</td>
-							<td>${product.PROD_PRICE}</td>	
-							<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-dark btn-sm" onclick="getProductList(${product.PROD_NO})" data-bs-toggle="modal" data-bs-target="#getProductList">수정</button></td>						
-							<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-danger btn-sm" onclick="deleteProduct(${product.PROD_NO})">삭제</button></td>
+		<form id="updateProd">
+		
+			<table class="table table-hover table-bordered caption-top">
+				<caption>상품목록</caption>
+		
+					<thead>
+						<tr class="table-info">
+							<th scope="col">상품번호</th>
+							<th scope="col">상품명</th>
+							<th scope="col">상품설명</th>
+							<th scope="col">상품가격</th>
+							<th scope="col">수정</th>
+							<th scope="col">삭제</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-						
-		</table>
-	</form>		
+					</thead>
+		 	
+			 	
+			 		<tbody>
+						<c:forEach items="${product.product}" var="product">
+						<input type="hidden" name="test" value="${product.PROD_NO}"></input>
+							<tr>						
+								<td name="prodNo">${product.PROD_NO}</td>
+								<td>${product.PROD_NAME}</td>
+								<td>${product.PROD_DETAIL}</td>
+								<td>${product.PROD_PRICE}</td>	
+								<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-dark btn-sm" onclick="getProductList(${product.PROD_NO})" data-bs-toggle="modal" data-bs-target="#getProductList">수정</button></td>						
+								<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-danger btn-sm" onclick="deleteProduct(${product.PROD_NO})">삭제</button></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+							
+			</table>
+		</form>		
+		
+		<!-- Modal -->
+		
+		<div class="modal fade" id="getProductList" tabindex="-1" aria-labelledby="#getProductListLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="getProductListModal">상품수정</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      
+		      <div class="modal-body">
+		        <form>
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">상품명</label>
+						<input type="text" class="form-control" id="prodName" name="prodName">
+					</div>
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">상품설명</label> 
+						<input type="text" class="form-control" id="prodDetail"	name="prodDetail">
+					</div>
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">상품가격</label>
+						<input type="text" class="form-control" id="prodPrice" name="prodPrice">	
+					</div>
+						<input type="hidden" id="prodNo" name="prodNo">
+				</form>
+		      </div>
+		      
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+		        <button type="button" value="${product.PROD_NO}" data-bs-dismiss="modal" class="btn btn-primary" onclick="updateProduct(${product.PROD_NO})">수정</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+	</c:if>
 	
-	<!-- Modal -->
+<!-- Contents [회원] -->	
+	<c:if test="${dbUser.userId != 'admin'}">
 	
-	<div class="modal fade" id="getProductList" tabindex="-1" aria-labelledby="#getProductListLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="getProductListModal">상품수정</h5>
-	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	      </div>
-	      
-	      <div class="modal-body">
-	        <form>
-				<div class="mb-3">
-					<label for="recipient-name" class="col-form-label">상품명</label>
-					<input type="text" class="form-control" id="prodName" name="prodName">
-				</div>
-				<div class="mb-3">
-					<label for="recipient-name" class="col-form-label">상품설명</label> 
-					<input type="text" class="form-control" id="prodDetail"	name="prodDetail">
-				</div>
-				<div class="mb-3">
-					<label for="recipient-name" class="col-form-label">상품가격</label>
-					<input type="text" class="form-control" id="prodPrice" name="prodPrice">	
-				</div>
-					<input type="hidden" id="prodNo" name="prodNo">
-			</form>
-	      </div>
-	      
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-	        <button type="button" value="${product.PROD_NO}" data-bs-dismiss="modal" class="btn btn-primary" onclick="updateProduct(${product.PROD_NO})">수정</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+	</c:if>
 	
-
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	

@@ -51,7 +51,7 @@
 		}
 		
 		function listProduct(){
-			self.location = "/admin/listProduct";
+			self.location = "/order/listProduct";
 		}
 
 </script>
