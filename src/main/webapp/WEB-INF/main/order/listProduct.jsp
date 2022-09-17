@@ -44,6 +44,7 @@
 	tbody 	{
 			font-weight : lighter;
 			}
+			
 </style>
 <!-- CSS style End -->
 
@@ -199,9 +200,35 @@
 	
 <!-- Contents [회원] -->	
 	<c:if test="${dbUser.userId != 'admin'}">
-	
+		
+		<form class="inputprod col-9 mx-auto">	
+			<div class="container px-4">
+				<div class="row gx-5">
+				
+					<div class="col">
+						<div class="p-3 border bg-white">
+							Custom column padding
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="p-3 border bg-white">
+							Custom column padding
+						</div>
+					</div>
+					
+					<div class="col">
+						<div class="p-3 border bg-white">
+							Custom column padding
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</form>	
+		
+
 	</c:if>
-	
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	

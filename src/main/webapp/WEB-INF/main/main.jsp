@@ -85,14 +85,17 @@ ${dbUser.userId}님
 <!-- Start Contents -->
 <!-- 회원 버튼 user Button -->
 	<form class="userBtn">	
+		
 		<c:if test="${empty sessionScope.dbUser}">
 			<button type="button" id="login" class="btn btn-light" onclick="userLogin()">로그인</button>
+			<button type="button" id="join" class="btn btn-light" onclick="location.href='user/addUserPage'">가입</button>
 		</c:if>	
+		
 		<c:if test="${not empty sessionScope.dbUser}">
 			<button type="button" id="logout" class="btn btn-light" onclick="userLogout()">로그아웃</button>
 			<button type="button" id="getUser" class="btn btn-light">계정설정</button>
 		</c:if>
-		<button type="button" id="join" class="btn btn-light" onclick="location.href='user/addUserPage'">가입</button>
+		
 	</form>
 	
 <!-- 기능 버튼 function Button -->
