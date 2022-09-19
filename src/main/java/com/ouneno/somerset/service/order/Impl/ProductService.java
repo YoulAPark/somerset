@@ -1,6 +1,7 @@
 package com.ouneno.somerset.service.order.Impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.ouneno.somerset.service.domain.Product;
 
@@ -11,7 +12,7 @@ public interface ProductService {
 	public void addProduct(Product product) throws Exception;
 	
 	// 상품조회
-	public HashMap<String, Object> getProduct(Product product) throws Exception;
+	public List<Product> getProduct(Product product) throws Exception;
 	//public List<Product> listProduct() throws Exception;
 	
 	// 상품조회

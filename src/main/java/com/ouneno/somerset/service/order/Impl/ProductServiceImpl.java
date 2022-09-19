@@ -1,6 +1,7 @@
 package com.ouneno.somerset.service.order.Impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +24,9 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	// 상품조회
-	public HashMap<String, Object> getProduct(Product product) throws Exception {		
-		HashMap<String,Object> map = new HashMap<String,Object>();	
-		map.put("product", productDao.getProduct(product)); // resultMap이라는 이름에 Dao.getProduct()를 담음	
-		return map;
+	public List<Product> getProduct(Product product) throws Exception {	
+		List<Product> list = productDao.getProduct(product);
+		return list;
 	}
 //	public List<Product> listProduct() throws Exception {
 //		List<Product> test = productDao.listProduct();

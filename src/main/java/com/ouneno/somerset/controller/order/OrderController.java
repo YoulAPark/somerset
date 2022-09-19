@@ -1,11 +1,14 @@
 package com.ouneno.somerset.controller.order;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ouneno.somerset.service.domain.Product;
 import com.ouneno.somerset.service.order.Impl.ProductService;
@@ -20,11 +23,17 @@ public class OrderController {
 	 
 	 @RequestMapping("/listProduct")
 	 public String getProduct(Product product, Model model) throws Exception {
-		 HashMap<String,Object> map = productService.getProduct(product); // => 인스턴스로 지정한 map을 sysout으로 출력시, ServiceImpl의 resultMap을 출력한다	 
-		 model.addAttribute("product", map);
+		 List<Product> list = productService.getProduct(product);
+		 model.addAttribute("product", list);
 		 return "order/listProduct";
 	 }
-	
+	 	
+	 @RequestMapping("/orderProduct")
+	 public String orderProduct(@ModelAttribute("product") Product product) throws Exception {
+		productService.getProduct(product);
+		System.out.println("** : "+product);
+		 return "order/orderProduct";
+	 }
 	 // main.jsp => 주문 click => function "/order/addOrder" 으로 self.location 처리
 	// 단순 네비게이션 역할
 //	@RequestMapping("addOrder")

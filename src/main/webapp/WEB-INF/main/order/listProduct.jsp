@@ -138,8 +138,10 @@
 		}
 	}
 	
-	function prodBuy(prodNo) {
-		alert(prodNo)
+	function showProd() {
+
+		var prodNo = $("input[name='prodNo']").val();
+		$("form").attr("method", "POST").attr("action" , "orderProduct").submit();	
 	}
 
 </script>
@@ -172,15 +174,15 @@
 		 	
 			 	
 			 		<tbody>
-						<c:forEach items="${product.product}" var="product">
-						<input type="hidden" name="test" value="${product.PROD_NO}"></input>
+						<c:forEach items="${product}" var="product">
+						<%-- <input type="hidden" name="test" value="${product.prodNo}"></input> --%>
 							<tr>						
-								<td name="prodNo">${product.PROD_NO}</td>
-								<td>${product.PROD_NAME}</td>
-								<td>${product.PROD_DETAIL}</td>
-								<td>${product.PROD_PRICE}</td>	
-								<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-dark btn-sm" onclick="getProductList(${product.PROD_NO})" data-bs-toggle="modal" data-bs-target="#getProductList">수정</button></td>						
-								<td><button type="button" value="${product.PROD_NO}" class="btn btn-outline-danger btn-sm" onclick="deleteProduct(${product.PROD_NO})">삭제</button></td>
+								<td name="prodNo">${product.prodNo}</td>
+								<td>${product.prodName}</td>
+								<td>${product.prodDetail}</td>
+								<td>${product.prodPrice}</td>	
+								<td><button type="button" value="${product.prodNo}" class="btn btn-outline-dark btn-sm" onclick="getProductList(${product.prodNo})" data-bs-toggle="modal" data-bs-target="#getProductList">수정</button></td>						
+								<td><button type="button" value="${product.prodNo}" class="btn btn-outline-danger btn-sm" onclick="deleteProduct(${product.prodNo})">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -218,13 +220,14 @@
 		      
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-		        <button type="button" value="${product.PROD_NO}" data-bs-dismiss="modal" class="btn btn-primary" onclick="updateProduct(${product.PROD_NO})">수정</button>
+		        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="updateProduct()">수정</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>
 		
 	</c:if>
+<!-- Contents [관리자] 끝 -->
 	
 <!-- Contents [회원] -->	
 	<c:if test="${dbUser.userId != 'admin'}">
@@ -246,19 +249,19 @@
 		
 		<form class="inputprod col-9 mx-auto">				
 			<div class="row gx-5 gy-5">			
-				<c:forEach items="${product.product}" var="product">
-					<div class="col-4" onclick="prodBuy(${product.PROD_NO})">
-						<div class="p-5 border bg-white center">
-							<div class="pn-Font">${product.PROD_NAME}</div>
-							<div class="pp-Font">${product.PROD_PRICE}원</div>
+				<c:forEach items="${product}" var="product">
+					<div class="col-4">
+						<div class="p-5 border bg-white center" onclick="showProd()" data-bs-toggle="modal" data-bs-target="#getProdDetail">
+							<input type="hidden" id="prodNo" name="prodNo">
+							<div class="pn-Font">${product.prodNo}</div>
+							<div class="pn-Font">${product.prodName}</div>
+							<div class="pp-Font">${product.prodPrice}원</div>
 						</div>
 					</div>
-				</c:forEach>	
+				</c:forEach>
 			</div>
-		</form>	
-
+		</form>
 	</c:if>
-	
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	

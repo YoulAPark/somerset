@@ -90,3 +90,7 @@
 	@RequestBody 지정함
 	=> @RequestBody가 아닌 @RequestParam으로 바꿔야한다고 함
 	
+14. listProduct.jsp Modal 진행시 500 에러 발생
+	For input string: "prodNo"
+	modal에 쓸모없는 값 지정 ex) ${product.prodNo}
+	
