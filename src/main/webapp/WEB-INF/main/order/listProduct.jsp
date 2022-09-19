@@ -41,6 +41,21 @@
 			font-weight : lighter;
 			}
 			
+	.nav-pills .nav-link.active	{
+				    color: #141619;
+    			background-color: #f8f9fa;
+				}
+			
+	.pn-Font 	{
+				text-align : center;
+				font-weight : 300;
+				
+				}	
+	.pp-Font 	{
+				text-align : center;
+				font-weight : 500;
+				}
+						
 </style>
 <!-- CSS style End -->
 
@@ -108,6 +123,23 @@
 					location.reload();
 				}
 			});
+	}
+	
+	// 미완성, userNavbar
+	function userNavbar(type) {
+		if ( type == 1 ) {
+			alert("1")
+		} else if ( type == 2 ) {
+			alert("2")
+		} else if ( type == 3 ) {
+			alert("3")
+		} else if ( type == 4 ) {
+			alert("4")
+		}
+	}
+	
+	function prodBuy(prodNo) {
+		alert(prodNo)
 	}
 
 </script>
@@ -196,35 +228,37 @@
 	
 <!-- Contents [회원] -->	
 	<c:if test="${dbUser.userId != 'admin'}">
+	
+		<ul class="nav nav-pills nav-justified">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" onclick="userNavbar(1)">신메뉴</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" onclick="userNavbar(2)">커피</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" onclick="userNavbar(3)">콜드브루</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" onclick="userNavbar(4)">논 커피</a>
+			</li>
+		</ul>
 		
-		<form class="inputprod col-9 mx-auto">	
-			<div class="container px-4">
-				<div class="row gx-5">
-				
-					<div class="col">
-						<div class="p-3 border bg-white">
-							Custom column padding
+		<form class="inputprod col-9 mx-auto">				
+			<div class="row gx-5 gy-5">			
+				<c:forEach items="${product.product}" var="product">
+					<div class="col-4" onclick="prodBuy(${product.PROD_NO})">
+						<div class="p-5 border bg-white center">
+							<div class="pn-Font">${product.PROD_NAME}</div>
+							<div class="pp-Font">${product.PROD_PRICE}원</div>
 						</div>
 					</div>
-
-					<div class="col">
-						<div class="p-3 border bg-white">
-							Custom column padding
-						</div>
-					</div>
-					
-					<div class="col">
-						<div class="p-3 border bg-white">
-							Custom column padding
-						</div>
-					</div>
-					
-				</div>
+				</c:forEach>	
 			</div>
 		</form>	
-		
 
 	</c:if>
+	
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	
