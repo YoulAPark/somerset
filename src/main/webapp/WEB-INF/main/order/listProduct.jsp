@@ -42,9 +42,9 @@
 			}
 			
 	.nav-pills .nav-link.active	{
-				    color: #141619;
-    			background-color: #f8f9fa;
-				}
+								    color: #141619;
+				    			background-color: #f8f9fa;
+								}
 			
 	.pn-Font 	{
 				text-align : center;
@@ -138,10 +138,9 @@
 		}
 	}
 	
-	function showProd() {
-
-		var prodNo = $("input[name='prodNo']").val();
-		$("form").attr("method", "POST").attr("action" , "orderProduct").submit();	
+	function orderProdMove(prodNo){
+	
+		location.href = "/order/orderProduct?prodNo="+prodNo;
 	}
 
 </script>
@@ -251,8 +250,7 @@
 			<div class="row gx-5 gy-5">			
 				<c:forEach items="${product}" var="product">
 					<div class="col-4">
-						<div class="p-5 border bg-white center" onclick="showProd()" data-bs-toggle="modal" data-bs-target="#getProdDetail">
-							<input type="hidden" id="prodNo" name="prodNo">
+						<div class="p-5 border bg-white center" onclick="orderProdMove(${product.prodNo})">
 							<div class="pn-Font">${product.prodNo}</div>
 							<div class="pn-Font">${product.prodName}</div>
 							<div class="pp-Font">${product.prodPrice}원</div>

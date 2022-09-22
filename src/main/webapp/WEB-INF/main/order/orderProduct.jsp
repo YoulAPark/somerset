@@ -12,8 +12,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 <title> 
-	<c:if test="${dbUser.userId == 'admin'}"> 관리자 listProduct.jsp </c:if> 
-	<c:if test="${dbUser.userId != 'admin'}"> 회원 listProduct.jsp </c:if>
+
 </title>
 
 <!-- CDN Script Start -->
@@ -39,7 +38,6 @@
 
 <script>
 	
-	
 </script>
 
 </head>
@@ -49,9 +47,8 @@
 <!-- Navigation -->
 	<%@ include file ="../layouts/header.jsp" %>
 <!-- Contents -->
-	${product}
-	
-${product.prodNo }
+	prooduct 표시 : ${product}
+	${product.prodNo}
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	
 	

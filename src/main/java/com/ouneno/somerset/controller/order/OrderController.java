@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ouneno.somerset.service.domain.Product;
 import com.ouneno.somerset.service.order.Impl.ProductService;
@@ -29,11 +31,12 @@ public class OrderController {
 	 }
 	 	
 	 @RequestMapping("/orderProduct")
-	 public String orderProduct(@ModelAttribute("product") Product product) throws Exception {
-		productService.getProduct(product);
-		System.out.println("** : "+product);
+	 public String orderProduct(@RequestParam("prodNo") int prodNo, Model model) throws Exception {
+		productService.getProductList(prodNo);
+		model.addAttribute("product", productService.getProductList(prodNo));
 		 return "order/orderProduct";
 	 }
+	 
 	 // main.jsp => 주문 click => function "/order/addOrder" 으로 self.location 처리
 	// 단순 네비게이션 역할
 //	@RequestMapping("addOrder")
