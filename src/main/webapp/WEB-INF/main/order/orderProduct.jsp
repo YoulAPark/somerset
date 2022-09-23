@@ -84,11 +84,19 @@
 		
 		var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();
 
-		var Size_Ck = $('input[name=Size]:checked').val();
-		var Cup_Ck = $('input[name=Cup]:checked').val();
-
-		// 넘어가기 이전에 확인 창 떠야 함
 	}
+	
+	function prodSizeCk(type) {
+		var prodSize = type;
+		alert("cupSize : "+type)
+	}
+	
+	function prodCupCk(type) {
+		var prodCup = type;
+		alert("cup : "+type)
+	}
+	
+	
 	
 </script>
 
@@ -143,7 +151,7 @@
 		  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="getProductListModal" name="modal-title-Font">${product.prodName}</h5>
+		        <h5 class="modal-title" id="getProductListModal">${product.prodName}</h5>
 		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      
@@ -156,19 +164,19 @@
 		        	<div class="card-header bg-transparent border-success" id="card-header">SIZE</div>
 			        <div class="card-group" id="card-body-Font">
 						<div class="card">
-							<div class="card-body">
+							<div class="card-body" onclick="prodSizeCk(1)">
 								<h5 class="card-title">Tall</h5>
-								<p class="card-text">355ml</p>
+								<p class="card-text">355ml</p>								
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-body">
+							<div class="card-body" onclick="prodSizeCk(2)">
 								<h5 class="card-title">Grande</h5>
 								<p class="card-text">473ml</p>
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-body">
+							<div class="card-body" onclick="prodSizeCk(3)">
 								<h5 class="card-title">Venti</h5>
 								<p class="card-text">591ml</p>
 							</div>
@@ -180,9 +188,9 @@
 					<div class="hotAndIce">
 					<div>
 						<p> 
-							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#store" aria-expanded="false" aria-controls="store">매장컵</button>
-							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#tumbler" aria-expanded="false" aria-controls="tumbler">개인컵</button>
-							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#disposable" aria-expanded="false" aria-controls="disposable">일회용컵</button>
+							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#store" aria-expanded="false" aria-controls="store" onclick="prodCupCk(3)">매장컵</button>
+							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#tumbler" aria-expanded="false" aria-controls="tumbler" onclick="prodCupCk(2)">개인컵</button>
+							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#disposable" aria-expanded="false" aria-controls="disposable" onclick="prodCupCk(1)">일회용컵</button>
 						</p>
 						<div class="row" style="min-height: 100px; min-width: 450px; font-size: small">						
 							<div class="col"></div>
@@ -300,8 +308,8 @@
 		      </div>
 		      
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-		        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="updateProduct()">수정</button>
+		        <button type="button" class="btn btn-secondary">담기</button>
+		        <button type="button" class="btn btn-primary">주문하기</button>
 		      </div>
 		    </div>
 		  </div>
