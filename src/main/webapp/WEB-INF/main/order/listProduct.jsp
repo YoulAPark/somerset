@@ -135,6 +135,12 @@
 			alert("3")
 		} else if ( type == 4 ) {
 			alert("4")
+		} else if ( type == 5 ) {
+			alert("5")
+		} else if ( type == 6 ) {
+			alert("6")
+		} else if ( type == 7 ) {
+			alert("7")
 		}
 	}
 	
@@ -244,6 +250,15 @@
 			<li class="nav-item">
 				<a class="nav-link" onclick="userNavbar(4)">논 커피</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" onclick="userNavbar(5)">티/에이드</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" onclick="userNavbar(6)">프라페/블렌디드</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" onclick="userNavbar(7)">디저트</a>
+			</li>
 		</ul>
 		
 		<form class="inputprod col-9 mx-auto">				
@@ -251,7 +266,6 @@
 				<c:forEach items="${product}" var="product">
 					<div class="col-4">
 						<div class="p-5 border bg-white center" onclick="orderProdMove(${product.prodNo})">
-							<div class="pn-Font">${product.prodNo}</div>
 							<div class="pn-Font">${product.prodName}</div>
 							<div class="pp-Font">${product.prodPrice}원</div>
 						</div>

@@ -36,6 +36,9 @@
 					text-align : center;
 					font-weight : 500;
 					}	
+	.infor-Emo 	{
+				text-align : center;
+				}
 					
 	.prodPrice-Font {
 					text-align : center;
@@ -63,7 +66,22 @@
 	<form class="inputprod col-9 mx-auto">
 	
 		<div class="prodName-Font">${product.prodName}</div>
-				
+		<div class="infor-Emo">
+			
+			<p>
+				<button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+	   				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16">
+	  					<path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z"/>
+					</svg>
+				</button>
+			</p>
+			<div class="collapse" id="collapseExample">
+				<div class="card card-body">
+				${product.prodDetail}
+				</div>
+			</div>
+		</div>	
+		
 		<!-- ICE & HOT -->
 		<div class="accordion" id="HotAndIce">
 		<div class="accordion-item">
@@ -73,12 +91,12 @@
 			<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
 			<div class="accordion-body">
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">HOT</label>
+					<input class="form-check-input" type="radio" name="HotAndIce" id="Hot_select">
+					<label class="form-check-label" for="Hot_select">HOT</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">ICE</label>
+					<input class="form-check-input" type="radio" name="HotAndIce" id="Ice_select">
+					<label class="form-check-label" for="Ice_select">ICE</label>
 				</div>
 			</div>
 			</div>
@@ -94,16 +112,16 @@
 			<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
 			<div class="accordion-body">
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">S (-500원)</label>
+					<input class="form-check-input" type="radio" name="Size" id="S_select">
+					<label class="form-check-label" for="S_select">S (-500원)</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">M</label>
+					<input class="form-check-input" type="radio" name="Size" id="M_select" checked>
+					<label class="form-check-label" for="M_select">M</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">L (+500원)</label>
+					<input class="form-check-input" type="radio" name="Size" id="L_select"> 
+					<label class="form-check-label" for="L_select">L (+500원)</label>
 				</div>
 			</div>
 			</div>
@@ -119,16 +137,16 @@
 			<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
 			<div class="accordion-body">
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">일회용컵 사용</label>
+					<input class="form-check-input" type="radio" name="CupSize" id="Disposable_select" checked>
+					<label class="form-check-label" for="Disposable_select">일회용컵 사용</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">텀블러 사용</label>
+					<input class="form-check-input" type="radio" name="CupSize" id="Tumbler_select">
+					<label class="form-check-label" for="Tumbler_select">텀블러 사용</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="radio">
-					<label class="form-check-label" for="flexRadioDefault2">매장컵 이용</label>
+					<input class="form-check-input" type="radio" name="CupSize" id="Store_select">
+					<label class="form-check-label" for="Store_select">매장컵 이용</label>
 				</div>
 			</div>
 			</div>
