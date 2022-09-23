@@ -32,10 +32,9 @@
 
 <!-- CSS style Start -->
 <style>
-	.prodName-Font	{
-					text-align : center;
-					font-weight : 500;
-					}	
+	.prodName-Font	{ text-align : center; font-weight : 700; font-size: xx-large; }
+	.prodDetail-Font { text-align : center; font-weigh : 500; }	
+	.prodPrice-Font { text-align : center; font-weigh : 700; font-size: xx-large; }	
 			
 	.infor-Emo 	{
 				text-align : center;
@@ -57,6 +56,24 @@
 						text-align : Left;
 						font-weight : 600;
 						}
+						
+	.modal-title 	{
+					text-align : center;
+					font-weight : 600;
+					}
+					
+	#card-Font 	{
+				text-align : center;
+				font-weight : 400;
+				background-color : #2aa1fd21;
+				color : #019a68;
+				}
+	
+	#card-body-Font {
+				text-align : center;
+				}
+
+	#card-header { font-weight : 600; font-size : x-large; }
 		
 </style>
 <!-- CSS style End -->
@@ -66,7 +83,6 @@
 	function order() {
 		
 		var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();
-		alert("hotAndIce_Ck : "+hotAndIce_Ck)
 
 		var Size_Ck = $('input[name=Size]:checked').val();
 		var Cup_Ck = $('input[name=Cup]:checked').val();
@@ -87,174 +103,20 @@
 	<form class="inputprod col-9 mx-auto">
 	
 		<div class="prodName-Font">${product.prodName}</div>
-		<div class="infor-Emo">
-			
-			<p>
-				<button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-	   				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16">
-	  					<path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z"/>
-					</svg>
-				</button>
-			</p>
-			<div class="collapse" id="collapseExample">
-				<div class="card card-body">
-				${product.prodDetail}
-				</div>
-			</div>
-		</div>	
+		<div class="prodDetail-Font">${product.prodDetail}</div>
+		<div class="prodPrice-Font">${product.prodPrice}원</div>
 		
 		<!-- Hot And Ice -->
 		<div class="hotAndIce">
 			<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 				<input type="radio" class="btn-check" name="hotAndIce" id="hot" value="hot" autocomplete="off" checked>
-				<label class="btn btn-outline-primary" for="hot">HOT</label>
-	
+				<label class="btn btn-outline-dark" for="hot">HOT</label>
 				<input type="radio" class="btn-check" name="hotAndIce" id="iced" value="ice" autocomplete="off">
-				<label class="btn btn-outline-primary" for="iced">ICED</label>
+				<label class="btn btn-outline-dark" for="iced">ICED</label>
 			</div>
 		</div>
 		
-		<!-- SIZE -->
-		<div class="accordion" id="Size">
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">SIZE</button>
-			</h2>
-			<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
-			<div class="accordion-body">
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="Size" id="S_select" value="S">
-					<label class="form-check-label" for="S_select">S (-500원)</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="Size" id="M_select" value="M" checked>
-					<label class="form-check-label" for="M_select">M</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="Size" value="L" id="L_select"> 
-					<label class="form-check-label" for="L_select">L (+500원)</label>
-				</div>
-			</div>
-			</div>
-		</div>
-		</div>	
-		
-		<!-- Cup Choice -->
-		<div class="accordion" id="Size">
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">컵 선택 (텀블러를 픽업대에 전달해 주세요)</button>
-			</h2>
-			<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
-			<div class="accordion-body">
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="Cup" id="Disposable_select" value="disposable" checked>
-					<label class="form-check-label" for="Disposable_select">일회용컵 사용</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="Cup" id="Tumbler_select" value="tumbler">
-					<label class="form-check-label" for="Tumbler_select">텀블러 사용</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="Cup" id="Store_select" value="store">
-					<label class="form-check-label" for="Store_select">매장컵 이용</label>
-				</div>
-			</div>
-			</div>
-		</div>
-		</div>
-		
-		<!-- 샷/시럽/휘핑/우유 추가 -->
-		<div class="accordion accordion-flush" id="accordionFlushA">
-			<div class="accordion-item">
-				<h2 class="accordion-header" id="flush-headingA">
-					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseA" aria-expanded="false" aria-controls="flush-collapseA">
-					퍼스널 옵션
-					</button>
-				</h2>
-			<div id="flush-collapseA" class="accordion-collapse collapse" aria-labelledby="flush-headingA" data-bs-parent="#accordionFlushA">
-				<div class="accordion-body">
-				<div class="card card-body">
-				TIP : "원하시는 옵션이 있을 경우 옵션을 선택해주세요!"
-				</div>
-					<ul class="list-group list-group-flush">
-						<div class="accordion accordion-flush" id="accordionFlushExample">
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="flush-headingOne">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-										샷 추가 에스프레소
-									</button>
-								</h2>
-								<div id="flush-collapseOne" class="accordion-collapse collapse"	aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-											<label class="form-check-label" for="flexCheckDefault">샷 추가(에스프레소) (+300원)</label>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="flush-headingTwo">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-										시럽 추가
-									</button>
-								</h2>
-								<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-											<label class="form-check-label" for="flexCheckDefault">바닐라시럽 추가 (+300원)</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-											<label class="form-check-label" for="flexCheckDefault">아몬드시럽 추가 (+300원)</label>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="flush-headingThree">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-										휘핑 추가
-									</button>
-								</h2>
-								<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-											<label class="form-check-label" for="flexCheckDefault">휘핑 추가 (+300원)</label>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="flush-headingFour">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-										우유 추가 (50ml / S, M만 가능)
-									</button>
-								</h2>
-								<div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-											<label class="form-check-label" for="flexCheckDefault">우유 추가 (+400원)</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-											<label class="form-check-label" for="flexCheckDefault">저지방 우유 변경 및 추가 (+400원)</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> 			
-					</ul>
-				</div>
-			</div>
-			</div>
-		</div>
-		
-		<div class="row g-0">
+		<%-- <div class="row g-0">
 			<div class="col-sm-6 col-md-8 prodPrice-Font">${product.prodPrice}원</div>
 			<div class="col-6 col-md-4 prodPrice-Button">
 				<button type="button" class="btn btn-outline-dark btn-sm">
@@ -269,10 +131,180 @@
 					</svg>
 				</button>
 			</div>
-		</div>
+		</div> --%>
 		
 		<div class="d-grid gap-2">
-  			<button class="btn btn-primary" type="button" onclick="order()">모바일 오더 주문하기</button>
+  			<button class="btn btn-dark" type="button" onclick="order()" data-bs-toggle="modal" data-bs-target="#orderDetail">모바일 오더 주문하기</button>
+		</div>
+		
+		<!-- Modal -->
+		
+		<div class="modal fade" id="orderDetail" tabindex="-1" aria-labelledby="#getProductListLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="getProductListModal" name="modal-title-Font">${product.prodName}</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      
+		      <div class="modal-body">
+		      	<div class="card card-body" id="card-Font">
+				환경을 위해 일회용컵 사용 줄이기에 동참해 주세요
+				</div>  
+		        <form>
+		        	<!-- SIZE -->
+		        	<div class="card-header bg-transparent border-success" id="card-header">SIZE</div>
+			        <div class="card-group" id="card-body-Font">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Tall</h5>
+								<p class="card-text">355ml</p>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Grande</h5>
+								<p class="card-text">473ml</p>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Venti</h5>
+								<p class="card-text">591ml</p>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Cup Choice 9/24 수정필요-->
+					<div class="card-header bg-transparent border-success" id="card-header">컵 선택</div>
+					<div class="hotAndIce">
+					<div>
+						<p> 
+							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#store" aria-expanded="false" aria-controls="store">매장컵</button>
+							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#tumbler" aria-expanded="false" aria-controls="tumbler">개인컵</button>
+							<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#disposable" aria-expanded="false" aria-controls="disposable">일회용컵</button>
+						</p>
+						<div class="row" style="min-height: 100px; min-width: 450px; font-size: small">						
+							<div class="col"></div>
+								<div class="col">									
+									<div class="collapse" id="tumbler">
+										<div class="card card-body" style="width: 400px;">
+										 - 주문 후, 개인컵(355ml 이상, 텀블러 등)을 픽업대에 전달해주세요.
+										</div>
+									</div>
+									<div class="collapse" id="disposable">
+										<div class="card card-body" style="width: 400px;">
+										매장에서 드시는 경우 플라스틱 일회용컵 제공이 불가능하오니 매장컵을 선택해 주시기 바랍니다.
+										</div>
+									</div>
+								</div>
+							<div class="col"></div>
+						</div>	
+					</div>
+					</div>
+					
+					<!-- 샷/시럽/휘핑/우유 추가 -->
+					<div class="accordion accordion-flush" id="accordionFlushA">
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="flush-headingA">
+								<button class="accordion-button collapsed" id="card-header" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseA" aria-expanded="false" aria-controls="flush-collapseA">
+								퍼스널 옵션
+								</button>
+							</h2>
+						<div id="flush-collapseA" class="accordion-collapse collapse" aria-labelledby="flush-headingA" data-bs-parent="#accordionFlushA">
+							<div class="accordion-body">
+							<div class="card card-body">
+							TIP : "원하시는 옵션이 있을 경우 옵션을 선택해주세요!"
+							</div>
+								<ul class="list-group list-group-flush">
+									<div class="accordion accordion-flush" id="accordionFlushExample">
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="flush-headingOne">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+													샷 추가 에스프레소
+												</button>
+											</h2>
+											<div id="flush-collapseOne" class="accordion-collapse collapse"	aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+												<div class="accordion-body">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">샷 추가(에스프레소) (+300원)</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="flush-headingTwo">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+													시럽 추가
+												</button>
+											</h2>
+											<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+												<div class="accordion-body">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">바닐라시럽 추가 (+300원)</label>
+													</div>
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">아몬드시럽 추가 (+300원)</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="flush-headingThree">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+													휘핑 추가
+												</button>
+											</h2>
+											<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+												<div class="accordion-body">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">휘핑 추가 (+300원)</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="flush-headingFour">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+													우유 추가 (50ml / S, M만 가능)
+												</button>
+											</h2>
+											<div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+												<div class="accordion-body">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">우유 추가 (+400원)</label>
+													</div>
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+														<label class="form-check-label" for="flexCheckDefault">저지방 우유 변경 및 추가 (+400원)</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div> 			
+								</ul>
+							</div>
+						</div>
+						</div>
+					</div>
+						
+						
+						
+						<input type="hidden" id="prodNo" name="prodNo">
+				</form>
+		      </div>
+		      
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+		        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="updateProduct()">수정</button>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</form>
 <!-- Site info -->	
