@@ -41,6 +41,10 @@
 				text-align : center;
 				}
 				
+	.hotAndIce 	{
+				text-align : center;
+				}
+				
 	.accordion-button:not(.collapsed) 	{
 									    color: #141619;
 									    background-color: #f8f9fa;
@@ -61,18 +65,9 @@
 
 	function order() {
 		
-		// Hot Ice 선택 여부
-		$(function() {
-			var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();
-			console.log(hotAndIce_Ck)
-			if( hotAndIce_Ck == null ) {
-				swal("Hot or Ice 를 선택해주세요")
-			} else {
-				console.log("hot or Ice 선택완료")
-			}
-		});
-		var HotAndIce_Ck = $('input[name=HotAndIce]:checked').val();		
-		alert($('input[name=HotAndIce]').val())
+		var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();
+		alert("hotAndIce_Ck : "+hotAndIce_Ck)
+
 		var Size_Ck = $('input[name=Size]:checked').val();
 		var Cup_Ck = $('input[name=Cup]:checked').val();
 
@@ -108,39 +103,15 @@
 			</div>
 		</div>	
 		
-		<!-- <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-			
-			<input class="btn-check" id="Hot_select" value="hot" autocomplete="off">
-			<label class="btn btn-outline-primary" for="Hot_select">HOT</label>
-
-			<input class="btn-check" id="Ice_select" value="iced"autocomplete="off">
-			<label class="btn btn-outline-primary" for="Ice_select">ICED</label>
-			
-		</div> -->
-		
-		<!-- <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-			<button type="button" name="hotAndIce_Ck" value="hot" class="btn btn-primary btn-lg">Large button</button>
-			<button type="button" name="hotAndIce_Ck" value="iced"class="btn btn-secondary btn-lg">Large button</button>
-		</div> -->
-		
-		<div class="accordion" id="HotAndIce">
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">HOT or ICE</button>
-			</h2>
-			<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-			<div class="accordion-body HotAndIceRadio">
-				<div class="form-check">
-					<input class="form-check-input HotAndIce" type="radio" name="HotAndIce" id="Hot_select" value="hot">
-					<label class="form-check-label" for="Hot_select">HOT</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input HotAndIce" type="radio" name="HotAndIce" id="Ice_select" value="ice">
-					<label class="form-check-label" for="Ice_select">ICE</label>
-				</div>
+		<!-- Hot And Ice -->
+		<div class="hotAndIce">
+			<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+				<input type="radio" class="btn-check" name="hotAndIce" id="hot" value="hot" autocomplete="off" checked>
+				<label class="btn btn-outline-primary" for="hot">HOT</label>
+	
+				<input type="radio" class="btn-check" name="hotAndIce" id="iced" value="ice" autocomplete="off">
+				<label class="btn btn-outline-primary" for="iced">ICED</label>
 			</div>
-			</div>
-		</div>
 		</div>
 		
 		<!-- SIZE -->
