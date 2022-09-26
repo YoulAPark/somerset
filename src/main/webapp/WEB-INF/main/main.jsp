@@ -88,6 +88,7 @@ ${dbUser.userId}님
 		
 		<c:if test="${empty sessionScope.dbUser}">
 			<button type="button" id="login" class="btn btn-light" onclick="userLogin()">로그인</button>
+			<button type="button" id="googleLogin" class="btn btn-light" onclick="googleLogin()">구글로그인</button>
 			<button type="button" id="join" class="btn btn-light" onclick="location.href='user/addUserPage'">가입</button>
 		</c:if>	
 		
