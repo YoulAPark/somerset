@@ -58,4 +58,9 @@ public class UserController {
 		return "user/getUser";
 	}
 	
+	@RequestMapping("/loginGoogle")
+	public String loginGoogle() throws Exception {
+		return "user/loginGoogle";
+	}
+	
 }

@@ -20,4 +20,9 @@ public class HomeController {
 		return "main";
 	}	
 	
+	@RequestMapping("/test")
+	public String test()  throws Exception{
+		return "test";
+	}
+	
 }

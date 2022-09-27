@@ -25,6 +25,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 	
+	<!-- Google Login API -->
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	
+	
 <!-- CDN Script End -->	
 
 <!-- CSS style Start -->
@@ -73,6 +77,31 @@
 	function getUser() {
 		$("form").attr("method", "POST").attr("action" , "/user/getUser").submit();	
 	}
+	
+	/* function loginGoogle() {
+		location.href = "/user/loginGoogle"
+	} */
+	
+	// 구글 로그인
+	/* function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+	
+	// 구글 로그아웃
+	function signOut() {
+		var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+	      console.log('User signed out.');
+	    });
+	  } */
+	
+	/* function onFailure(error) {
+	      console.log(error);
+	    } */
 </script>
 
 </head>
@@ -88,8 +117,16 @@ ${dbUser.userId}님
 		
 		<c:if test="${empty sessionScope.dbUser}">
 			<button type="button" id="login" class="btn btn-light" onclick="userLogin()">로그인</button>
-			<button type="button" id="googleLogin" class="btn btn-light" onclick="googleLogin()">구글로그인</button>
+			<button type="button" id="googleLogin" class="btn btn-light g-signin2" onclick="onSignIn">구글로그인</button>
+			<!-- <button type="button" id="googleLogin" class="btn btn-light" onclick="signOut()">구글로그아웃</button> -->
 			<button type="button" id="join" class="btn btn-light" onclick="location.href='user/addUserPage'">가입</button>
+			
+			<div id="g_id_onload"
+			     data-client_id="137777584383-hm25lph1vr3erm1jqv9rgb8cmmjl16j9.apps.googleusercontent.com"
+			     data-login_uri="https://your.domain/your_login_endpoint"
+			     data-context="signup">
+			</div>
+  		<div class="g_id_signin" data-type="standard"></div>
 		</c:if>	
 		
 		<c:if test="${not empty sessionScope.dbUser}">

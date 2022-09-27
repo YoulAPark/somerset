@@ -610,3 +610,8 @@
 	3. xml 맵퍼파일의 select 문을 가지고 mybatis가 JDBC Driver를 통해서 SQL을 실행하게 된다
 	4. 결과를 받아 새로운 값을 지닌 객체를 생성한 후 Dao로 리턴한다.
 	
+29. [API]
+	(1) Google Login API
+	JSP 상단 CDN Script Insert하기
+	<meta name ="google-signin-client_id" content="OAuth 2.0 클라이언트 ID값 입력">
+	
