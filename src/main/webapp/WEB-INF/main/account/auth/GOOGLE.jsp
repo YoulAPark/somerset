@@ -46,19 +46,23 @@
 <body>
 
 <!-- Navigation -->
-	<%@ include file ="../main/layouts/header.jsp" %>
+	<!-- 테스트 페이지로 네비게이션 없음 -->
 
 <!-- Start Contents -->
-<!-- API key : AIzaSyC1E6tuF8fkC2Dkv6tUujDSixgJKv0SlCg -->
+
+<!-- 
+[참조]
+API key : AIzaSyC1E6tuF8fkC2Dkv6tUujDSixgJKv0SlCg
+Client ID : 137777584383-hm25lph1vr3erm1jqv9rgb8cmmjl16j9.apps.googleusercontent.com 
+-->
+
 <html>
 
  
-    <div id="g_id_onload"
-     data-client_id="137777584383-hm25lph1vr3erm1jqv9rgb8cmmjl16j9.apps.googleusercontent.com"
-     data-auto_select="true"
-     data-login_uri="http://localhost:8080">
-	</div>
-    <div class="g_id_signin" data-type="standard"></div>
+  <div>구글 로그인 이후 callback 페이지</div>
+  <div>HomeController의 googleCallback() 메서드</div>
+  
+  http://localhost:8080/account/auth/google/callback
  
   
 </html>
@@ -67,7 +71,7 @@
 <!-- End Contents -->	
 
 <!-- Site info -->	
-	<%@ include file ="../main/layouts/footer.jsp" %>	
+	<!-- 테스트 페이지로 footer없음 -->	
 	
 </body>
 </html>

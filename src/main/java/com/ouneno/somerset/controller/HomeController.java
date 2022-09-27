@@ -20,9 +20,9 @@ public class HomeController {
 		return "main";
 	}	
 	
-	@RequestMapping("/test")
-	public String test()  throws Exception{
-		return "test";
+	@RequestMapping("/account/auth/google/callback")
+	public String googleCallback()  throws Exception{
+		return "/account/auth/google/callback";
 	}
 	
 }
