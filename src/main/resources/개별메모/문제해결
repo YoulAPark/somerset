@@ -94,3 +94,10 @@
 	For input string: "prodNo"
 	modal에 쓸모없는 값 지정 ex) ${product.prodNo}
 	
+15. Controller -> Service 이동시 값을 이동시켜야 하는데 NullPointerException 발생
+	
+	@Autowired
+	private APIService apiService;
+	private OAuthService oAuthService;
+	=> 사용하지 않는 APIService 를 어노테이션에서 제거하니 작동 됨
+	

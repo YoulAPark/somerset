@@ -1,5 +1,12 @@
 package com.ouneno.somerset.service.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
 public class API {
 	
 	// 소셜 로그인 타입 구별을 위해 enum 형식을 constant로 만들었다

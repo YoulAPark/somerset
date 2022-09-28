@@ -1,11 +1,8 @@
 package com.ouneno.somerset.service.api.impl;
  
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +18,7 @@ public class APIServiceImpl implements APIService{
 	@Autowired
 	private APIDao apiDao;
 	
-	////applications.properties 에서 value annotation을 통해서 값을 받아온다.
+	///applications.properties 에서 value annotation을 통해서 값을 받아온다.
 	@Value("${spring.OAuth2.google.url}")
 	private String GOOGLE_SNS_LOGIN_URL;
 	
@@ -36,12 +33,19 @@ public class APIServiceImpl implements APIService{
 
 	@Override
 	public String getOauthRedirectURL() {
+		
+		System.out.println("GOOGLE_SNS_LOGIN_URL : "+GOOGLE_SNS_LOGIN_URL);
+		System.out.println("GOOGLE_SNS_CLIENT_ID : "+GOOGLE_SNS_CLIENT_ID);
+		System.out.println("GOOGLE_SNS_CALLBACK_URL : "+GOOGLE_SNS_CALLBACK_URL);
+		System.out.println("GOOGLE_DATA_ACCESS_SCOPE : "+GOOGLE_DATA_ACCESS_SCOPE);
+		
 		Map<String, Object> params = new HashMap<>();
+		
         params.put("scope",GOOGLE_DATA_ACCESS_SCOPE);
         params.put("response_type","code");
         params.put("client_id",GOOGLE_SNS_CLIENT_ID);
         params.put("redirect_uri",GOOGLE_SNS_CALLBACK_URL);
-
+        
         //parameter를 형식에 맞춰 구성해주는 함수
         String parameterString=params.entrySet().stream()
                 .map(x->x.getKey()+"="+x.getValue())

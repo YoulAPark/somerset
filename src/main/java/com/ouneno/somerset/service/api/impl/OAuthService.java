@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ouneno.somerset.service.domain.API;
 
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
+
 @Service
 public class OAuthService {
 	
@@ -15,7 +17,7 @@ public class OAuthService {
 	private APIServiceImpl apiServiceImpl;
 	private HttpServletResponse response;
 
-	public void request(API.SocialLoginType socialLoginType) throws IOException {
+	public void request(API.SocialLoginType socialLoginType) throws IOException {	
 		
 		String redirectURL= null;
 		
@@ -23,7 +25,6 @@ public class OAuthService {
 			
 			case GOOGLE: {
 				
-				System.out.println("Google들어옴");	
 				redirectURL = apiServiceImpl.getOauthRedirectURL();
 				
 			} case KAKAO: {
