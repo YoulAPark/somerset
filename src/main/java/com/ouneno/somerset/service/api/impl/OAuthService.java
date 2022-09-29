@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ouneno.somerset.service.domain.API;
 
-import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
-
 @Service
 public class OAuthService {
 	
@@ -19,17 +17,14 @@ public class OAuthService {
 
 	public void request(API.SocialLoginType socialLoginType) throws IOException {	
 		
-		String redirectURL= null;
+		String redirectURL;
 		
 		switch (socialLoginType) {
 			
 			case GOOGLE: {
 				
 				redirectURL = apiServiceImpl.getOauthRedirectURL();
-				
-			} case KAKAO: {
-				
-			} case NAVER: {
+				System.out.println("****** : "+redirectURL);
 				
 			} break;
 			
@@ -38,7 +33,8 @@ public class OAuthService {
 			}
 			
 		}
-		response.sendRedirect(redirectURL);
+	
+		response.sendRedirect(redirectURL);	
 	}
 
 }

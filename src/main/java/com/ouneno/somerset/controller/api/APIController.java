@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ouneno.somerset.service.api.impl.APIService;
 import com.ouneno.somerset.service.api.impl.OAuthService;
 import com.ouneno.somerset.service.domain.API.SocialLoginType;
 

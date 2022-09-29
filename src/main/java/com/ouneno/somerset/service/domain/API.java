@@ -1,5 +1,7 @@
 package com.ouneno.somerset.service.domain;
 
+import com.google.api.client.util.Value;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
