@@ -120,13 +120,6 @@ ${dbUser.userId}님
 			<button type="button" id="googleLogin" class="btn btn-light g-signin2" onclick="onSignIn">구글로그인</button>
 			<!-- <button type="button" id="googleLogin" class="btn btn-light" onclick="signOut()">구글로그아웃</button> -->
 			<button type="button" id="join" class="btn btn-light" onclick="location.href='user/addUserPage'">가입</button>
-			
-			<div id="g_id_onload"
-			     data-client_id="137777584383-hm25lph1vr3erm1jqv9rgb8cmmjl16j9.apps.googleusercontent.com"
-			     data-login_uri="https://your.domain/your_login_endpoint"
-			     data-context="signup">
-			</div>
-  		<div class="g_id_signin" data-type="standard"></div>
 		</c:if>	
 		
 		<c:if test="${not empty sessionScope.dbUser}">
