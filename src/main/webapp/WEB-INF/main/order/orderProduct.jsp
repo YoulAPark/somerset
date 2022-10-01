@@ -84,6 +84,7 @@
 
 		var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();
 
+		
 	}
 	
 	function prodSizeCk(type) {
