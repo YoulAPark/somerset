@@ -614,4 +614,7 @@
 	(1) Google Login API
 	JSP 상단 CDN Script Insert하기
 	<meta name ="google-signin-client_id" content="OAuth 2.0 클라이언트 ID값 입력">
-	
+
+30. 2022-10-04 master, new/youla branch git push시 rejected 발생
+	=> GIT : Remote orgin으로 새로운 브런치 생성해서 merge 함
+	=> 각기 다른 git-flow 생성으로 한번에 합침
