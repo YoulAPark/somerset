@@ -5,7 +5,7 @@
 	1. Controller 패키지를 왜 추가했어야 하는지?
 	2. localhost:8080/(컨트롤러이름) 접속이 가능한데 url의 차이점이 무엇인지?
 	
-	티스토리 : https://dev-overload.tistory.com/24
+	티스토리 : https://dev-overload.tistory.com/24 
 	src/main/java 경로에 com.example.demo.controller 패키지를 생성하고 HomeController.java를 생성합니다.
 
 2. 	get 방식으로 /home 요청을 받았을 때 화면에 Hello String Boot 문자열을 출력하는 컨트롤러.
