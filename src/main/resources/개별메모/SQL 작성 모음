@@ -1,5 +1,4 @@
 1. mysql 데이터베이스 생성
-
 	
 	(1)	mysql -u root -p
 		1234;
