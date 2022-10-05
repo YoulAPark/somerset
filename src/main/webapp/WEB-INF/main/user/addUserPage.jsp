@@ -206,7 +206,7 @@
 <form class="inputprod col-5 mx-auto">	
 	
 		<label for="basic-url" class="form-label">회원가입</label>	
-		
+		 
 		<div class="form-floating">
 			<input type="text" class="form-control" name="userNickname" id="inputNickname" onclick="validate(1)" placeholder="Nickname" value="${user.userNickname}">
 			<label for="floatingNickname">닉네임</label>
