@@ -203,7 +203,7 @@
 
 <!-- Contents -->
 
-<form class="inputprod col-5 mx-auto">	
+<form class="inputprod col-5 mx-auto">	 
 	
 		<label for="basic-url" class="form-label">회원가입</label>	
 		 
