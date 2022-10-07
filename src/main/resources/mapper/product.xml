@@ -67,4 +67,4 @@
 			PROD_NO = #{prodNo}
 	</delete> 
 	
-	</mapper>
+</mapper>

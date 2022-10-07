@@ -1,10 +1,7 @@
 package com.ouneno.somerset.controller.admin;
 
-import java.util.HashMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ouneno.somerset.service.domain.Product;
