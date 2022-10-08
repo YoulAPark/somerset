@@ -81,22 +81,51 @@
 <script>
 
 	function order() { 
-
 		var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();
-
+		
+		
 	}
 	
-	function prodSizeCk(type) {
-		var prodSize = type;
-		alert("cupSize : "+type)
-	}
+	$(function() {
+		$("#prodSizeCk").on("click", function () {
+			alert("클릭 후 시작")
 	
-	function prodCupCk(type) {
-		var prodCup = type;
-		alert("cup : "+type)
-	}
-
+			var get_input = $("#prodSize");
+			alert("getinput : "+get_input)
+			alert("타입 : "+typeof(get_input))
+			alert("array 확인 : "+Array.isArray(get_input));
+			
+			$.each(get_input, function (index, value) {
+				console.log("인덱스값 : "+index);
+				console.log("value : "+value);
+				
+				console.log("id : "+$(value).attr("id"));
+				console.log("name : "+$(value).attr("name"));
+				console.log("value : "+$(value).val());
+			})
+			
+			$(".card").on("click", function() {
+				alert("card 클릭");
+				var prodSize = $('#prodSizeCk').val();
+				alert(prodSize)
+			});
+			
+		});
+	});
 	
+	/* function prodSize() {
+		var prodSize = $('input[name="prodSizeCk"]').val();
+		alert(prodSize)
+	} */
+	
+	/* function prodSizeCk(type) {
+		var check = type;
+		console.log("check : "+check)
+		
+		var prodSize = check.val();
+		alert(prodSize)
+		
+	} */
 	
 	
 </script>
@@ -160,28 +189,40 @@
 		      	<div class="card card-body" id="card-Font">
 				환경을 위해 일회용컵 사용 줄이기에 동참해 주세요
 				</div>  
-		        <form>
+		        <form class="order">
+		        	
 		        	<!-- SIZE -->
 		        	<div class="card-header bg-transparent border-success" id="card-header">SIZE</div>
-			        <div class="card-group" id="card-body-Font">
-						<div class="card">
-							<div class="card-body" onclick="prodSizeCk(1)">
-								<h5 class="card-title">Tall</h5>
-								<p class="card-text">355ml</p>								
+			        <div class="card-group" id="card-body-Font" name="test">
+						<p id="prodSize">
+							<div class="card">
+								<div class="card-body"> <!-- onclick="prodSizeCk(1)" -->
+										
+								<input id="prodSizeCk" type="text" name="prodSizeCk" value="1"/>			
+								
+									<h5 class="card-title">Tall</h5>
+									<p class="card-text">355ml</p>								
+								</div>
 							</div>
-						</div>
-						<div class="card">
-							<div class="card-body" onclick="prodSizeCk(2)">
-								<h5 class="card-title">Grande</h5>
-								<p class="card-text">473ml</p>
+							<div class="card">
+								<div class="card-body"> <!-- onclick="prodSizeCk(2)" -->
+								
+								<input id="prodSizeCk" type="text" name="prodSizeCk" value="2">		
+								
+									<h5 class="card-title">Grande</h5>
+									<p class="card-text">473ml</p>
+								</div>
 							</div>
-						</div>
-						<div class="card">
-							<div class="card-body" onclick="prodSizeCk(3)">
-								<h5 class="card-title">Venti</h5>
-								<p class="card-text">591ml</p>
+							<div class="card">
+								<div class="card-body"> <!-- onclick="prodSizeCk(3)" -->
+									
+								<input id="prodSizeCk" type="text" name="prodSizeCk" value="3">		
+								
+									<h5 class="card-title">Venti</h5>
+									<p class="card-text">591ml</p>
+								</div>
 							</div>
-						</div>
+						</p>
 					</div>
 					
 					<!-- Cup Choice 9/24 수정필요-->
