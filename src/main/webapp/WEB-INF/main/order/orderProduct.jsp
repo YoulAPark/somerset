@@ -81,9 +81,7 @@
 <script>
 
 	function order() { 
-		var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();
-		
-		
+		var hotAndIce_Ck = $('input:radio[name="hotAndIce"]:checked').val();		
 	}
 	
 	$(function() {
