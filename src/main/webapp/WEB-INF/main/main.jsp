@@ -56,6 +56,12 @@
 			getUser();
 		});
 	});
+	
+	$(function() {
+		$("#newNews").on("click", function(){
+			self.location = "/user/listNotice";
+		});
+	});
 
 	function order(){
 		self.location = "/order/listProduct";
