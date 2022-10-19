@@ -24,5 +24,4 @@ public class HomeController {
 	public String googleCallback()  throws Exception{
 		return "/account/auth/google/callback";
 	}
-	
 }

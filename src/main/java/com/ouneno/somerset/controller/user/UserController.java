@@ -58,5 +58,10 @@ public class UserController {
 	public String listNotice() throws Exception {
 		return "user/listNotice";
 	}
+	
+	@RequestMapping("/test")
+	public String test() throws Exception {
+		return "user/test";
+	}
 
 }
