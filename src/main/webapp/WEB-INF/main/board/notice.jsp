@@ -35,18 +35,6 @@
 
 <script>
 	
-	$(function() {
-		$("#notice").on("click", function() {
-			self.location = "/notice/newNotice";
-		})
-	})
-	
-	$(function() {
-		$("#event").on("click", function() {
-			self.location = "/notice/event";
-		})
-	})
-
 </script>
 
 </head>
@@ -58,14 +46,8 @@
 	
 <!-- Contents -->
 
-	<ul class="nav nav-pills nav-justified col-9 mx-auto">
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" id="notice" onclick="notice()">공지사항</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" id="event" onclick="event()">이벤트</a>
-		</li>
-	</ul>
+Noticedlkfjslkfjsdlk
+
 	
 <!-- Site info -->	
 	<%@ include file ="../layouts/footer.jsp" %>	

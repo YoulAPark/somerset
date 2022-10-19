@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.ouneno.somerset.service.board.BoardDao">
+
+	<resultMap id="boardMapper" type="board">
+		<result property="boardNum" 		column="BOARD_NUM" 			jdbcType="NUMERIC"/>
+		<result property="boardCategory" 	column="BOARD_CATEGORY" 	jdbcType="CHAR"/>
+		<result property="boardTitle" 		column="BOARD_TITLE" 		jdbcType="VARCHAR"/>
+		<result property="boardContent" 	column="BOARD_CONTENT" 		jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- addBoard -->
+	<!-- updateBoard -->
+	<!-- deleteBoard -->
+</mapper>
