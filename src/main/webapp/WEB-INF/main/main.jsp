@@ -58,8 +58,8 @@
 	});
 	
 	$(function() {
-		$("#listNotice").on("click", function(){
-			self.location = "/board/listNotice";
+		$("#listBoard").on("click", function(){
+			self.location = "/board/listBoard";
 		});
 	});
 
@@ -142,7 +142,7 @@ ${dbUser.userId}님
 		<button type="button" id="ecoMoon" class="btn btn-light" onclick="ecoMoon">달적립</button>
 		<button type="button" id="coupon"	class="btn btn-light" onclick="coupon">쿠폰</button>
 		<button type="button" id="findStore"	class="btn btn-light" onclick="findStore">매장찾기</button>
-		<button type="button" id="listNotice"	class="btn btn-light" onclick="listNotice">새소식</button>
+		<button type="button" id="listBoard"	class="btn btn-light" onclick="listBoard">게시판</button>
 		<c:if test="${dbUser.userId == 'admin'}">
 			<div>
 				<button type="button" id="admin" class="btn btn-light" onclick="admin">관리자</button>

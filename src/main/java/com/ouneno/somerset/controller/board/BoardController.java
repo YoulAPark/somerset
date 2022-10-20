@@ -13,30 +13,26 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@RequestMapping("/listNotice")
-	public String listNotice() throws Exception {
-		return "board/listNotice";
+	// main.jsp 에서 게시판 눌렀을 때 단순 Navigation
+	@RequestMapping("/listBoard")
+	public String listBoard() throws Exception {
+		return "board/listBoard";
 	}
-	
-//	@RequestMapping("/notice")
-//	public String notice() throws Exception {
-//		return "board/notice";
-//	}
 	
 	@RequestMapping("/notice")
 	public String notice() throws Exception {
-		System.out.println("notice로 이동");
-		return "/board/notice";
+		return "board/listNotice";
 	}
 	
 	@RequestMapping("/event")
-	public void event() throws Exception {
-		System.out.println("event로 이동");
+	public String event() throws Exception {
+		return "board/listEvent";
 	}
 	
 	@RequestMapping("/faq")
-	public void faq() throws Exception {
-		System.out.println("faq로 이동");
+	public String faq() throws Exception {
+		return "board/listFaq";
 	}
 
+	
 }
