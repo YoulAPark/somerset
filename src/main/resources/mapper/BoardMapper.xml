@@ -4,7 +4,7 @@
 <mapper namespace = "com.ouneno.somerset.service.board.BoardDao">
 
 	<resultMap id="boardMapper" type="board">
-		<result property="boardNum" 		column="BOARD_NUM" 			jdbcType="NUMERIC"/>
+		<result property="boardNo" 			column="BOARD_NO" 			jdbcType="NUMERIC"/>
 		<result property="boardCategory" 	column="BOARD_CATEGORY" 	jdbcType="CHAR"/>
 		<result property="boardTitle" 		column="BOARD_TITLE" 		jdbcType="VARCHAR"/>
 		<result property="boardContent" 	column="BOARD_CONTENT" 		jdbcType="VARCHAR"/>
@@ -13,4 +13,14 @@
 	<!-- addBoard -->
 	<!-- updateBoard -->
 	<!-- deleteBoard -->
+	
+	<!-- getBoard -->
+	<select id="getBoard"	parameterType="Board"	resultMap="boardMapper">
+		SELECT
+			BOARD_NO,
+			BOARD_TITLE
+		FROM board
+		ORDER BY BOARD_NO
+	</select>
+	
 </mapper>

@@ -37,7 +37,7 @@
 	 
 	$(function() {
 		$(".nav-link").on("click", function() {
-			var tab = $(this).attr('id');			
+			var tab = $(this).attr('id');	
 			$("#resultLayout").load("/board/"+tab);			
 		});
 	});

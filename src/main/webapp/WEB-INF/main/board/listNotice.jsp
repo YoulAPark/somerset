@@ -48,6 +48,7 @@
 <!-- CSS style End -->
 
 <script>
+
 	
 </script>
 
@@ -72,6 +73,7 @@
 				<tbody class="table-group-divider">
 					<c:forEach items="${board}" var="board">
 						<tr>
+							${board}
 							<td>${board.boardNo}</td>
 							<td>${board.boardTitle}</td>
 							<td>공란</td>
