@@ -16,7 +16,7 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
-	
+	 
 	// main.jsp 에서 게시판 눌렀을 때 단순 Navigation
 	@RequestMapping("/listBoard")
 	public String listBoard() throws Exception {
