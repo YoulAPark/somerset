@@ -18,7 +18,7 @@ public class HomeController {
 	@RequestMapping("/") // RequestMapping이 중복되면 안된다고 들었으나, 확인한번 해볼 것
 	public String main() throws Exception {
 		return "main";
-	}	
+	} 	
 	
 	@RequestMapping("/account/auth/google/callback")
 	public String googleCallback()  throws Exception{
