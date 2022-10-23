@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 
 <!DOCTYPE html>
 <html>
@@ -57,12 +57,14 @@
 <body>
 
 	<!-- Contents Start -->
-
+	<%-- <c:if test="${board.boardCategory == '1'}"> --%>
+	
 	<form class="col-9 mx-auto">
 		<div>
 			
 			<!-- 테이블 -->
 			<table class="table table-hover">
+				
 				<thead class="table-light">
 					<tr>
 						<th scope="col">넘버</th>
@@ -70,18 +72,18 @@
 						<th scope="col">작성일자</th>
 					</tr>
 				</thead>
+				
+				<c:forEach var="board" items="${board}">
 				<tbody class="table-group-divider">
-					<c:forEach items="${board}" var="board">
-						<tr>
-							${board}
-							<td>${board.boardNo}</td>
-							<td>${board.boardTitle}</td>
-							<td>공란</td>
-						</tr>
-					</c:forEach>
+					<tr>
+						<td>${board.boardNo}</td>
+						<td>${board.boardTitle}</td>
+						<td>기타</td>
+					</tr>
 				</tbody>
+				</c:forEach>
 			</table>
-
+			
 			<!-- 페이지 네비게이션 -->
 			<nav aria-label="Page navigation example">
 				<ul class="pagination justify-content-center">
@@ -95,7 +97,7 @@
 
 		</div>
 	</form>
-
+<%-- </c:if> --%>
 	<!-- Contents End -->
 
 </body>

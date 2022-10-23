@@ -8,4 +8,6 @@ public interface BoardService {
 	
 	public List<Board> getNoticeList(Board board) throws Exception;
 	
+	public List<Board> getBoardCategory(int boardCategory) throws Exception;
+	
 }

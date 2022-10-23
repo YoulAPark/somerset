@@ -17,10 +17,19 @@
 	<!-- getBoard -->
 	<select id="getBoard"	parameterType="Board"	resultMap="boardMapper">
 		SELECT
-			BOARD_NO,
-			BOARD_TITLE
+				BOARD_NO
+			,	BOARD_TITLE
 		FROM board
 		ORDER BY BOARD_NO
+	</select>
+	
+	<!-- [진행중] 카테고리별 가져오기-->
+	<select id="getBoardCategory"	parameterType="int"	resultMap="boardMapper">
+		SELECT
+				BOARD_NO
+			,	BOARD_TITLE
+		FROM board
+		WHERE BOARD_CATEGORY = #{boardCategory}
 	</select>
 	
 </mapper>

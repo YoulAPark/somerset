@@ -19,4 +19,9 @@ public class BoardServiceImpl implements BoardService {
 		List<Board> list = boardDao.getBoard(board);
 		return list;
 	}
+	
+	public List<Board> getBoardCategory(int boardCategory) throws Exception {
+		List<Board> list = boardDao.getBoardCategory(boardCategory);
+		return list;
+	}
 }

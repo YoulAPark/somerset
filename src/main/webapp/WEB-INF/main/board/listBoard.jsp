@@ -35,14 +35,60 @@
 
 <script>
 	 
-	$(function() {
+/* 	$(function() {
 		$(".nav-link").on("click", function() {
-			var tab = $(this).attr('id');	
-			$("#resultLayout").load("/board/"+tab);			
+			var name = $(this).attr('name');	
+			$("#resultLayout").load("/board/"+name);			
 		});
-	});
-
-
+	}); */
+	
+	/* $(function() {
+		
+		$(".nav-link").on("click", function() {
+			var category = $(this).attr('id');
+			var name = $(this).attr('name');
+			
+			$.ajax({
+					url : "/board/getBoardCategory/"+category
+					,	method : "GET"
+					,	data : "JSON"
+					,	headers : {
+								"Accept" : "application/json; charset=utf-8"
+							,	"Content-Type" : "application/json; charset=utf-8"
+						}
+					,	success : function() {
+							$("#resultLayout").load("/board/"+name);
+						}
+					,	error : function(request, error) {
+							alert("error")
+							console.log("code : "+request.status)
+							console.log("message : "+request.responseText)
+							console.log("error : "+error)
+					}
+			});
+				
+			
+		});
+		
+	}); */
+	
+	function tab(type) {
+		
+		if (type==1) {
+			var name = "notice"
+			$("#resultLayout").load("/board/"+name);		
+			
+		} else if (type==2) {
+			var name = "event"
+			$("#resultLayout").load("/board/"+name);
+			
+		} else if (type==3) {
+			var name = "faq"
+			$("#resultLayout").load("/board/"+name);
+			
+		}
+	}
+	
 </script>
 
 </head>
@@ -56,13 +102,13 @@
 
 	<ul class="nav nav-pills nav-justified col-9 mx-auto">
 		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" id="notice">공지사항</a>
+			<a class="nav-link active" aria-current="page" id="1" name="notice" onclick="tab(1)">공지사항</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" id="event">이벤트</a>
+			<a class="nav-link" id="2" name="event" onclick="tab(2)">이벤트</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link"	id="faq">FAQ</a>
+			<a class="nav-link"	id="3" name="faq" onclick="tab(3)">FAQ</a>
 		</li>
 	</ul>
 	

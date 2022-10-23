@@ -5,10 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ouneno.somerset.service.board.Impl.BoardService;
 import com.ouneno.somerset.service.domain.Board;
+import com.ouneno.somerset.service.domain.Product;
 
 @Controller
 @RequestMapping("/board/*")
@@ -25,9 +29,13 @@ public class BoardController {
 	
 	@RequestMapping("/notice")
 	public String notice(Board board, Model model) throws Exception {
-		System.out.println("Notice 클릭 완료");
 		List<Board> list = boardService.getNoticeList(board);
-		model.addAttribute("board", list);
+		model.addAttribute("board", list);;
+		return "board/listNotice";
+	}
+	
+	@RequestMapping("/listNotice")
+	public String notice() throws Exception {
 		return "board/listNotice";
 	}
 	
