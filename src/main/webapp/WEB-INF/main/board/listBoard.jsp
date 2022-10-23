@@ -34,57 +34,19 @@
 <!-- CSS style End -->
 
 <script>
-	 
-/* 	$(function() {
-		$(".nav-link").on("click", function() {
-			var name = $(this).attr('name');	
-			$("#resultLayout").load("/board/"+name);			
-		});
-	}); */
-	
-	/* $(function() {
-		
-		$(".nav-link").on("click", function() {
-			var category = $(this).attr('id');
-			var name = $(this).attr('name');
-			
-			$.ajax({
-					url : "/board/getBoardCategory/"+category
-					,	method : "GET"
-					,	data : "JSON"
-					,	headers : {
-								"Accept" : "application/json; charset=utf-8"
-							,	"Content-Type" : "application/json; charset=utf-8"
-						}
-					,	success : function() {
-							$("#resultLayout").load("/board/"+name);
-						}
-					,	error : function(request, error) {
-							alert("error")
-							console.log("code : "+request.status)
-							console.log("message : "+request.responseText)
-							console.log("error : "+error)
-					}
-			});
-				
-			
-		});
-		
-	}); */
-	
+	 	
 	function tab(type) {
 		
+		var boardCategory = type;
+		
 		if (type==1) {
-			var name = "notice"
-			$("#resultLayout").load("/board/"+name);		
+			$("#resultLayout").load("/board/notice/"+boardCategory);		
 			
 		} else if (type==2) {
-			var name = "event"
-			$("#resultLayout").load("/board/"+name);
+			$("#resultLayout").load("/board/event/"+boardCategory);	
 			
 		} else if (type==3) {
-			var name = "faq"
-			$("#resultLayout").load("/board/"+name);
+			$("#resultLayout").load("/board/faq/"+boardCategory);	
 			
 		}
 	}

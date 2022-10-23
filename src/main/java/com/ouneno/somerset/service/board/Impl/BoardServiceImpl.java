@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.ouneno.somerset.service.board.BoardDao;
 import com.ouneno.somerset.service.domain.Board;
-import com.ouneno.somerset.service.order.ProductDao;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -15,13 +14,8 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDao boardDao;
 	
-	public List<Board> getNoticeList(Board board) throws Exception {
-		List<Board> list = boardDao.getBoard(board);
-		return list;
-	}
-	
-	public List<Board> getBoardCategory(int boardCategory) throws Exception {
-		List<Board> list = boardDao.getBoardCategory(boardCategory);
+	public List<Board> getBoardList(int boardCategory) throws Exception {
+		List<Board> list = boardDao.getBoardList(boardCategory);
 		return list;
 	}
 }

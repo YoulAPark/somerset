@@ -9,8 +9,6 @@ import com.ouneno.somerset.service.domain.Board;
 @Mapper
 public interface BoardDao {
 	
-	public List<Board> getBoard(Board board) throws Exception;
-	
-	public List<Board> getBoardCategory(int boardCategory) throws Exception;
+	public List<Board> getBoardList(int boardCategory) throws Exception;
 
 }

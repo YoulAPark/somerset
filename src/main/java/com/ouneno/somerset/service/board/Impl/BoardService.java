@@ -6,8 +6,6 @@ import com.ouneno.somerset.service.domain.Board;
 
 public interface BoardService {
 	
-	public List<Board> getNoticeList(Board board) throws Exception;
-	
-	public List<Board> getBoardCategory(int boardCategory) throws Exception;
+	public List<Board> getBoardList(int boardCategory) throws Exception;
 	
 }
