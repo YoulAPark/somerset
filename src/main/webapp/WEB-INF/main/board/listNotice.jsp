@@ -21,8 +21,7 @@
 
 <!-- jQuery -->
 <script defer src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- SweetAlert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -44,11 +43,17 @@
 	.table { 
 			text-align : center;
 			}
+	#writing 	/* {
+				float : right;
+				} */
 </style>
 <!-- CSS style End -->
 
 <script>
 
+	function addBoard() {
+		location.href = "/board/addBoard";
+	}
 	
 </script>
 
@@ -61,28 +66,31 @@
 	
 	<form class="col-9 mx-auto">
 		<div>
-			
 			<!-- 테이블 -->
 			<table class="table table-hover">
 				
-				<thead class="table-light">
+				<thead class="table-light" border="1">
 					<tr>
-						<th scope="col">넘버</th>
-						<th scope="col">제목</th>
-						<th scope="col">작성일자</th>
+						<th class="col-1">넘버</th>
+						<th class="col-10">제목</th>
+						<th class="col-1">작성일자</th>
 					</tr>
 				</thead>
 				
 				<c:forEach var="board" items="${board}">
-				<tbody class="table-group-divider">
-					<tr>
-						<td>${board.boardNo}</td>
-						<td>${board.boardTitle}</td>
-						<td>기타</td>
-					</tr>
-				</tbody>
+					<tbody class="table-group-divider">
+						<tr>
+							<td>${board.boardNo}</td>
+							<td>${board.boardTitle}</td>
+							<td>기타</td>
+						</tr>
+					</tbody>
 				</c:forEach>
-			</table>
+			</table>		
+			
+			<div class="d-md-flex justify-content-md-end">
+				<button type="button" id="writing" class="btn btn-light" onclick="addBoard()">글쓰기</button>
+			</div>
 			
 			<!-- 페이지 네비게이션 -->
 			<nav aria-label="Page navigation example">
@@ -96,8 +104,11 @@
 			</nav>
 
 		</div>
+		
+		
+
 	</form>
-<%-- </c:if> --%>
+
 	<!-- Contents End -->
 
 </body>

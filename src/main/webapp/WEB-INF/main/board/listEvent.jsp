@@ -67,9 +67,9 @@
 				
 				<thead class="table-light">
 					<tr>
-						<th scope="col">넘버</th>
-						<th scope="col">제목</th>
-						<th scope="col">작성일자</th>
+						<th class="col-1">넘버</th>
+						<th class="col-10">제목</th>
+						<th class="col-1">작성일자</th>
 					</tr>
 				</thead>
 				
