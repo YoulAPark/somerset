@@ -28,10 +28,18 @@ public class BoardController {
 		return "board/addBoard";
 	}
 	
+	// test
+	@RequestMapping("/notice/test/{boardNo}")
+	public String getTime(@PathVariable("boardNo") int boardNo, Model model) throws Exception {
+		List<Board> list = boardService.getTime(boardNo);
+		model.addAttribute("board", list);
+		return "board/test";
+	}
+	
 	@RequestMapping("/notice/{boardCategory}")
 	public String notice(@PathVariable("boardCategory") int boardCategory, Model model) throws Exception {
 		List<Board> list = boardService.getBoardList(boardCategory);
-		model.addAttribute("board", list);
+		model.addAttribute("board", list);		
 		return "board/listNotice";
 	}
 	

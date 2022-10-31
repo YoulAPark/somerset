@@ -18,4 +18,11 @@ public class BoardServiceImpl implements BoardService {
 		List<Board> list = boardDao.getBoardList(boardCategory);
 		return list;
 	}
+	
+	// TIMESTAMP
+	public List<Board> getTime(int boardNo) throws Exception {
+		List<Board> list = boardDao.getTime(1);
+		System.out.println("*** : "+list);
+		return list;
+	}
 }

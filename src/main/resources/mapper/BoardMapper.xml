@@ -8,6 +8,7 @@
 		<result property="boardCategory" 	column="BOARD_CATEGORY" 	jdbcType="CHAR"/>
 		<result property="boardTitle" 		column="BOARD_TITLE" 		jdbcType="VARCHAR"/>
 		<result property="boardContent" 	column="BOARD_CONTENT" 		jdbcType="VARCHAR"/>
+		<result property="boardTime"		column="BOARD_TIME"			jdbcType="TIMESTAMP"/>
 	</resultMap>
 	
 	<!-- addBoard -->
@@ -19,8 +20,18 @@
 		SELECT
 				BOARD_NO
 			,	BOARD_TITLE
+			,	BOARD_TIME
 		FROM board
 		WHERE BOARD_CATEGORY = #{boardCategory}
 	</select>
+	
+	<select id="getTime"	parameterType="int"	resultMap="boardMapper">
+		SELECT
+				BOARD_NO
+			,	BOARD_TIME
+		FROM board
+		WHERE BOARD_NO = #{boardNo}
+	</select>
+	
 	
 </mapper>

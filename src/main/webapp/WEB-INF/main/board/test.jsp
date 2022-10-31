@@ -15,7 +15,7 @@
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 	crossorigin="anonymous">
 
-<title>listNotice.jsp</title>
+<title>test.jsp</title>
 
 <!-- CDN Script Start -->
 
@@ -51,14 +51,6 @@
 
 <script>
 
-	function addBoard() {
-		location.href = "/board/addBoard";
-	}
-	
-	function test() {
-		var number = 1;
-		location.href = "/board/notice/test/"+number;
-	}	
 </script>
 
 </head>
@@ -76,43 +68,20 @@
 				<thead class="table-light" border="1">
 					<tr>
 						<th class="col-1">넘버</th>
-						<th class="col-10">제목</th>
 						<th class="col-1">작성일자</th>
 					</tr>
 				</thead>
 				
 				<c:forEach var="board" items="${board}">
 					<tbody class="table-group-divider">
-						${board.boardTime}
 						<tr>
 							<td>${board.boardNo}</td>
-							<td>${board.boardTitle}</td>
 							<td>${board.boardTime}</td>
 						</tr>
 					</tbody>
 				</c:forEach>
 			</table>		
 			
-			
-			<div class="d-md-flex justify-content-md-end">
-				<button type="button" id="writing" class="btn btn-light" onclick="addBoard()">글쓰기</button>
-			</div>
-			
-			<div>
-				<button type="button" id="writing" class="btn btn-light" onclick="test()">TEST</button>
-			</div>
-			
-			<!-- 페이지 네비게이션 -->
-			<nav aria-label="Page navigation example">
-				<ul class="pagination justify-content-center">
-					<a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
-				</ul>
-			</nav>
-
 		</div>
 		
 		

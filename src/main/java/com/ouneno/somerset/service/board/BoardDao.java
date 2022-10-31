@@ -10,5 +10,7 @@ import com.ouneno.somerset.service.domain.Board;
 public interface BoardDao {
 	
 	public List<Board> getBoardList(int boardCategory) throws Exception;
+	
+	public List<Board> getTime(int boardNo) throws Exception;
 
 }
