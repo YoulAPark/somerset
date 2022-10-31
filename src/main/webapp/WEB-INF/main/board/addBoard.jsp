@@ -34,6 +34,7 @@
 
 <script>
 	
+	// SummerNote 자체 Function
 	$(function() {
 		$('#summerNote').summernote({
 				placeholder : "내용을 작성해주세요"
@@ -44,7 +45,8 @@
 		});
 	});
 	
-
+	
+	// 저장 Click Event
 	$(function() {
 		$('#addBoard').on("click", function(){
 			saveBoard();
@@ -53,11 +55,15 @@
 	
 	function saveBoard() {
 		
-		var boardTitle = $('#boardTitle').val();
-		var summernoteContent = $('#summerNote').summernote('code');        //썸머노트(설명)
-		console.log("boardTitle : "+boardTitle)
-        console.log("summernoteContent : " + summernoteContent);
+		var boardCategory = $("input[name='boardCategory']").val();
+		var boardTitle = $("input[name='boardTitle']").val();
+		var boardContent = $('#summerNote').summernote('code');
 		
+		console.log("boardCategory : "+boardCategory);
+		console.log("boardTitle : "+boardTitle)
+        console.log("boardContent : " + boardContent);		
+		
+		$("form").attr("method", "POST").attr("action" , "/board/addBoard").submit();
 	}
 	
 	
@@ -75,15 +81,17 @@
 		<h1>summerNote</h1>
 		
 		<div class="mb-3">
-			<input type="text" id="boardTitle" class="form-control" placeholder="제목을 입력해주세요">
+			<input type="text" id="boardTitle" name="boardTitle" class="form-control" placeholder="제목을 입력해주세요">
 		</div>
 		
-		<div id="summerNote"></div>
+		<div id="summerNote" name="boardContent"></div>
 		
 		<div class="d-md-flex justify-content-md-end">
 			<button type="button" id="addBoard" class="btn btn-light" onclick="addBoard">저장</button>
 		</div>
 		
+		<input type="text" id="boardCategory" name="boardCategory" value="${boardCategory}">
+
 	</form>
 	
 <!-- Site info -->	

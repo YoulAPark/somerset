@@ -14,6 +14,13 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDao boardDao;
 	
+	public void addBoard(Board board) throws Exception {
+		System.out.println("카테고리 확인 : "+board.getBoardCategory());
+		System.out.println("타이틀 확인 : "+board.getBoardTitle());
+		System.out.println("내용 확인 : "+board.getBoardContent());		
+		boardDao.addBoard(board);
+	}
+	
 	public List<Board> getBoardList(int boardCategory) throws Exception {
 		List<Board> list = boardDao.getBoardList(boardCategory);
 		return list;
@@ -21,8 +28,8 @@ public class BoardServiceImpl implements BoardService {
 	
 	// TIMESTAMP
 	public List<Board> getTime(int boardNo) throws Exception {
-		List<Board> list = boardDao.getTime(1);
-		System.out.println("*** : "+list);
+		List<Board> list = boardDao.getTime(boardNo);
 		return list;
 	}
+
 }

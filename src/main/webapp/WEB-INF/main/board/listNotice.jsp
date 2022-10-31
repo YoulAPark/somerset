@@ -50,9 +50,17 @@
 <!-- CSS style End -->
 
 <script>
-
-	function addBoard() {
-		location.href = "/board/addBoard";
+ 	
+ 	/*
+ 		addBoard
+ 		1. notice = 1
+ 		2. event = 2
+ 		3. faq = 3
+ 	*/
+ 	
+	function getBoardWrite() {
+		var boardCategory = 1;
+		location.href = "/board/getBoardWrite/"+boardCategory;
 	}
 	
 	function test() {
@@ -76,14 +84,13 @@
 				<thead class="table-light" border="1">
 					<tr>
 						<th class="col-1">넘버</th>
-						<th class="col-10">제목</th>
-						<th class="col-1">작성일자</th>
+						<th class="col-8">제목</th>
+						<th class="col-3">작성일자</th>
 					</tr>
 				</thead>
 				
 				<c:forEach var="board" items="${board}">
 					<tbody class="table-group-divider">
-						${board.boardTime}
 						<tr>
 							<td>${board.boardNo}</td>
 							<td>${board.boardTitle}</td>
@@ -95,7 +102,7 @@
 			
 			
 			<div class="d-md-flex justify-content-md-end">
-				<button type="button" id="writing" class="btn btn-light" onclick="addBoard()">글쓰기</button>
+				<button type="button" id="writing" class="btn btn-light" onclick="getBoardWrite()">글쓰기</button>
 			</div>
 			
 			<div>

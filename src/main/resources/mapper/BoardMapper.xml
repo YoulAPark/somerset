@@ -12,6 +12,13 @@
 	</resultMap>
 	
 	<!-- addBoard -->
+	<insert id="addBoard"	parameterType="Board"	useGeneratedKeys="true"		keyProperty="boardNo">
+		INSERT INTO
+			board	( BOARD_CATEGORY, BOARD_TITLE, BOARD_CONTENT, BOARD_TIME )
+		VALUES
+					( #{boardCategory}, #{boardTitle}, #{boardContent}, now() )
+	</insert>	
+	
 	<!-- updateBoard -->
 	<!-- deleteBoard -->
 	
@@ -25,6 +32,7 @@
 		WHERE BOARD_CATEGORY = #{boardCategory}
 	</select>
 	
+	<!-- time split/Parsing 관련 연습 -->
 	<select id="getTime"	parameterType="int"	resultMap="boardMapper">
 		SELECT
 				BOARD_NO
