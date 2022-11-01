@@ -22,6 +22,17 @@
 	<!-- updateBoard -->
 	<!-- deleteBoard -->
 	
+	<!-- getBoardDetail -->
+	<select id="getBoardDetail"	parameterType="int" resultMap="boardMapper">
+		SELECT
+				BOARD_NO
+			,	BOARD_TITLE
+			,	BOARD_CONTENT
+			,	BOARD_TIME
+		FROM board
+		WHERE BOARD_NO = #{boardNo}
+	</select>
+	
 	<!-- getBoardList -->
 	<select id="getBoardList"	parameterType="int"	resultMap="boardMapper">
 		SELECT

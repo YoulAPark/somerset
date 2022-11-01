@@ -50,23 +50,16 @@
 <!-- CSS style End -->
 
 <script>
- 	
- 	/*
- 		addBoard
- 		1. notice = 1
- 		2. event = 2
- 		3. faq = 3
- 	*/
- 	
+
 	function getBoardWrite() {
 		var boardCategory = 1;
 		location.href = "/board/getBoardWrite/"+boardCategory;
+	}	
+	
+	function getBoardDetail(boardNo) {
+		location.href = "/board/getBoardDetail/"+boardNo;
 	}
 	
-	function test() {
-		var number = 1;
-		location.href = "/board/notice/test/"+number;
-	}	
 </script>
 
 </head>
@@ -91,22 +84,17 @@
 				
 				<c:forEach var="board" items="${board}">
 					<tbody class="table-group-divider">
-						<tr>
+						<tr onclick="getBoardDetail(${board.boardNo})">
 							<td>${board.boardNo}</td>
 							<td>${board.boardTitle}</td>
 							<td>${board.boardTime}</td>
 						</tr>
 					</tbody>
 				</c:forEach>
-			</table>		
-			
+			</table>			
 			
 			<div class="d-md-flex justify-content-md-end">
 				<button type="button" id="writing" class="btn btn-light" onclick="getBoardWrite()">글쓰기</button>
-			</div>
-			
-			<div>
-				<button type="button" id="writing" class="btn btn-light" onclick="test()">TEST</button>
 			</div>
 			
 			<!-- 페이지 네비게이션 -->

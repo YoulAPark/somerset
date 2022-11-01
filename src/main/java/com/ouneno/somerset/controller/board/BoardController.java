@@ -31,6 +31,13 @@ public class BoardController {
 		model.addAttribute("boardCategory", boardCategory);
 		return "board/addBoard";
 	}
+	
+	@RequestMapping("/getBoardDetail/{boardNo}")
+	public String getBoardDetail(@PathVariable("boardNo") int boardNo, Model model) throws Exception {
+		List<Board> list = boardService.getBoardDetail(boardNo);
+		model.addAttribute("board", list);
+		return "board/getBoardDetail";
+	}
 
 	@RequestMapping("/notice/{boardCategory}")
 	public String notice(@PathVariable("boardCategory") int boardCategory, Model model) throws Exception {

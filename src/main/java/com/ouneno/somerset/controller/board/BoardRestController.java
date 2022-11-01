@@ -19,10 +19,6 @@ public class BoardRestController {
 	
 	@PostMapping("/json/addBoard")
 	public boolean addBoard(@RequestBody Board board) throws Exception {
-		System.out.println("여기까지는 들어오나용");
-		System.out.println("카테고리 확인 : "+board.getBoardCategory());
-		System.out.println("타이틀 확인 : "+board.getBoardTitle());
-		System.out.println("내용 확인 : "+board.getBoardContent());
 		boardService.addBoard(board);
 		return true;
 	}

@@ -49,6 +49,10 @@
 
 <script>
 
+	function getBoardWrite() {
+		var boardCategory = 3;
+		location.href = "/board/getBoardWrite/"+boardCategory;
+	}	
 	
 </script>
 
@@ -68,8 +72,8 @@
 				<thead class="table-light">
 					<tr>
 						<th class="col-1">넘버</th>
-						<th class="col-10">제목</th>
-						<th class="col-1">작성일자</th>
+						<th class="col-8">제목</th>
+						<th class="col-3">작성일자</th>
 					</tr>
 				</thead>
 				
@@ -78,11 +82,15 @@
 					<tr>
 						<td>${board.boardNo}</td>
 						<td>${board.boardTitle}</td>
-						<td>기타</td>
+						<td>${board.boardTime}</td>
 					</tr>
 				</tbody>
 				</c:forEach>
-			</table>
+			</table>			
+			
+			<div class="d-md-flex justify-content-md-end">
+				<button type="button" id="writing" class="btn btn-light" onclick="getBoardWrite()">글쓰기</button>
+			</div>
 			
 			<!-- 페이지 네비게이션 -->
 			<nav aria-label="Page navigation example">

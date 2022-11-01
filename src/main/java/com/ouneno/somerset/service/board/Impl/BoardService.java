@@ -8,6 +8,8 @@ public interface BoardService {
 	
 	public void addBoard(Board board) throws Exception;
 	
+	public List<Board> getBoardDetail(int boardNo) throws Exception;
+	
 	public List<Board> getBoardList(int boardCategory) throws Exception;
 	
 	public List<Board> getTime(int boardNo) throws Exception;
