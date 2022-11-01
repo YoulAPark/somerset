@@ -12,7 +12,7 @@
 	</resultMap>
 	
 	<!-- addBoard -->
-	<insert id="addBoard"	parameterType="Board"	useGeneratedKeys="true"		keyProperty="boardNo">
+	<insert id="addBoard"	useGeneratedKeys="true"		keyProperty="boardNo">
 		INSERT INTO
 			board	( BOARD_CATEGORY, BOARD_TITLE, BOARD_CONTENT, BOARD_TIME )
 		VALUES

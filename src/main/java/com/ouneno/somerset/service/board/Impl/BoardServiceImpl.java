@@ -14,10 +14,7 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDao boardDao;
 	
-	public void addBoard(Board board) throws Exception {
-		System.out.println("카테고리 확인 : "+board.getBoardCategory());
-		System.out.println("타이틀 확인 : "+board.getBoardTitle());
-		System.out.println("내용 확인 : "+board.getBoardContent());		
+	public void addBoard(Board board) throws Exception {	
 		boardDao.addBoard(board);
 	}
 	

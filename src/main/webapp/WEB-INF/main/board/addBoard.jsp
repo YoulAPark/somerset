@@ -52,18 +52,35 @@
 			saveBoard();
 		});
 	});
+
 	
 	function saveBoard() {
-		
+
 		var boardCategory = $("input[name='boardCategory']").val();
 		var boardTitle = $("input[name='boardTitle']").val();
-		var boardContent = $('#summerNote').summernote('code');
 		
-		console.log("boardCategory : "+boardCategory);
-		console.log("boardTitle : "+boardTitle)
-        console.log("boardContent : " + boardContent);		
+		// summerNote 글 내용 정규화 작성		
+		var summerNoteContent = $('#summerNote').summernote('code'); // SummerNoteContent 코드
+		var content = summerNoteContent.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n'); // <br>태그
+		var boardContent = content.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, ""); //</p>태그
 		
-		$("form").attr("method", "POST").attr("action" , "/board/addBoard").submit();
+		$.ajax({
+			url : "/board/json/addBoard/"
+			,	method : "POST" 
+			,	dataType : "JSON" 
+			,	contentType : "application/json"
+			,	data : JSON.stringify({
+						"boardCategory" : boardCategory
+					,	"boardTitle"	: boardTitle
+					,	"boardContent"	: boardContent
+			})
+			,	success : function() {
+					location.href = "/board/listBoard";
+				}, error : function() {
+					console.log("실패")
+				}
+		});
+		 
 	}
 	
 	
@@ -90,7 +107,8 @@
 			<button type="button" id="addBoard" class="btn btn-light" onclick="addBoard">저장</button>
 		</div>
 		
-		<input type="text" id="boardCategory" name="boardCategory" value="${boardCategory}">
+		<!-- boardCategory 불러오기 -->
+		<input type="hidden" id="boardCategory" name="boardCategory" value="${boardCategory}">
 
 	</form>
 	

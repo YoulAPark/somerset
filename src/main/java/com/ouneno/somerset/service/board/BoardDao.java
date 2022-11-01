@@ -10,7 +10,7 @@ import com.ouneno.somerset.service.domain.Board;
 @Mapper
 public interface BoardDao {
 	
-	public String addBoard(Board board) throws Exception;
+	public void addBoard(Board board) throws Exception;
 	
 	public List<Board> getBoardList(int boardCategory) throws Exception;
 	
