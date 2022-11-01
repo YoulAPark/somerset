@@ -61,7 +61,16 @@
 
 <script>
 
-	$(function() {
+	function upNotice() {
+		alert("upNotice")
+		location.href = "/board/getBoardDetail/"+boardNo;
+	}
+	
+	function dnNotice() {
+		alert("dnNotice")
+	}
+
+	/* $(function() {
 		$("#submit").on("click", function(){
 			submit();
 		});
@@ -74,7 +83,7 @@
 		var prodPrice=$("input[name='prodPrice']").val();
 
 		$("form").attr("method", "POST").attr("action" , "/admin/addProduct").submit();
-	}
+	} */
 </script>
 
 </head>
@@ -110,17 +119,16 @@
 
 	<table class="table">
 		<c:forEach items="${board}" var="board">
-			<tr class="table-secondary">
+			<tr class="table-secondary" onclick="upNotice()">
 				<th class="col-2 moveText">윗글</th>
 				<th class="col-9 moveContent">${board.boardTitle}</th>
 			</tr>
-			<tr class="table-secondary">
+			<tr class="table-secondary" onclick="dnNotice()">
 				<th class="col-2 moveText">아랫글</th>
 				<th class="col-9 moveContent">${board.boardTitle}</th>
 			</tr>
 		</c:forEach>
 	</table>
-	
 </form>	
 
 <!-- Site info -->	

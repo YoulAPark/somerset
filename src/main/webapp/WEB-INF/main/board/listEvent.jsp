@@ -54,6 +54,10 @@
 		location.href = "/board/getBoardWrite/"+boardCategory;
 	}	
 	
+	function getBoardDetail(boardNo) {
+		location.href = "/board/getBoardDetail/"+boardNo;
+	}
+	
 </script>
 
 </head>
@@ -79,7 +83,7 @@
 				
 				<c:forEach var="board" items="${board}">
 				<tbody class="table-group-divider">
-					<tr>
+					<tr onclick="getBoardDetail(${board.boardNo})">
 						<td>${board.boardNo}</td>
 						<td>${board.boardTitle}</td>
 						<td>${board.boardTime}</td>
