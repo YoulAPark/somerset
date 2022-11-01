@@ -12,7 +12,7 @@
 	</resultMap>
 	
 	<!-- addBoard -->
-	<insert id="addBoard"	useGeneratedKeys="true"		keyProperty="boardNo">
+	<insert id="addBoard"			useGeneratedKeys="true"		keyProperty="boardNo">
 		INSERT INTO
 			board	( BOARD_CATEGORY, BOARD_TITLE, BOARD_CONTENT, BOARD_TIME )
 		VALUES
@@ -20,10 +20,27 @@
 	</insert>	
 	
 	<!-- updateBoard -->
+	<update id="updateBoard"		parameterType="board">
+		UPDATE
+			board
+		<set>
+				BOARD_TITLE = #{boardTitle}
+			,	BOARD_CONTENT = #{boardContent}
+		</set>
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+	
 	<!-- deleteBoard -->
+	<delete id="deleteBoard"		parameterType="int">
+		DELETE
+		FROM
+			board
+		WHERE
+			BOARD_NO = #{boardNo}
+	</delete>
 	
 	<!-- getBoardDetail -->
-	<select id="getBoardDetail"	parameterType="int" resultMap="boardMapper">
+	<select id="getBoardDetail"		parameterType="int" 	resultMap="boardMapper">
 		SELECT
 				BOARD_NO
 			,	BOARD_TITLE
@@ -34,7 +51,7 @@
 	</select>
 	
 	<!-- getBoardList -->
-	<select id="getBoardList"	parameterType="int"	resultMap="boardMapper">
+	<select id="getBoardList"		parameterType="int"		resultMap="boardMapper">
 		SELECT
 				BOARD_NO
 			,	BOARD_TITLE
@@ -44,7 +61,7 @@
 	</select>
 	
 	<!-- time split/Parsing 관련 연습 -->
-	<select id="getTime"	parameterType="int"	resultMap="boardMapper">
+	<select id="getTime"			parameterType="int"		resultMap="boardMapper">
 		SELECT
 				BOARD_NO
 			,	BOARD_TIME

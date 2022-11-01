@@ -55,6 +55,13 @@
 	.moveContent {
 					font-weight : normal;
 					}
+	.btn {
+			text-align : right;
+			}
+	#btn {
+			text-align : center;
+			
+		}
 	
 </style>
 <!-- CSS style End -->
@@ -69,21 +76,16 @@
 	function dnNotice() {
 		alert("dnNotice")
 	}
-
-	/* $(function() {
-		$("#submit").on("click", function(){
-			submit();
-		});
-	});
 	
-	function submit(){
+	function updateBoard() {
+		var boardNo = $("input[name='boardNo']").val();	
+		location.href = "/board/updateBoard/"+boardNo;
+	}
+	
+	function deleteBoard() {
 		
-		var prodName=$("input[name='prodName']").val();
-		var prodDetail=$("input[name='prodDetail']").val();
-		var prodPrice=$("input[name='prodPrice']").val();
-
-		$("form").attr("method", "POST").attr("action" , "/admin/addProduct").submit();
-	} */
+	}
+	
 </script>
 
 </head>
@@ -101,7 +103,7 @@
 	
 	<table class="table">
 		<c:forEach items="${board}" var="board">
-			
+			<input type="hidden" name="boardNo" value="${board.boardNo}">
 			<tr>
 				<th class="boardTitle"><c:out value="${board.boardTitle}"/></th>
 			</tr>
@@ -116,6 +118,12 @@
 			
 		</c:forEach>
 	</table>
+	<c:if test="${dbUser.userId == 'admin'}">
+		<div class="d-md-flex justify-content-md-end" id="btn">
+			<button type="button" class="btn btn-sm" onclick="updateBoard()">수정</button>
+			<button type="button" class="btn btn-sm" onclick="deleteBoard()">삭제</button>
+		</div>
+	</c:if>
 
 	<table class="table">
 		<c:forEach items="${board}" var="board">
@@ -129,6 +137,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
 </form>	
 
 <!-- Site info -->	

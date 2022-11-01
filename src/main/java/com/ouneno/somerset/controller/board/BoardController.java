@@ -22,7 +22,7 @@ public class BoardController {
 	private BoardService boardService;
 	 
 	@RequestMapping("/listBoard")
-	public String listBoard() throws Exception {
+	public String listBoar() throws Exception {
 		return "board/listBoard";
 	}
 	
@@ -37,6 +37,19 @@ public class BoardController {
 		List<Board> list = boardService.getBoardDetail(boardNo);
 		model.addAttribute("board", list);
 		return "board/getBoardDetail";
+	}
+	
+	@RequestMapping("/updateBoard/{boardNo}")
+	public String updateBoard(@PathVariable("boardNo") int boardNo, Model model) throws Exception {
+		List<Board> list = boardService.getBoardDetail(boardNo);
+		model.addAttribute("board", list);
+		return "board/updateBoard";
+	}
+	
+	@RequestMapping("/deleteBoard")
+	public String deleteBoard(@RequestParam("boardNo") int boardNo) throws Exception {
+		boardService.deleteBoard(boardNo);
+		return "board/listBoard";
 	}
 
 	@RequestMapping("/notice/{boardCategory}")

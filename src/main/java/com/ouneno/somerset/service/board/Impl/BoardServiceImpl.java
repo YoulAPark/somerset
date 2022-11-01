@@ -18,6 +18,14 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.addBoard(board);
 	}
 	
+	public void updateBoard(Board board) throws Exception {
+		boardDao.updateBoard(board);
+	}
+	
+	public void deleteBoard(int boardNo) throws Exception {
+		boardDao.deleteBoard(boardNo);
+	}
+	
 	public List<Board> getBoardDetail(int boardNo) throws Exception {
 		List<Board> list = boardDao.getBoardDetail(boardNo);
 		return list;

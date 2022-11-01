@@ -22,5 +22,11 @@ public class BoardRestController {
 		boardService.addBoard(board);
 		return true;
 	}
+	
+	@PostMapping("/json/updateBoard")
+	public boolean updateBoard(@RequestBody Board board) throws Exception {
+		boardService.updateBoard(board);
+		return true;
+	}
 
 }
