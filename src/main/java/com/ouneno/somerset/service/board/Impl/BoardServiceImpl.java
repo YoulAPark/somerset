@@ -27,33 +27,20 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.deleteBoard(boardNo);
 	}
 	
+	public List<Page> getBoardList(int boardCategory, int skip, int amount) {
+		List<Page> list = boardDao.getBoardList(boardCategory, skip, amount);
+		return list;
+	}
+	
 	public List<Board> getBoardDetail(int boardNo) throws Exception {
 		List<Board> list = boardDao.getBoardDetail(boardNo);
 		return list;
 	}
-	
-	public List<Board> getBoardList(int boardCategory) throws Exception {
-		List<Board> list = boardDao.getBoardList(boardCategory);
-		return list;
-	}
-	
-	// TIMESTAMP
+
+	// 연습용
 	public List<Board> getTime(int boardNo) throws Exception {
 		List<Board> list = boardDao.getTime(boardNo);
 		return list;
 	}
 	
-	public List<Page> getListPaging(Page page) {
-		List<Page> list = boardDao.getListPaging(page);
-		return list;
-	}
-	
-	
-	public List<Page> getCategoryList(Page page, int boardCategory) {
-		System.out.println("** 확인1");
-		List<Page> list = boardDao.getCategoryList(page, boardCategory);
-		System.out.println("** 확인2");
-		return list;
-	}
-
 }

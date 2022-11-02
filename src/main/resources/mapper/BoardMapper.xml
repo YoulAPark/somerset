@@ -51,34 +51,24 @@
 	</select>
 	
 	<!-- getBoardList -->
-	<select id="getBoardList"		parameterType="int"		resultMap="boardMapper">
-		SELECT
-				BOARD_NO
-			,	BOARD_TITLE
-			,	BOARD_TIME
-		FROM board
-		WHERE BOARD_CATEGORY = #{boardCategory}
-	</select>
-	
-	
-	
-	
-	
-	
-	
-	
-	<!--게시물 목록(페이징) -->
-	<select id="getListPaging"		resultMap="boardMapper" resultType="com.ouneno.somerset.service.domain.Page">
-		SELECT
-			*
-			FROM (	SELECT 
-							BOARD_NO
-						, BOARD_TITLE
-						, BOARD_CONTENT
-						, BOARD_TIME	 
-					FROM board
-					ORDER BY BOARD_NO ASC) as T1
-		limit #{skip}, #{amount}
+	<!-- Category 지정가능 / skip과 amount : 페이징(최소, 최대) / ROWNUM : 0부터 시작 / LIMIT : 10개씩 조회 -->
+	<select id="getBoardList" 	parameterType="int"		resultMap="boardMapper">
+		SELECT 	
+			@ROWNUM := @ROWNUM+1 AS Number, board.*
+		FROM 	
+				board 
+			, category
+			, ( SELECT @ROWNUM := 0 ) N
+		WHERE
+				BOARD.BOARD_CATEGORY = #{boardCategory}
+			AND 
+				CATEGORY.CTG_NUM = #{boardCategory}
+			AND 
+				(@ROWNUM := 0)=0
+		ORDER BY 
+				BOARD_NO DESC
+		LIMIT
+				#{skip}, #{amount}
 	</select>
 	
 	<!-- 카테고리 별 게시글 수 paging Query -->
@@ -121,40 +111,7 @@
 	from board order by board_no asc
 	limit 0, 10;
 	  -->
-	  
-	<!-- ROWNUM 0부터 시작 / LIMIT 10개씩 조회 / CATEGORY 지정 -->
-	<select id="getCategoryList" 	parameterType="int"		resultType="com.ouneno.somerset.service.domain.Page">
-	<!--  com.ouneno.somerset.service.board.BoardDao -->
-		SELECT 	
-			@ROWNUM := @ROWNUM+1 Num, board.*
-		FROM 	
-				board
-			, category
-			, ( SELECT @ROWNUM := 0 ) N
-		WHERE
-				board.BOARD_CATEGORY = #{boardCategory}
-			AND 
-				category.CTG_NUM = #{boardCategory}
-			AND 
-				(@ROWNUM := 0)=0
-		ORDER BY 
-				CTG_NUM ASC
-		LIMIT
-				#{skip}. #{amount}
-				<!-- 0, 10 -->
-	</select>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<!-- time split/Parsing 관련 연습 -->
 	<select id="getTime"			parameterType="int"		resultMap="boardMapper">
 		SELECT

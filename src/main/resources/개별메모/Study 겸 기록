@@ -630,3 +630,38 @@
 	
 	2) <c:forEach>
 		- <c:forEach var="board" items="${board}">
+		
+33. BoardMapper.xml
+	ROWNUM이랑 페이징 처리 완료 된 기능 작성 완료되어 메서드명 자체 바꿈
+	1) getCategoryList -> getBoardList 바꾸기 전
+	2) getBoardList 삭제하기 전
+	
+	<!-- getBoardList -->
+	<select id="getBoardList"		parameterType="int"		resultMap="boardMapper">
+		SELECT
+				BOARD_NO
+			,	BOARD_TITLE
+			,	BOARD_TIME
+		FROM board
+		WHERE BOARD_CATEGORY = #{boardCategory}
+	</select>
+	
+	<!-- ROWNUM 0부터 시작 / LIMIT 10개씩 조회 / CATEGORY 지정 -->
+	<select id="getCategoryList" 	parameterType="int"		resultMap="boardMapper">
+		SELECT 	
+			@ROWNUM := @ROWNUM+1 AS Number, board.*
+		FROM 	
+				board 
+			, category
+			, ( SELECT @ROWNUM := 0 ) N
+		WHERE
+				BOARD.BOARD_CATEGORY = #{boardCategory}
+			AND 
+				CATEGORY.CTG_NUM = #{boardCategory}
+			AND 
+				(@ROWNUM := 0)=0
+		ORDER BY 
+				BOARD_NO DESC
+		LIMIT
+				#{skip}, #{amount}
+	</select>

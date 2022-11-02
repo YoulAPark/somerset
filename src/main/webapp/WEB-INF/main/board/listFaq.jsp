@@ -71,10 +71,10 @@
 	<form class="col-9 mx-auto">
 		<div>
 			
-			<!-- 테이블 -->
+			<!-- 테이블 -->	
 			<table class="table table-hover">
 				
-				<thead class="table-light">
+				<thead class="table-light" border="1">
 					<tr>
 						<th class="col-1">넘버</th>
 						<th class="col-8">제목</th>
@@ -83,15 +83,15 @@
 				</thead>
 				
 				<c:forEach var="board" items="${board}">
-				<tbody class="table-group-divider">
-					<tr onclick="getBoardDetail(${board.boardNo})">
-						<td><c:set var="i" value="${i+1}"/>${i}</td>
-						<td>${board.boardTitle}</td>
-						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.boardTime}"/></td>
-					</tr>
-				</tbody>
+					<tbody class="table-group-divider">
+						<tr onclick="getBoardDetail(${board.boardNo})">
+							<td><c:set var="i" value="${i+1}"/>${i}</td>
+							<td>${board.boardTitle}</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.boardTime}"/></td>
+						</tr>
+					</tbody>
 				</c:forEach>
-			</table>			
+			</table> 			
 			
 			<div class="d-md-flex justify-content-md-end">
 				<button type="button" id="writing" class="btn btn-light" onclick="getBoardWrite()">글쓰기</button>

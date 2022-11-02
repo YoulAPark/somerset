@@ -72,7 +72,8 @@
 	
 	<form class="col-9 mx-auto">
 		<div>
-			<!-- 테이블 -->
+		
+			<!-- 테이블 -->	
 			<table class="table table-hover">
 				
 				<thead class="table-light" border="1">
@@ -92,32 +93,7 @@
 						</tr>
 					</tbody>
 				</c:forEach>
-			</table>	
-			
-			<c:forEach var="test" items="${test}">
-				<td>${test}</td>
-			</c:forEach>
-			
-			<table class="table table-hover">
-				
-				<thead class="table-light" border="1">
-					<tr>
-						<th class="col-1">넘버</th>
-						<th class="col-8">제목</th>
-						<th class="col-3">작성일자</th>
-					</tr>
-				</thead>
-				
-				<c:forEach var="page" items="${page}">
-					<tbody class="table-group-divider">
-						<tr onclick="getBoardDetail(${page.boardNo})">
-							<td><c:set var="i" value="${i+1}"/>${i}</td>
-							<td>${page.boardTitle}</td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${page.boardTime}"/></td>
-						</tr>
-					</tbody>
-				</c:forEach>
-			</table>
+			</table> 
 					
 			
 			<div class="d-md-flex justify-content-md-end">
