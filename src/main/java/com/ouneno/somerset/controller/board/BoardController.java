@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ouneno.somerset.service.board.Impl.BoardService;
 import com.ouneno.somerset.service.domain.Board;
+import com.ouneno.somerset.service.domain.Category;
+import com.ouneno.somerset.service.domain.Page;
 
 @Controller
 @RequestMapping("/board/*")
@@ -53,9 +55,21 @@ public class BoardController {
 	}
 
 	@RequestMapping("/notice/{boardCategory}")
-	public String notice(@PathVariable("boardCategory") int boardCategory, Model model) throws Exception {
-		List<Board> list = boardService.getBoardList(boardCategory);
-		model.addAttribute("board", list);	
+	public String notice(@PathVariable("boardCategory") int boardCategory, Model model, Page page) throws Exception {
+
+		List<Board> list = boardService.getBoardList(boardCategory); // boardCategory : 1
+		model.addAttribute("board", list);
+		
+		List<Page> pagelist = boardService.getListPaging(page);
+		model.addAttribute("page", pagelist);	
+		
+		Category ctg = new Category();
+		ctg.setCategoryNum(boardCategory);
+		System.out.println("*** : "+ctg);
+		
+		List<Page> test = boardService.getCategoryList(page, boardCategory);
+		model.addAttribute("test", test);
+
 		return "board/listNotice";
 	}
 	
@@ -72,7 +86,11 @@ public class BoardController {
 		model.addAttribute("board", list);
 		return "board/listFaq";
 	}
-	
+		
+//	@RequestMapping("board/listBoard")
+//	public void boardListGet(Model model, Page page) {
+//		model.addAttribute("page", boardService.getListPaging(page));
+//	}
 
 
 	

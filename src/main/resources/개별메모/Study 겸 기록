@@ -618,3 +618,15 @@
 30. 2022-10-04 master, new/youla branch git push시 rejected 발생
 	=> GIT : Remote orgin으로 새로운 브런치 생성해서 merge 함
 	=> 각기 다른 git-flow 생성으로 한번에 합침
+
+31. 작성일자표시
+	Control에서 구현하지 않고 JSP에서 JSTL태그 추가하여 진행함	
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+	<fmt:formatDate pattern="yyyy-MM-dd" value="${board.boardTime}"/>
+
+32. JSTL
+	1) <c:set>
+		- 증감 : <c:set var="i" value="${i+1}"/>${i}
+	
+	2) <c:forEach>
+		- <c:forEach var="board" items="${board}">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 
 <!DOCTYPE html>
 <html>
@@ -84,9 +85,9 @@
 				<c:forEach var="board" items="${board}">
 				<tbody class="table-group-divider">
 					<tr onclick="getBoardDetail(${board.boardNo})">
-						<td>${board.boardNo}</td>
+						<td><c:set var="i" value="${i+1}"/>${i}</td>
 						<td>${board.boardTitle}</td>
-						<td>${board.boardTime}</td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.boardTime}"/></td>
 					</tr>
 				</tbody>
 				</c:forEach>

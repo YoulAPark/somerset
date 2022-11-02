@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -85,13 +86,39 @@
 				<c:forEach var="board" items="${board}">
 					<tbody class="table-group-divider">
 						<tr onclick="getBoardDetail(${board.boardNo})">
-							<td>${board.boardNo}</td>
+							<td><c:set var="i" value="${i+1}"/>${i}</td>
 							<td>${board.boardTitle}</td>
-							<td>${board.boardTime}</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.boardTime}"/></td>
 						</tr>
 					</tbody>
 				</c:forEach>
-			</table>			
+			</table>	
+			
+			<c:forEach var="test" items="${test}">
+				<td>${test}</td>
+			</c:forEach>
+			
+			<table class="table table-hover">
+				
+				<thead class="table-light" border="1">
+					<tr>
+						<th class="col-1">넘버</th>
+						<th class="col-8">제목</th>
+						<th class="col-3">작성일자</th>
+					</tr>
+				</thead>
+				
+				<c:forEach var="page" items="${page}">
+					<tbody class="table-group-divider">
+						<tr onclick="getBoardDetail(${page.boardNo})">
+							<td><c:set var="i" value="${i+1}"/>${i}</td>
+							<td>${page.boardTitle}</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${page.boardTime}"/></td>
+						</tr>
+					</tbody>
+				</c:forEach>
+			</table>
+					
 			
 			<div class="d-md-flex justify-content-md-end">
 				<button type="button" id="writing" class="btn btn-light" onclick="getBoardWrite()">글쓰기</button>

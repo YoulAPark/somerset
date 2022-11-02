@@ -3,6 +3,7 @@ package com.ouneno.somerset.service.board.Impl;
 import java.util.List;
 
 import com.ouneno.somerset.service.domain.Board;
+import com.ouneno.somerset.service.domain.Page;
 
 public interface BoardService {
 	
@@ -17,5 +18,9 @@ public interface BoardService {
 	public List<Board> getBoardList(int boardCategory) throws Exception;
 	
 	public List<Board> getTime(int boardNo) throws Exception;
+	
+	public List<Page> getListPaging(Page page);
+	
+	public List<Page> getCategoryList(Page page, int boardCategory);
 
 }

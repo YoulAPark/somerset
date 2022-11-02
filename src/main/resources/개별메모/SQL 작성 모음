@@ -26,4 +26,63 @@
 		유저 아이디 : mybook
 		유저 비밀번호 : 1234
 		데이터베이스 : MY_BOOK_DB
+
+2. 카테고리별 인덱스생성
+
+	SELECT 		@ROWNUM := @ROWNUM+1 Num
+			,	board.*
+	FROM	board,
+			( SELECT @ROWNUM := 0 ) ROWNUM
+	WHERE	board_no	BETWEEN 1 AND 10 AND board_category = 1;
+
+		1. @ROWNUM := @ROUNUM+1 number
+			- 해석 : ROWNUM이라는 변수에 +1씩 증가하는 값을 선언하고 number라는 컬럼으로 이름을 지정한 것
+		
+		2. , board.*
+			- 해석 : board라는 테이블 안의 모든 컬럼들 조회
+		
+		3. FROM board
+			- 해석 : board라는 테이블
+		
+		4. ( SELECT @ROWNUM := 0 ) ROWNUM
+			- 해석 : ROWNUM이라는 변수에 0을 선언하고 ROWNUM이라는 컬럼으로 이름 지정
+		
+		5. WHERE board_NO BEETWEEN 1 AND 10;
+			- 해석 : board_no 기준으로 1부터 10까지 조회
+
+	* 용어정리
+		1) @ 변수지정
+		2) = 비교연산자
+		2) := SELECT로 변수선언하고 값 대입할 때 사용함
+		
+3. 카테고리 'N'인것들끼리 HAVING처리해서 결과 표시
 	
+	(1)
+	SELECT board.*
+	from board
+	group by board_no
+	having board_category = 2;
+	
+	(2) GROUP BY 사용하지 않아도 됨
+	SELECT board.*
+	from board
+	having board_category = 2;
+	
+	(3) ORDER BY 사용해서 board_no ASC순서대로
+	SELECT board.*
+	from board
+	having board_category = 1
+	order by board_no ASC;
+	
+4. BOARD 테이블과 boardCTG 테이블 조인
+
+	SELECT board.board_category, boardCTG.CTG_NUM
+	FROM board, boardCTG
+	WHERE board.board_category = boardCTG.CTG_num;
+	
+5. 
+	SELECT 	@ROWNUM := @ROWNUM+1 num, board.*
+	FROM 	board, boardCTG, ( SELECT @number := 0 ) N
+	WHERE board.board_category = 1 AND boardCTG.CTG_num = 1 AND (@rownum := 0)=0
+	ORDER BY ctg_num  asc
+limit 0, 10;

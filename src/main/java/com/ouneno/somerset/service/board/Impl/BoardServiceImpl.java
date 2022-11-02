@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ouneno.somerset.service.board.BoardDao;
 import com.ouneno.somerset.service.domain.Board;
+import com.ouneno.somerset.service.domain.Page;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -39,6 +40,19 @@ public class BoardServiceImpl implements BoardService {
 	// TIMESTAMP
 	public List<Board> getTime(int boardNo) throws Exception {
 		List<Board> list = boardDao.getTime(boardNo);
+		return list;
+	}
+	
+	public List<Page> getListPaging(Page page) {
+		List<Page> list = boardDao.getListPaging(page);
+		return list;
+	}
+	
+	
+	public List<Page> getCategoryList(Page page, int boardCategory) {
+		System.out.println("** 확인1");
+		List<Page> list = boardDao.getCategoryList(page, boardCategory);
+		System.out.println("** 확인2");
 		return list;
 	}
 

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ouneno.somerset.service.domain.Board;
+import com.ouneno.somerset.service.domain.Page;
 
 @Mapper
 public interface BoardDao {
@@ -21,5 +22,10 @@ public interface BoardDao {
 	public List<Board> getBoardList(int boardCategory) throws Exception;
 	
 	public List<Board> getTime(int boardNo) throws Exception;
+	
+	public List<Page> getListPaging(Page page);
+	
+	
+	public List<Page> getCategoryList(Page page, int boardCategory);
 
 }

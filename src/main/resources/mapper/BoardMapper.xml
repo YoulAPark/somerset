@@ -60,6 +60,101 @@
 		WHERE BOARD_CATEGORY = #{boardCategory}
 	</select>
 	
+	
+	
+	
+	
+	
+	
+	
+	<!--게시물 목록(페이징) -->
+	<select id="getListPaging"		resultMap="boardMapper" resultType="com.ouneno.somerset.service.domain.Page">
+		SELECT
+			*
+			FROM (	SELECT 
+							BOARD_NO
+						, BOARD_TITLE
+						, BOARD_CONTENT
+						, BOARD_TIME	 
+					FROM board
+					ORDER BY BOARD_NO ASC) as T1
+		limit #{skip}, #{amount}
+	</select>
+	
+	<!-- 카테고리 별 게시글 수 paging Query -->
+	<select id="paging"				parameterType="int"		resultMap="boardMapper">
+		SELECT
+			count(*)
+		FROM
+			board
+		WHERE BOARD_CATEGORY = #{boardCategory}
+	</select>
+	
+	<!-- ROWNUM / 카테고리별 게시글 10개씩 인덱스 -->
+	<select id="rownum">
+		SELECT
+			@ROWNUM := @ROWNUM+1 Num, board.*
+		FROM
+			board ( SELECT @ROWNUM := 0 ) ROWNUM
+		WHERE
+			BOARD_NO between 1 and 10
+			AND
+			BOARD_CATEGORY = #{boardCategory}
+	</select>
+	<!-- 
+	select @rownum := @rownum+1 Num, board.*
+	from board,
+	(select @rownum := 0) rownum
+	WHERE board_no between 1 and 10 AND board_category = 1;
+	 -->
+	
+	<!-- LIMIT / 카테고리 별 게시글 10개씩 제한걸어서 인덱스 --> 
+	<select id="limit">	
+		SELECT
+			BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_TIME
+		FROM board
+		ORDER BY BOARD_NO ASC
+		LIMIT 0, 10
+	</select>
+	 <!-- 
+	select board_no, board_title, board_content
+	from board order by board_no asc
+	limit 0, 10;
+	  -->
+	  
+	<!-- ROWNUM 0부터 시작 / LIMIT 10개씩 조회 / CATEGORY 지정 -->
+	<select id="getCategoryList" 	parameterType="int"		resultType="com.ouneno.somerset.service.domain.Page">
+	<!--  com.ouneno.somerset.service.board.BoardDao -->
+		SELECT 	
+			@ROWNUM := @ROWNUM+1 Num, board.*
+		FROM 	
+				board
+			, category
+			, ( SELECT @ROWNUM := 0 ) N
+		WHERE
+				board.BOARD_CATEGORY = #{boardCategory}
+			AND 
+				category.CTG_NUM = #{boardCategory}
+			AND 
+				(@ROWNUM := 0)=0
+		ORDER BY 
+				CTG_NUM ASC
+		LIMIT
+				#{skip}. #{amount}
+				<!-- 0, 10 -->
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- time split/Parsing 관련 연습 -->
 	<select id="getTime"			parameterType="int"		resultMap="boardMapper">
 		SELECT
