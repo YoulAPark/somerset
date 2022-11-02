@@ -94,27 +94,43 @@
 					</tbody>
 				</c:forEach>
 			</table> 
-					
+			
+			<div>
+				${page}
+			</div>
+			<div>
+				${page.startPage}
+				${page.endPage}
+			</div>
+			<div>
+				${total}
+			</div>
+			
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+					<a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
+						<c:forEach var="page" begin="1" end="${page.endPage}">
+							<li class="page-item"><a class="page-link" href="${page}">${page}</a></li>				
+						</c:forEach>
+					<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+				</ul>
+			</nav>
+			
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+					<a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
+						<c:forEach var="num" begin="1" end="10">
+							<li class="page-item"><a class="page-link" href="#">${num}</a></li>				
+						</c:forEach>
+					<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
+				</ul>
+			</nav> 
+			
 			
 			<div class="d-md-flex justify-content-md-end">
 				<button type="button" id="writing" class="btn btn-light" onclick="getBoardWrite()">글쓰기</button>
 			</div>
 			
-			<!-- 페이지 네비게이션 -->
-			<nav aria-label="Page navigation example">
-				<ul class="pagination justify-content-center">
-					<a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
-				</ul>
-			</nav>
-
-		</div>
-		
-		
-
 	</form>
 
 	<!-- Contents End -->

@@ -71,13 +71,15 @@
 				#{skip}, #{amount}
 	</select>
 	
-	<!-- 카테고리 별 게시글 수 paging Query -->
-	<select id="paging"				parameterType="int"		resultMap="boardMapper">
+	<!-- 전체 게시글 개수 -->
+	<!-- getTotalBoard -->
+	<select id="getTotalBoard"		resultType="int">
 		SELECT
 			count(*)
 		FROM
 			board
-		WHERE BOARD_CATEGORY = #{boardCategory}
+		WHERE 
+			BOARD_CATEGORY = #{boardCategory}
 	</select>
 	
 	<!-- ROWNUM / 카테고리별 게시글 10개씩 인덱스 -->

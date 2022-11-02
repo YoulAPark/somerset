@@ -19,6 +19,8 @@ public interface BoardDao {
 	
 	public List<Page> getBoardList( @Param("boardCategory") int boardCategory, @Param("skip") int skip, @Param("amount") int amount );
 	
+	public int getTotalBoard(int boardCategory) throws Exception;
+	
 	public List<Board> getBoardDetail(int boardNo) throws Exception;
 	
 	// 연습용

@@ -15,6 +15,8 @@ public interface BoardService {
 	
 	public List<Page> getBoardList(int boardCategory, int skip, int amount);
 	
+	public int getTotalBoard(int boardCategory) throws Exception;
+	
 	public List<Board> getBoardDetail(int boardNo) throws Exception;
 
 	// 연습용

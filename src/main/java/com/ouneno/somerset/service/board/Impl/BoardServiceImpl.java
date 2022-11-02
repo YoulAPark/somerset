@@ -32,6 +32,10 @@ public class BoardServiceImpl implements BoardService {
 		return list;
 	}
 	
+	public int getTotalBoard(int boardCategory) throws Exception {
+		return boardDao.getTotalBoard(boardCategory);
+	}
+	
 	public List<Board> getBoardDetail(int boardNo) throws Exception {
 		List<Board> list = boardDao.getBoardDetail(boardNo);
 		return list;
