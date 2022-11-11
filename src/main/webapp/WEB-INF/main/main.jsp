@@ -109,6 +109,12 @@
 	/* function onFailure(error) {
 	      console.log(error);
 	    } */
+
+function click() {
+	    	alert("클릭")
+	    }
+
+	    
 </script>
 
 </head>

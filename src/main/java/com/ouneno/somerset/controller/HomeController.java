@@ -20,8 +20,9 @@ public class HomeController {
 		return "main";
 	} 	
 	
-	@RequestMapping("/account/auth/google/callback")
-	public String googleCallback()  throws Exception{
-		return "/account/auth/google/callback";
+	@RequestMapping("/VueStudy")
+	public String VueStudy() throws Exception {
+		return "/VueStudy";
 	}
+
 }

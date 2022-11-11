@@ -61,6 +61,18 @@
 		location.href = "/board/getBoardDetail/"+boardNo;
 	}
 	
+	$(".page-item").on("click",function() {
+		
+		var boardCategory = 1;
+		var moveForm = $("#moveForm");
+		var pageNum = $("input[name='pageNum']").val();
+		alert(pageNum)
+		
+		//moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+		//$("form").attr("method", "POST").attr("action" , "/board/notice/"+boardCategory).submit();
+		
+	})
+	
 </script>
 
 </head>
@@ -120,11 +132,17 @@
 				<ul class="pagination justify-content-center">
 					<a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a>
 						<c:forEach var="num" begin="1" end="10">
-							<li class="page-item"><a class="page-link" href="#">${num}</a></li>				
+							<li class="page-item"><a class="page-link">${num}</a></li>				
 						</c:forEach>
 					<a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a>
 				</ul>
 			</nav> 
+			
+			<form id="moveForm" method="get">
+				<input type="hidden" name="pageNum" value="${page.pageNum}">
+				<input type="hidden" name="amount" value="${page.amount}">
+			</form>
+			<!-- https://kimvampa.tistory.com/173 -->
 			
 			
 			<div class="d-md-flex justify-content-md-end">
